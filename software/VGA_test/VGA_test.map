@@ -1,9 +1,35 @@
 Archive member included because of file (symbol)
 
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                              obj/default/main.o (puts)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o) (strlen)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o) (__sfvwrite_small_dev)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o) (_impure_ptr)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o) (_write_r)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o) (errno)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+                              obj/default/main.o (alt_ic_isr_register)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o) (alt_iic_isr_register)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_entry)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_handler)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o) (alt_irq_active)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
                               ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o (alt_load)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
                               ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o (alt_main)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+                              obj/default/main.o (usleep)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o) (write)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o) (alt_sys_init)
 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
@@ -16,6 +42,10 @@ Archive member included because of file (symbol)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o) (alt_avalon_timer_sc_init)
 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o) (alt_up_char_buffer_init)
+../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+                              obj/default/main.o (alt_up_pixel_buffer_dma_swap_buffers)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o) (alt_busy_sleep)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o) (close)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
@@ -25,23 +55,15 @@ Archive member included because of file (symbol)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o) (alt_dev_llist_insert)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o) (alt_errno)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o) (alt_errno)
+../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o) (alt_exception)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o) (alt_find_dev)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o) (alt_ic_isr_register)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o) (alt_iic_isr_register)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o) (alt_io_redirect)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_entry)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_handler)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o) (alt_irq_active)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o) (open)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
@@ -50,28 +72,22 @@ Archive member included because of file (symbol)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o) (alt_tick)
 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o) (altera_nios2_qsys_irq_init)
-../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o) (alt_exception)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o) (alt_find_file)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o) (alt_get_fd)
 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o) (exit)
-/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o) (errno)
 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o) (memcmp)
 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
                               ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o) (strcmp)
-/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o) (strlen)
 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
                               /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o) (__call_exitprocs)
-/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
-                              /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o) (_global_impure_ptr)
+/opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o) (__udivsi3)
 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
-                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o) (__mulsi3)
+                              ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o) (__mulsi3)
 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
                               /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o) (_exit)
 
@@ -79,7 +95,9 @@ Allocating common symbols
 Common symbol       size              file
 
 alt_irq             0x100             ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+edge_capture        0x4               obj/default/main.o
 errno               0x4               /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+pixel_buffer_dev    0x4               obj/default/main.o
 
 Memory Configuration
 
@@ -163,7 +181,7 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
                 0x00088140                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x00088020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x00088140      0xf64
+.text           0x00088140     0x21ec
                 0x00088140                PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -210,287 +228,352 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x00088140       0x3c ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
                 0x00088140                _start
- .text          0x0008817c       0x1c obj/default/main.o
-                0x0008817c                main
- .text          0x00088198       0x8c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
-                0x000881b8                alt_load
- .text          0x00088224       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
-                0x00088224                alt_main
- .text          0x00088274      0x184 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x00088280                alt_sys_init
-                0x000883d8                alt_irq_init
- .text          0x000883f8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x000883f8                altera_avalon_jtag_uart_write_fd
-                0x00088408                altera_avalon_jtag_uart_read_fd
- .text          0x00088418       0x60 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x00088418                altera_avalon_jtag_uart_read
- .text          0x00088478       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x00088478                altera_avalon_jtag_uart_write
- .text          0x000884ac       0x8c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
-                0x000884ac                alt_avalon_timer_sc_init
- .text          0x00088538      0x12c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
-                0x00088538                alt_up_char_buffer_string
-                0x00088590                alt_up_char_buffer_draw
-                0x000885e8                alt_up_char_buffer_clear
-                0x0008860c                alt_up_char_buffer_open_dev
-                0x00088618                alt_up_char_buffer_init
- .text          0x00088664       0xbc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
-                0x00088684                close
- .text          0x00088720        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
-                0x00088720                alt_dcache_flush_all
- .text          0x00088724        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .text          0x0008872c       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0008872c                alt_dev_llist_insert
- .text          0x0008879c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .text          0x0008879c       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
-                0x0008879c                alt_find_dev
- .text          0x0008880c        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
-                0x0008880c                alt_icache_flush_all
- .text          0x00088810       0x9c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
-                0x00088810                alt_ic_irq_enabled
-                0x00088828                alt_ic_irq_enable
-                0x00088868                alt_ic_irq_disable
-                0x000888a8                alt_ic_isr_register
- .text          0x000888ac       0x6c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
-                0x000888ac                alt_iic_isr_register
- .text          0x00088918      0x114 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
-                0x000889a0                alt_io_redirect
- .text          0x00088a2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .text          0x00088a2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .text          0x00088a2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .text          0x00088a2c      0x17c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
-                0x00088a2c                open
- .text          0x00088ba8       0x5c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
-                0x00088ba8                alt_release_fd
- .text          0x00088c04       0xe0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
-                0x00088c04                alt_alarm_stop
-                0x00088c38                alt_tick
- .text          0x00088ce4        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
-                0x00088ce4                altera_nios2_qsys_irq_init
- .text          0x00088cec        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .text          0x00088cec       0x9c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
-                0x00088cec                alt_find_file
- .text          0x00088d88       0x5c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
-                0x00088d88                alt_get_fd
- .text          0x00088de4       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
-                0x00088de4                exit
- .text          0x00088e04        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .text          0x00088e04       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                0x00088e04                memcmp
- .text          0x00088e40       0x34 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
-                0x00088e40                strcmp
- .text          0x00088e74       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x00088e74                strlen
- .text          0x00088e94      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x00088e98                __call_exitprocs
- .text          0x00089054        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .text          0x00089054       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x00089054                __mulsi3
- .text          0x0008908c       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
-                0x0008908c                _exit
+ .text          0x0008817c      0x2b4 obj/default/main.o
+                0x0008817c                handle_button_interrupts
+                0x000881f0                VGA_box
+                0x0008829c                main
+ .text          0x00088430       0xa4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                0x00088430                _puts_r
+                0x000884c0                puts
+ .text          0x000884d4       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x000884d4                strlen
+ .text          0x000884f4       0xbc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x000884f4                __sfvwrite_small_dev
+ .text          0x000885b0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .text          0x000885b0       0x78 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+                0x000885b0                _write_r
+ .text          0x00088628        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .text          0x00088628       0x9c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+                0x00088628                alt_ic_irq_enabled
+                0x00088640                alt_ic_irq_enable
+                0x00088680                alt_ic_irq_disable
+                0x000886c0                alt_ic_isr_register
+ .text          0x000886c4       0x6c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                0x000886c4                alt_iic_isr_register
+ .text          0x00088730        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .text          0x00088730        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .text          0x00088730        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .text          0x00088730       0x8c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+                0x00088750                alt_load
+ .text          0x000887bc       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                0x000887bc                alt_main
+ .text          0x0008880c        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+                0x0008880c                usleep
+ .text          0x00088810       0xd4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+                0x00088830                write
+ .text          0x000888e4      0x184 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x000888f0                alt_sys_init
+                0x00088a48                alt_irq_init
+ .text          0x00088a68       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x00088a68                altera_avalon_jtag_uart_write_fd
+                0x00088a78                altera_avalon_jtag_uart_read_fd
+ .text          0x00088a88       0x60 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x00088a88                altera_avalon_jtag_uart_read
+ .text          0x00088ae8       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x00088ae8                altera_avalon_jtag_uart_write
+ .text          0x00088b1c       0x8c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x00088b1c                alt_avalon_timer_sc_init
+ .text          0x00088ba8      0x12c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x00088ba8                alt_up_char_buffer_string
+                0x00088c00                alt_up_char_buffer_draw
+                0x00088c58                alt_up_char_buffer_clear
+                0x00088c7c                alt_up_char_buffer_open_dev
+                0x00088c88                alt_up_char_buffer_init
+ .text          0x00088cd4      0xb68 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+                0x00088cd4                helper_plot_pixel
+                0x00088d7c                alt_up_pixel_buffer_dma_draw_line
+                0x00088f6c                alt_up_pixel_buffer_dma_draw_vline
+                0x00089154                alt_up_pixel_buffer_dma_draw_hline
+                0x00089310                alt_up_pixel_buffer_dma_draw_rectangle
+                0x000893dc                alt_up_pixel_buffer_dma_draw_box
+                0x00089648                alt_up_pixel_buffer_dma_clear_screen
+                0x000896f4                alt_up_pixel_buffer_dma_swap_buffers
+                0x00089718                alt_up_pixel_buffer_dma_draw
+                0x000897f8                alt_up_pixel_buffer_dma_check_swap_buffers_status
+                0x00089808                alt_up_pixel_buffer_dma_change_back_buffer_address
+                0x00089830                alt_up_pixel_buffer_dma_open_dev
+ .text          0x0008983c       0x8c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                0x0008983c                alt_busy_sleep
+ .text          0x000898c8       0xbc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+                0x000898e8                close
+ .text          0x00089984        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00089984                alt_dcache_flush_all
+ .text          0x00089988        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .text          0x00089990       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x00089990                alt_dev_llist_insert
+ .text          0x00089a00        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .text          0x00089a00        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .text          0x00089a00       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x00089a00                alt_find_dev
+ .text          0x00089a70        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x00089a70                alt_icache_flush_all
+ .text          0x00089a74      0x114 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+                0x00089afc                alt_io_redirect
+ .text          0x00089b88      0x17c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+                0x00089b88                open
+ .text          0x00089d04       0x5c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+                0x00089d04                alt_release_fd
+ .text          0x00089d60       0xe0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                0x00089d60                alt_alarm_stop
+                0x00089d94                alt_tick
+ .text          0x00089e40        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x00089e40                altera_nios2_qsys_irq_init
+ .text          0x00089e48       0x9c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+                0x00089e48                alt_find_file
+ .text          0x00089ee4       0x5c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+                0x00089ee4                alt_get_fd
+ .text          0x00089f40       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                0x00089f40                exit
+ .text          0x00089f60       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x00089f60                memcmp
+ .text          0x00089f9c       0x34 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+                0x00089f9c                strcmp
+ .text          0x00089fd0      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x00089fd4                __call_exitprocs
+ .text          0x0008a190      0x14c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                0x0008a20c                __divsi3
+                0x0008a26c                __modsi3
+                0x0008a2cc                __udivsi3
+                0x0008a2d4                __umodsi3
+ .text          0x0008a2dc       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x0008a2dc                __mulsi3
+ .text          0x0008a314       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+                0x0008a314                _exit
  *(.gnu.warning.*)
  *(.fini)
-                0x000890a0                PROVIDE (__etext, ABSOLUTE (.))
-                0x000890a0                PROVIDE (_etext, ABSOLUTE (.))
-                0x000890a0                PROVIDE (etext, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__etext, ABSOLUTE (.))
+                0x0008a328                PROVIDE (_etext, ABSOLUTE (.))
+                0x0008a328                PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x000890a0                . = ALIGN (0x4)
-                0x000890a0                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+                0x0008a328                . = ALIGN (0x4)
+                0x0008a328                PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
-                0x000890a0                PROVIDE (__preinit_array_end, ABSOLUTE (.))
-                0x000890a0                PROVIDE (__init_array_start, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__init_array_start, ABSOLUTE (.))
  *(.init_array)
-                0x000890a0                PROVIDE (__init_array_end, ABSOLUTE (.))
-                0x000890a0                PROVIDE (__fini_array_start, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__fini_array_start, ABSOLUTE (.))
  *(.fini_array)
-                0x000890a0                PROVIDE (__fini_array_end, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__fini_array_end, ABSOLUTE (.))
  *(.eh_frame)
  *(.gcc_except_table)
  *(.dynamic)
-                0x000890a0                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x0008a328                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
- .ctors.65535   0x000890a0        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x000890a4                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x000890a4                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ .ctors.65535   0x0008a328        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x0008a32c                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x0008a32c                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x000890a4                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x0008a32c                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x000890a4                . = ALIGN (0x4)
+                0x0008a32c                . = ALIGN (0x4)
 
-.rodata         0x000890a4       0x84
-                0x000890a4                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x000890a4                . = ALIGN (0x4)
+.rodata         0x0008a32c       0xb8
+                0x0008a32c                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x0008a32c                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0008a32c       0x30 obj/default/main.o
  .rodata.str1.4
-                0x000890a4        0xf ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                0x0008a35c        0x2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                                  0x4 (size before relaxing)
+ *fill*         0x0008a35e        0x2 00
+ .rodata.str1.4
+                0x0008a360        0xf ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
                                  0x10 (size before relaxing)
- *fill*         0x000890b3        0x1 00
+ *fill*         0x0008a36f        0x1 00
  .rodata.str1.4
-                0x000890b4       0x4a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0008a370       0x4a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
                                  0x5c (size before relaxing)
- *fill*         0x000890fe        0x2 00
+ *fill*         0x0008a3ba        0x2 00
  .rodata.str1.4
-                0x00089100       0x1a ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x0008a3bc       0x1a ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
                                  0x1c (size before relaxing)
- *fill*         0x0008911a        0x2 00
+ *fill*         0x0008a3d6        0x2 00
  .rodata.str1.4
-                0x0008911c        0xc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008a3d8        0xc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
  *(.rodata1)
-                0x00089128                . = ALIGN (0x4)
-                0x00089128                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x000890a4                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x0008a3e4                . = ALIGN (0x4)
+                0x0008a3e4                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x0008a32c                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x00089128      0x37c load address 0x000894a4
-                0x00089128                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x00089128                . = ALIGN (0x4)
+.rwdata         0x0008a3e4      0x390 load address 0x0008a774
+                0x0008a3e4                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0008a3e4                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00089128        0x0 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .data          0x00089128        0x0 obj/default/main.o
- .data          0x00089128        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .data          0x00089128        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .data          0x00089128       0xc8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .data          0x000891f0        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x000891f0      0x1a8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
-                0x000891f0                alt_dev_null
-                0x00089218                alt_fd_list
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .data          0x00089398        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .data          0x00089398        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .data          0x00089398       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .data          0x00089478        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .data          0x00089478        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
-                0x00091478                _gp = ABSOLUTE ((. + 0x8000))
-                0x00091478                PROVIDE (gp, _gp)
+ .data          0x0008a3e4        0x0 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
+ .data          0x0008a3e4        0x0 obj/default/main.o
+ .data          0x0008a3e4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .data          0x0008a3e4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .data          0x0008a3e4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .data          0x0008a3e4       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .data          0x0008a4c4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .data          0x0008a4c4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .data          0x0008a4c4        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .data          0x0008a4c4       0xc8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .data          0x0008a58c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0008a58c      0x1a8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008a58c                alt_dev_null
+                0x0008a5b4                alt_fd_list
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .data          0x0008a734        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .data          0x0008a734        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+                0x00092734                _gp = ABSOLUTE ((. + 0x8000))
+                0x00092734                PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00089478       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
-                0x00089478                alt_fs_list
-                0x00089480                alt_dev_list
-                0x00089488                alt_max_fd
- .sdata         0x0008948c        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
-                0x0008948c                alt_errno
- .sdata         0x00089490        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x00089490                alt_priority_mask
- .sdata         0x00089494        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
-                0x00089494                alt_alarm_list
- .sdata         0x0008949c        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
-                0x0008949c                _impure_ptr
-                0x000894a0                _global_impure_ptr
+ .sdata         0x0008a734       0x14 obj/default/main.o
+                0x0008a734                ledR
+                0x0008a738                ledG
+                0x0008a73c                keys
+                0x0008a740                character_buffer
+                0x0008a744                pixel_buffer_b
+ .sdata         0x0008a748        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+                0x0008a748                _impure_ptr
+                0x0008a74c                _global_impure_ptr
+ .sdata         0x0008a750        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0008a750                alt_priority_mask
+ .sdata         0x0008a754       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008a754                alt_fs_list
+                0x0008a75c                alt_dev_list
+                0x0008a764                alt_max_fd
+ .sdata         0x0008a768        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+                0x0008a768                alt_errno
+ .sdata         0x0008a76c        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                0x0008a76c                alt_alarm_list
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x000894a4                . = ALIGN (0x4)
-                0x000894a4                _edata = ABSOLUTE (.)
-                0x000894a4                PROVIDE (edata, ABSOLUTE (.))
-                0x000894a4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x000894a4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x0008a774                . = ALIGN (0x4)
+                0x0008a774                _edata = ABSOLUTE (.)
+                0x0008a774                PROVIDE (edata, ABSOLUTE (.))
+                0x0008a774                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0008a774                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x00089820      0x11c
-                0x00089820                __bss_start = ABSOLUTE (.)
-                0x00089820                PROVIDE (__sbss_start, ABSOLUTE (.))
-                0x00089820                PROVIDE (___sbss_start, ABSOLUTE (.))
+.bss            0x0008ab04      0x128
+                0x0008ab04                __bss_start = ABSOLUTE (.)
+                0x0008ab04                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x0008ab04                PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x00089820        0xc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
-                0x00089820                alt_argc
-                0x00089824                alt_argv
-                0x00089828                alt_envp
- .sbss          0x0008982c        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x0008982c                alt_irq_active
- .sbss          0x00089830        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
-                0x00089830                _alt_tick_rate
-                0x00089834                _alt_nticks
- .sbss          0x00089838        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                0x00089838                errno
+ .sbss          0x0008ab04        0x4 obj/default/main.o
+                0x0008ab04                pixel_buffer_a
+ .sbss          0x0008ab08        0x8 obj/default/main.o
+                0x0008ab08                edge_capture
+                0x0008ab0c                pixel_buffer_dev
+ .sbss          0x0008ab10        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0008ab10                errno
+ .sbss          0x0008ab14        0x4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0008ab14                alt_irq_active
+ .sbss          0x0008ab18        0xc ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                0x0008ab18                alt_argc
+                0x0008ab1c                alt_argv
+                0x0008ab20                alt_envp
+ .sbss          0x0008ab24        0x8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                0x0008ab24                _alt_tick_rate
+                0x0008ab28                _alt_nticks
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
-                0x0008983c                PROVIDE (__sbss_end, ABSOLUTE (.))
-                0x0008983c                PROVIDE (___sbss_end, ABSOLUTE (.))
+                0x0008ab2c                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x0008ab2c                PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .bss           0x0008983c        0x0 obj/default/main.o
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .bss           0x0008983c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .bss           0x0008983c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
+ .bss           0x0008ab2c        0x0 obj/default/main.o
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .bss           0x0008ab2c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .bss           0x0008ab2c        0x0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x0008983c      0x100 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
-                0x0008983c                alt_irq
-                0x0008993c                . = ALIGN (0x4)
-                0x0008993c                __bss_end = ABSOLUTE (.)
+ COMMON         0x0008ab2c      0x100 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x0008ab2c                alt_irq
+                0x0008ac2c                . = ALIGN (0x4)
+                0x0008ac2c                __bss_end = ABSOLUTE (.)
 
-.onchip_mem     0x0008993c        0x0
-                0x0008993c                PROVIDE (_alt_partition_onchip_mem_start, ABSOLUTE (.))
+.onchip_mem     0x0008ac2c        0x0
+                0x0008ac2c                PROVIDE (_alt_partition_onchip_mem_start, ABSOLUTE (.))
  *(.onchip_mem. onchip_mem.*)
-                0x0008993c                . = ALIGN (0x4)
-                0x0008993c                PROVIDE (_alt_partition_onchip_mem_end, ABSOLUTE (.))
-                0x0008993c                _end = ABSOLUTE (.)
-                0x0008993c                end = ABSOLUTE (.)
-                0x0008993c                __alt_stack_base = ABSOLUTE (.)
-                0x0008993c                PROVIDE (_alt_partition_onchip_mem_load_addr, LOADADDR (.onchip_mem))
+                0x0008ac2c                . = ALIGN (0x4)
+                0x0008ac2c                PROVIDE (_alt_partition_onchip_mem_end, ABSOLUTE (.))
+                0x0008ac2c                _end = ABSOLUTE (.)
+                0x0008ac2c                end = ABSOLUTE (.)
+                0x0008ac2c                __alt_stack_base = ABSOLUTE (.)
+                0x0008ac2c                PROVIDE (_alt_partition_onchip_mem_load_addr, LOADADDR (.onchip_mem))
 
 .stab
  *(.stab)
@@ -514,14 +597,28 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  *(.comment)
  .comment       0x00000000       0x26 obj/default/main.o
                                  0x27 (size before relaxing)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
@@ -529,11 +626,7 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
@@ -541,12 +634,10 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
  .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
  .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
  .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
  .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
  .comment       0x00000000       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
  .comment       0x00000000       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
@@ -562,418 +653,506 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x498
+.debug_aranges  0x00000000      0x598
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
  .debug_aranges
                 0x00000028       0x20 obj/default/main.o
  .debug_aranges
-                0x00000048       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+                0x00000048       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
  .debug_aranges
-                0x00000068       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                0x00000068       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
  .debug_aranges
-                0x00000088       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x00000088       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
  .debug_aranges
-                0x000000a8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x000000a8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
  .debug_aranges
-                0x000000c8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x000000c8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
  .debug_aranges
-                0x000000e8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x000000e8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
  .debug_aranges
-                0x00000108       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x00000108       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
  .debug_aranges
-                0x00000128       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x00000138       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
  .debug_aranges
-                0x00000148       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+                0x00000160       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
  .debug_aranges
-                0x00000168       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00000180       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
  .debug_aranges
-                0x00000188       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                0x000001a0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
  .debug_aranges
-                0x000001a8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x000001c0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
  .debug_aranges
-                0x000001c8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x000001e0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
  .debug_aranges
-                0x000001e8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000200       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
  .debug_aranges
-                0x00000208       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+                0x00000220       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
  .debug_aranges
-                0x00000228       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                0x00000240       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
  .debug_aranges
-                0x00000248       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+                0x00000260       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
  .debug_aranges
-                0x00000268       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00000280       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
  .debug_aranges
-                0x00000298       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x000002a0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
  .debug_aranges
-                0x000002c0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+                0x000002c0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
  .debug_aranges
-                0x000002e0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+                0x000002e0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
  .debug_aranges
-                0x00000300       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                0x00000300       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
  .debug_aranges
-                0x00000320       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x00000320       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
  .debug_aranges
-                0x00000340       0x38 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00000340       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
  .debug_aranges
-                0x00000378       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+                0x00000360       0x38 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
  .debug_aranges
-                0x00000398       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+                0x00000398       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
  .debug_aranges
-                0x000003b8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                0x000003b8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
  .debug_aranges
-                0x000003d8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x000003d8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
  .debug_aranges
-                0x000003f8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+                0x000003f8       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
  .debug_aranges
-                0x00000418       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x00000418       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
  .debug_aranges
-                0x00000438       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x00000438       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
  .debug_aranges
-                0x00000458       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x00000458       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
  .debug_aranges
-                0x00000478       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+                0x00000478       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_aranges
+                0x00000498       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_aranges
+                0x000004b8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_aranges
+                0x000004d8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_aranges
+                0x000004f8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_aranges
+                0x00000518       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x00000538       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x00000558       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_aranges
+                0x00000578       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
 .debug_pubnames
-                0x00000000      0x700
+                0x00000000      0xaad
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x1b obj/default/main.o
+                0x00000000       0xc0 obj/default/main.o
  .debug_pubnames
-                0x0000001b       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+                0x000000c0       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
  .debug_pubnames
-                0x0000003a       0x46 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                0x000000e7       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
  .debug_pubnames
-                0x00000080       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x00000104       0x2b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
  .debug_pubnames
-                0x000000b4       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0000012f       0x39 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
  .debug_pubnames
-                0x0000010f       0x33 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x00000168       0x1f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
  .debug_pubnames
-                0x00000142       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x00000187       0x1c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
  .debug_pubnames
-                0x00000176       0x2f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x000001a3       0x6e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
  .debug_pubnames
-                0x000001a5       0xa5 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x00000211       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
  .debug_pubnames
-                0x0000024a       0x1c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+                0x0000023c       0x32 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
  .debug_pubnames
-                0x00000266       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000026e       0x3b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
  .debug_pubnames
-                0x00000291       0x63 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                0x000002a9       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
  .debug_pubnames
-                0x000002f4       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x000002c8       0x46 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
  .debug_pubnames
-                0x0000031f       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+                0x0000030e       0x1d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
  .debug_pubnames
-                0x0000033f       0x23 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x0000032b       0x1c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
  .debug_pubnames
-                0x00000362       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000347       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
  .debug_pubnames
-                0x0000038d       0x6e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+                0x0000037b       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
  .debug_pubnames
-                0x000003fb       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                0x000003d6       0x33 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
  .debug_pubnames
-                0x00000426       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+                0x00000409       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
  .debug_pubnames
-                0x0000044c       0x32 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x0000043d       0x2f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
  .debug_pubnames
-                0x0000047e       0x3b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0000046c       0xa5 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
  .debug_pubnames
-                0x000004b9       0x1b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+                0x00000511      0x1f1 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
  .debug_pubnames
-                0x000004d4       0x25 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+                0x00000702       0x25 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
  .debug_pubnames
-                0x000004f9       0x68 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                0x00000727       0x1c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
  .debug_pubnames
-                0x00000561       0x31 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x00000743       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
  .debug_pubnames
-                0x00000592       0x24 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+                0x0000076e       0x63 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
  .debug_pubnames
-                0x000005b6       0x21 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+                0x000007d1       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
  .debug_pubnames
-                0x000005d7       0x1b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                0x000007fc       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
  .debug_pubnames
-                0x000005f2       0x1c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0000081c       0x23 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
  .debug_pubnames
-                0x0000060e       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x0000083f       0x2b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
  .debug_pubnames
-                0x0000062b       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+                0x0000086a       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
  .debug_pubnames
-                0x00000648       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x00000890       0x1b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
  .debug_pubnames
-                0x00000665       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x000008ab       0x25 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
  .debug_pubnames
-                0x0000068c       0x39 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+                0x000008d0       0x68 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
  .debug_pubnames
-                0x000006c5       0x1f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x00000938       0x31 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
  .debug_pubnames
-                0x000006e4       0x1c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+                0x00000969       0x24 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_pubnames
+                0x0000098d       0x21 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_pubnames
+                0x000009ae       0x1b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_pubnames
+                0x000009c9       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_pubnames
+                0x000009e6       0x1d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_pubnames
+                0x00000a03       0x27 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_pubnames
+                0x00000a2a       0x48 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_pubnames
+                0x00000a72       0x1f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_pubnames
+                0x00000a91       0x1c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
-.debug_info     0x00000000     0x55eb
+.debug_info     0x00000000     0x83ae
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0x6d ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .debug_info    0x0000006d      0x125 obj/default/main.o
- .debug_info    0x00000192      0x12e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .debug_info    0x000002c0      0x137 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .debug_info    0x000003f7      0x57d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_info    0x00000974      0x3d4 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_info    0x00000d48      0x1ac ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_info    0x00000ef4      0x18f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_info    0x00001083      0x221 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_info    0x000012a4      0x4a0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .debug_info    0x00001744      0x34f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .debug_info    0x00001a93       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x00001b20      0x4dd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .debug_info    0x00001ffd      0x1b7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_info    0x000021b4       0xab ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .debug_info    0x0000225f      0x310 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_info    0x0000256f       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x000025fc      0x341 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .debug_info    0x0000293d      0x1f2 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .debug_info    0x00002b2f      0x4f6 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .debug_info    0x00003025       0x76 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .debug_info    0x0000309b      0x17b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_info    0x00003216       0x92 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_info    0x000032a8      0x40c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_info    0x000036b4      0x2dd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .debug_info    0x00003991      0x2a1 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .debug_info    0x00003c32       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_info    0x00003cbf       0x7c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .debug_info    0x00003d3b      0x30e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .debug_info    0x00004049      0x331 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .debug_info    0x0000437a       0x9f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_info    0x00004419       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_info    0x000044a5       0xef /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_info    0x00004594       0xb5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .debug_info    0x00004649       0xc2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_info    0x0000470b      0x6d5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_info    0x00004de0      0x636 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_info    0x00005416       0xf3 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_info    0x00005509       0xe2 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .debug_info    0x0000006d      0x740 obj/default/main.o
+ .debug_info    0x000007ad      0x685 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_info    0x00000e32       0xc2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_info    0x00000ef4      0x68e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_info    0x00001582      0x636 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_info    0x00001bb8      0x68c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_info    0x00002244       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x000022d0      0x341 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .debug_info    0x00002611      0x1f2 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_info    0x00002803       0x76 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .debug_info    0x00002879      0x17b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_info    0x000029f4       0x92 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_info    0x00002a86      0x12e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .debug_info    0x00002bb4      0x137 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .debug_info    0x00002ceb       0xab ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_info    0x00002d96      0x508 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .debug_info    0x0000329e      0x57d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000381b      0x3d4 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_info    0x00003bef      0x1ac ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x00003d9b      0x18f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x00003f2a      0x221 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_info    0x0000414b      0x4a0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .debug_info    0x000045eb      0xb6a ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .debug_info    0x00005155       0xd0 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_info    0x00005225      0x34f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .debug_info    0x00005574       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x00005601      0x4dd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_info    0x00005ade      0x1b7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x00005c95       0xab ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_info    0x00005d40       0x7c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_info    0x00005dbc      0x310 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_info    0x000060cc       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x00006159      0x4f6 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .debug_info    0x0000664f      0x40c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .debug_info    0x00006a5b      0x2dd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .debug_info    0x00006d38      0x2a1 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .debug_info    0x00006fd9       0x8d ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x00007066      0x30e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_info    0x00007374      0x331 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_info    0x000076a5       0x9f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_info    0x00007744       0xef /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_info    0x00007833       0xb5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_info    0x000078e8      0x6d5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_info    0x00007fbd      0x21c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_info    0x000081d9       0xf3 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_info    0x000082cc       0xe2 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
-.debug_abbrev   0x00000000     0x1e8f
+.debug_abbrev   0x00000000     0x28c7
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x12 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .debug_abbrev  0x00000012       0x41 obj/default/main.o
- .debug_abbrev  0x00000053       0x97 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .debug_abbrev  0x000000ea       0xb7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .debug_abbrev  0x000001a1      0x14d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_abbrev  0x000002ee       0xf2 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_abbrev  0x000003e0       0xf0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_abbrev  0x000004d0       0xf0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_abbrev  0x000005c0      0x158 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_abbrev  0x00000718      0x14b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .debug_abbrev  0x00000863      0x119 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .debug_abbrev  0x0000097c       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_abbrev  0x000009bb       0xd6 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .debug_abbrev  0x00000a91      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_abbrev  0x00000ba8       0x5e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .debug_abbrev  0x00000c06       0xed ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_abbrev  0x00000cf3       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_abbrev  0x00000d32      0x160 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .debug_abbrev  0x00000e92      0x17e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .debug_abbrev  0x00001010      0x10e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .debug_abbrev  0x0000111e       0x12 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .debug_abbrev  0x00001130      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_abbrev  0x00001247       0x44 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_abbrev  0x0000128b      0x177 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_abbrev  0x00001402       0xdb ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .debug_abbrev  0x000014dd      0x15f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .debug_abbrev  0x0000163c       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_abbrev  0x0000167b       0x12 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .debug_abbrev  0x0000168d       0xed ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .debug_abbrev  0x0000177a      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .debug_abbrev  0x00001891       0x4e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_abbrev  0x000018df       0x3b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_abbrev  0x0000191a       0x7c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_abbrev  0x00001996       0x60 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .debug_abbrev  0x000019f6       0x7a /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_abbrev  0x00001a70      0x1c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_abbrev  0x00001c36      0x13f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_abbrev  0x00001d75       0x7b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_abbrev  0x00001df0       0x9f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .debug_abbrev  0x00000012      0x12c obj/default/main.o
+ .debug_abbrev  0x0000013e      0x180 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_abbrev  0x000002be       0x7a /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_abbrev  0x00000338      0x179 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_abbrev  0x000004b1      0x13f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_abbrev  0x000005f0      0x16c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_abbrev  0x0000075c       0x3b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x00000797      0x160 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .debug_abbrev  0x000008f7      0x17e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_abbrev  0x00000a75       0x12 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .debug_abbrev  0x00000a87      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_abbrev  0x00000b9e       0x44 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_abbrev  0x00000be2       0x97 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x00000c79       0xb7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x00000d30       0x5d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_abbrev  0x00000d8d      0x12d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .debug_abbrev  0x00000eba      0x14d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x00001007       0xf2 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_abbrev  0x000010f9       0xf0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_abbrev  0x000011e9       0xf0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x000012d9      0x158 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_abbrev  0x00001431      0x14b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .debug_abbrev  0x0000157c      0x205 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .debug_abbrev  0x00001781       0x79 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_abbrev  0x000017fa      0x119 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .debug_abbrev  0x00001913       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x00001952       0xd6 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_abbrev  0x00001a28      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x00001b3f       0x5e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x00001b9d       0x12 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_abbrev  0x00001baf       0xed ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x00001c9c       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x00001cdb      0x10e ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .debug_abbrev  0x00001de9      0x177 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .debug_abbrev  0x00001f60       0xdb ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .debug_abbrev  0x0000203b      0x15f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .debug_abbrev  0x0000219a       0x3f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_abbrev  0x000021d9       0xed ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_abbrev  0x000022c6      0x117 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_abbrev  0x000023dd       0x4e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_abbrev  0x0000242b       0x7c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x000024a7       0x60 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_abbrev  0x00002507      0x1c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x000026cd       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x000027ad       0x7b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_abbrev  0x00002828       0x9f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
-.debug_line     0x00000000     0x5641
+.debug_line     0x00000000     0x75fc
  *(.debug_line)
  .debug_line    0x00000000       0x66 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .debug_line    0x00000066      0x1c1 obj/default/main.o
- .debug_line    0x00000227      0x225 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .debug_line    0x0000044c      0x2d8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .debug_line    0x00000724      0x372 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x00000a96      0x1e0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_line    0x00000c76      0x331 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_line    0x00000fa7      0x302 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x000012a9      0x2c7 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_line    0x00001570      0x389 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .debug_line    0x000018f9      0x2c7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .debug_line    0x00001bc0      0x1c3 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x00001d83      0x25a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .debug_line    0x00001fdd      0x26a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x00002247      0x1b8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
- .debug_line    0x000023ff      0x26f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_line    0x0000266e      0x1c3 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x00002831      0x28d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .debug_line    0x00002abe      0x247 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .debug_line    0x00002d05      0x32a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .debug_line    0x0000302f       0x6b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .debug_line    0x0000309a      0x22d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_line    0x000032c7       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_line    0x00003339      0x2fd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_line    0x00003636      0x11d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .debug_line    0x00003753      0x300 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .debug_line    0x00003a53      0x1dc ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_line    0x00003c2f       0xab ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
- .debug_line    0x00003cda      0x29a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .debug_line    0x00003f74      0x29d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .debug_line    0x00004211      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_line    0x00004434      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x00004616      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_line    0x00004886      0x260 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .debug_line    0x00004ae6      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_line    0x00004d36      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_line    0x00005096      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_line    0x000052c6      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_line    0x00005457      0x1ea ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .debug_line    0x00000066      0x3c5 obj/default/main.o
+ .debug_line    0x0000042b      0x2b2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_line    0x000006dd      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x0000092d      0x2a9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_line    0x00000bd6      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_line    0x00000e06      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_line    0x000010a3      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x00001285      0x28d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .debug_line    0x00001512      0x247 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_line    0x00001759       0x6b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .debug_line    0x000017c4      0x22d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_line    0x000019f1       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_line    0x00001a63      0x225 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .debug_line    0x00001c88      0x2d8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .debug_line    0x00001f60      0x217 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_line    0x00002177      0x307 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .debug_line    0x0000247e      0x372 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x000027f0      0x1e0 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x000029d0      0x331 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x00002d01      0x302 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x00003003      0x2c7 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_line    0x000032ca      0x389 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .debug_line    0x00003653      0xb68 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .debug_line    0x000041bb      0x273 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_line    0x0000442e      0x2c7 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .debug_line    0x000046f5      0x1c3 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x000048b8      0x25a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_line    0x00004b12      0x26a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x00004d7c      0x1b8 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_line    0x00004f34       0xab ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_line    0x00004fdf      0x26f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x0000524e      0x1c3 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00005411      0x32a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .debug_line    0x0000573b      0x2fd ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .debug_line    0x00005a38      0x11d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .debug_line    0x00005b55      0x300 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .debug_line    0x00005e55      0x1dc ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x00006031      0x29a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_line    0x000062cb      0x29d ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_line    0x00006568      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_line    0x0000678b      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x000069fb      0x260 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_line    0x00006c5b      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_line    0x00006fbb      0x2c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_line    0x00007281      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_line    0x00007412      0x1ea ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
-.debug_frame    0x00000000      0x604
+.debug_frame    0x00000000      0x928
  *(.debug_frame)
- .debug_frame   0x00000000       0x2c obj/default/main.o
- .debug_frame   0x0000002c       0x38 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .debug_frame   0x00000064       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .debug_frame   0x0000008c       0x54 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_frame   0x000000e0       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_frame   0x00000110       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_frame   0x00000130       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_frame   0x00000150       0x40 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_frame   0x00000190       0x6c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .debug_frame   0x000001fc       0x3c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .debug_frame   0x00000238       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_frame   0x00000258       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
- .debug_frame   0x00000278       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_frame   0x000002a0       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_frame   0x000002d0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_frame   0x000002f0       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .debug_frame   0x00000340       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .debug_frame   0x00000368       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .debug_frame   0x000003b8       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_frame   0x000003e0       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_frame   0x00000414       0x2c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .debug_frame   0x00000440       0x3c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .debug_frame   0x0000047c       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_frame   0x0000049c       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .debug_frame   0x000004cc       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .debug_frame   0x000004ec       0x2c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_frame   0x00000518       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_frame   0x00000538       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .debug_frame   0x00000558       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_frame   0x00000578       0x4c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_frame   0x000005c4       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_frame   0x000005e4       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .debug_frame   0x00000000       0x64 obj/default/main.o
+ .debug_frame   0x00000064       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_frame   0x000000a0       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_frame   0x000000c0       0x30 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_frame   0x000000f0       0x2c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_frame   0x0000011c       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .debug_frame   0x0000016c       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_frame   0x00000194       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_frame   0x000001bc       0x38 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .debug_frame   0x000001f4       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .debug_frame   0x0000021c       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_frame   0x0000023c       0x40 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .debug_frame   0x0000027c       0x54 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x000002d0       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_frame   0x00000300       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_frame   0x00000320       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x00000340       0x40 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_frame   0x00000380       0x6c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .debug_frame   0x000003ec      0x15c ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .debug_frame   0x00000548       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_frame   0x00000570       0x3c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .debug_frame   0x000005ac       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x000005cc       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_frame   0x000005ec       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x00000614       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_frame   0x00000644       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x00000664       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .debug_frame   0x000006b4       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .debug_frame   0x000006e8       0x2c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .debug_frame   0x00000714       0x3c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .debug_frame   0x00000750       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_frame   0x00000770       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_frame   0x000007a0       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_frame   0x000007c0       0x2c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_frame   0x000007ec       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000080c       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_frame   0x0000082c       0x4c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000878       0x70 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_frame   0x000008e8       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_frame   0x00000908       0x20 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
 
-.debug_str      0x00000000     0x1446
+.debug_str      0x00000000     0x196c
  *(.debug_str)
- .debug_str     0x00000000       0x12 obj/default/main.o
- .debug_str     0x00000012      0x189 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
-                                0x1c2 (size before relaxing)
- .debug_str     0x0000019b       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
-                                0x14d (size before relaxing)
- .debug_str     0x0000020b      0x291 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
-                                0x3d1 (size before relaxing)
- .debug_str     0x0000049c       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                                0x28e (size before relaxing)
- .debug_str     0x0000050c       0x48 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                                0x1c8 (size before relaxing)
- .debug_str     0x00000554       0x4a ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                                0x1be (size before relaxing)
- .debug_str     0x0000059e       0xb6 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
-                                0x1f4 (size before relaxing)
- .debug_str     0x00000654       0xcf ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
-                                0x2d2 (size before relaxing)
- .debug_str     0x00000723       0x44 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
-                                0x1bb (size before relaxing)
- .debug_str     0x00000767       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
-                                0x105 (size before relaxing)
- .debug_str     0x0000079b      0x120 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
-                                0x2b5 (size before relaxing)
- .debug_str     0x000008bb       0x59 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
-                                0x17c (size before relaxing)
- .debug_str     0x00000914       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
-                                 0xf5 (size before relaxing)
- .debug_str     0x00000928       0x24 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
-                                0x19c (size before relaxing)
- .debug_str     0x0000094c       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
-                                0x105 (size before relaxing)
- .debug_str     0x00000980       0xc4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
-                                0x1ee (size before relaxing)
- .debug_str     0x00000a44       0x4c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
-                                0x198 (size before relaxing)
- .debug_str     0x00000a90       0x56 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
-                                0x2c6 (size before relaxing)
- .debug_str     0x00000ae6       0x3a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
-                                0x147 (size before relaxing)
- .debug_str     0x00000b20       0x17 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
-                                 0xff (size before relaxing)
- .debug_str     0x00000b37       0x2f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
-                                0x1fb (size before relaxing)
- .debug_str     0x00000b66       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
-                                0x198 (size before relaxing)
- .debug_str     0x00000b8e       0x78 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
-                                0x202 (size before relaxing)
- .debug_str     0x00000c06       0x3b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
-                                0x10c (size before relaxing)
- .debug_str     0x00000c41       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
-                                0x1aa (size before relaxing)
- .debug_str     0x00000c67       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
-                                0x1cc (size before relaxing)
- .debug_str     0x00000c97       0xde /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
-                                0x17d (size before relaxing)
- .debug_str     0x00000d75       0xe1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                                0x17c (size before relaxing)
- .debug_str     0x00000e56       0xee /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                                0x183 (size before relaxing)
- .debug_str     0x00000f44       0x45 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
-                                0x17c (size before relaxing)
- .debug_str     0x00000f89       0x45 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_str     0x00000000       0x2e obj/default/main.o
+ .debug_str     0x0000002e      0x3e8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                                0x455 (size before relaxing)
+ .debug_str     0x00000416       0xe7 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
                                 0x189 (size before relaxing)
- .debug_str     0x00000fce      0x334 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                                0x496 (size before relaxing)
- .debug_str     0x00001302       0x49 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_str     0x000004fd       0x70 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+                                0x46f (size before relaxing)
+ .debug_str     0x0000056d       0xfd /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
                                 0x462 (size before relaxing)
- .debug_str     0x0000134b       0xd1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_str     0x0000066a       0x4f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+                                0x456 (size before relaxing)
+ .debug_str     0x000006b9       0x40 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                                0x17c (size before relaxing)
+ .debug_str     0x000006f9      0x138 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+                                0x1ee (size before relaxing)
+ .debug_str     0x00000831       0x4c ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                                0x198 (size before relaxing)
+ .debug_str     0x0000087d       0x3a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+                                0x147 (size before relaxing)
+ .debug_str     0x000008b7       0x17 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_vars.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x000008ce       0xe9 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+                                0x1c2 (size before relaxing)
+ .debug_str     0x000009b7       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+                                0x14d (size before relaxing)
+ .debug_str     0x00000a27       0x27 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+                                 0xf8 (size before relaxing)
+ .debug_str     0x00000a4e      0x166 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+                                0x2a8 (size before relaxing)
+ .debug_str     0x00000bb4      0x238 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+                                0x3d1 (size before relaxing)
+ .debug_str     0x00000dec       0x70 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                                0x28e (size before relaxing)
+ .debug_str     0x00000e5c       0x48 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                                0x1c8 (size before relaxing)
+ .debug_str     0x00000ea4       0x4a ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                                0x1be (size before relaxing)
+ .debug_str     0x00000eee       0x7f ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+                                0x1f4 (size before relaxing)
+ .debug_str     0x00000f6d       0xcf ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                                0x2d2 (size before relaxing)
+ .debug_str     0x0000103c      0x27d ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+                                0x4c1 (size before relaxing)
+ .debug_str     0x000012b9       0x42 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                                0x11b (size before relaxing)
+ .debug_str     0x000012fb       0x1b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+                                0x1bb (size before relaxing)
+ .debug_str     0x00001316       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                                0x105 (size before relaxing)
+ .debug_str     0x0000134a       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev.o)
+                                0x2b5 (size before relaxing)
+ .debug_str     0x0000139a       0x59 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                                0x17c (size before relaxing)
+ .debug_str     0x000013f3       0x14 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_errno.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x00001407       0x24 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+                                0x19c (size before relaxing)
+ .debug_str     0x0000142b       0x34 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                                0x105 (size before relaxing)
+ .debug_str     0x0000145f       0x56 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+                                0x2c6 (size before relaxing)
+ .debug_str     0x000014b5       0x2f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+                                0x1fb (size before relaxing)
+ .debug_str     0x000014e4       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+                                0x198 (size before relaxing)
+ .debug_str     0x0000150c       0x78 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+                                0x202 (size before relaxing)
+ .debug_str     0x00001584       0x3b ../NIOS2_VGA_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                                0x10c (size before relaxing)
+ .debug_str     0x000015bf       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+                                0x1aa (size before relaxing)
+ .debug_str     0x000015e5       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+                                0x1cc (size before relaxing)
+ .debug_str     0x00001615       0xde /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                                0x17d (size before relaxing)
+ .debug_str     0x000016f3       0x45 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                                0x183 (size before relaxing)
+ .debug_str     0x00001738       0x45 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+                                0x17c (size before relaxing)
+ .debug_str     0x0000177d       0x7e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                                0x496 (size before relaxing)
+ .debug_str     0x000017fb      0x110 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                                0x1b9 (size before relaxing)
+ .debug_str     0x0000190b       0x37 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
                                 0x17a (size before relaxing)
- .debug_str     0x0000141c       0x2a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
+ .debug_str     0x00001942       0x2a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exit.o)
                                 0x101 (size before relaxing)
 
-.debug_loc      0x00000000      0xee0
+.debug_loc      0x00000000     0x26dc
  *(.debug_loc)
- .debug_loc     0x00000000       0x2b obj/default/main.o
- .debug_loc     0x0000002b       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
- .debug_loc     0x0000004a       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
- .debug_loc     0x00000069       0x77 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_loc     0x000000e0       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_loc     0x00000152       0x31 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_loc     0x00000183       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_loc     0x000001a9       0xdc ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_loc     0x00000285      0x112 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .debug_loc     0x00000397       0x8f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
- .debug_loc     0x00000426       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_loc     0x00000481       0xef ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_loc     0x00000570       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
- .debug_loc     0x000005e2       0xf4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .debug_loc     0x000006d6      0x15a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
- .debug_loc     0x00000830       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_loc     0x0000088b      0x1fe ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_loc     0x00000a89       0x48 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
- .debug_loc     0x00000ad1       0x71 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
- .debug_loc     0x00000b42       0x9a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
- .debug_loc     0x00000bdc       0x29 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
- .debug_loc     0x00000c05       0x3d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_loc     0x00000c42       0x70 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_loc     0x00000cb2       0x1e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_loc     0x00000cd0      0x1c1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_loc     0x00000e91       0x4f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_loc     0x00000000       0x81 obj/default/main.o
+ .debug_loc     0x00000081       0xa2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_loc     0x00000123       0x1e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_loc     0x00000141      0x162 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_loc     0x000002a3       0x97 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_loc     0x0000033a       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic.o)
+ .debug_loc     0x000003ac       0xf4 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_loc     0x000004a0       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_loc     0x000004fb       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_load.o)
+ .debug_loc     0x0000051a       0x1f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_main.o)
+ .debug_loc     0x00000539       0x13 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_loc     0x0000054c      0x102 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_write.o)
+ .debug_loc     0x0000064e       0x77 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x000006c5       0x72 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_loc     0x00000737       0x31 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_loc     0x00000768       0x26 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_loc     0x0000078e       0xdc ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_loc     0x0000086a      0x112 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .debug_loc     0x0000097c     0x11d4 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .debug_loc     0x00001b50       0x50 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_loc     0x00001ba0       0x8f ../NIOS2_VGA_bsp//libhal_bsp.a(alt_close.o)
+ .debug_loc     0x00001c2f       0x5b ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_loc     0x00001c8a       0xef ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_loc     0x00001d79      0x15a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .debug_loc     0x00001ed3      0x1fe ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
+ .debug_loc     0x000020d1       0x48 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_release_fd.o)
+ .debug_loc     0x00002119       0x71 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_tick.o)
+ .debug_loc     0x0000218a       0x9a ../NIOS2_VGA_bsp//libhal_bsp.a(alt_find_file.o)
+ .debug_loc     0x00002224       0x29 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_get_fd.o)
+ .debug_loc     0x0000224d       0x3d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_loc     0x0000228a       0x70 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_loc     0x000022fa      0x1c1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x000024bb      0x1d2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_loc     0x0000268d       0x4f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -991,24 +1170,26 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  *(.debug_varnames)
 
 .debug_alt_sim_info
-                0x00000000       0x10
+                0x00000000       0x40
  *(.debug_alt_sim_info)
  .debug_alt_sim_info
                 0x00000000       0x10 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
+ .debug_alt_sim_info
+                0x00000010       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_busy_sleep.o)
                 0x0008d000                __alt_data_end = 0x8d000
                 0x0008d000                PROVIDE (__alt_stack_pointer, __alt_data_end)
-                0x0008993c                PROVIDE (__alt_stack_limit, __alt_stack_base)
-                0x0008993c                PROVIDE (__alt_heap_start, end)
+                0x0008ac2c                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0008ac2c                PROVIDE (__alt_heap_start, end)
                 0x0008d000                PROVIDE (__alt_heap_limit, 0x8d000)
 OUTPUT(VGA_test.elf elf32-littlenios2)
 
 .debug_ranges   0x00000000      0x120
  .debug_ranges  0x00000000       0x20 ../NIOS2_VGA_bsp//obj/HAL/src/crt0.o
- .debug_ranges  0x00000020       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_ranges  0x00000038       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_ranges  0x00000050       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_ranges  0x00000068       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
- .debug_ranges  0x00000090       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_ranges  0x000000a8       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
- .debug_ranges  0x000000d8       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_ranges  0x00000020       0x28 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .debug_ranges  0x00000048       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_ranges  0x00000060       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_ranges  0x00000078       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_ranges  0x00000090       0x18 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_ranges  0x000000a8       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_ranges  0x000000d8       0x30 ../NIOS2_VGA_bsp//libhal_bsp.a(alt_open.o)
  .debug_ranges  0x00000108       0x18 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
