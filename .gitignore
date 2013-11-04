@@ -1,0 +1,6 @@
+nios2VGA/
+db/
+output_files/
+incremental_db/
+simulation/
+.qsys_edit/
