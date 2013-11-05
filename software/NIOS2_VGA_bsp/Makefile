@@ -129,12 +129,6 @@ BSP_ARFLAGS = -src
 # BSP_ASFLAGS in Makefile. 
 BSP_ASFLAGS = -Wa,-gdwarf2
 
-# C/C++ compiler debug level. '-g' provides the default set of debug symbols 
-# typically required to debug a typical application. Omitting '-g' removes 
-# debug symbols from the ELF. This setting defines the value of 
-# BSP_CFLAGS_DEBUG in Makefile. 
-BSP_CFLAGS_DEBUG = -g
-
 # C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" 
 # optimization, etc. "-O0" is recommended for code that you want to debug since 
 # compiler optimization can remove variables and produce non-sequential 

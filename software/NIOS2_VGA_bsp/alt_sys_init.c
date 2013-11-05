@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Mon Nov 04 18:44:04 CET 2013
+ * Generated: Tue Nov 05 12:26:11 CET 2013
  */
 
 /*
