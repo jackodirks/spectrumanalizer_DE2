@@ -8,3 +8,4 @@ simulation/
 *.o
 *.rpt
 *.*/
+obj/
