@@ -55,8 +55,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			sram_external_interface_OE_N             : out   std_logic;                                        -- OE_N
 			sram_external_interface_WE_N             : out   std_logic;                                        -- WE_N
 			vga_clock_out_clk_clk                    : out   std_logic;                                        -- clk
-			green_led_pio_external_connection_export : out   std_logic_vector(8 downto 0);                     -- export
-			key_pio_external_connection_export       : in    std_logic_vector(2 downto 0)  := (others => 'X')  -- export
+			green_led_pio_external_connection_export : out   std_logic_vector(8 downto 0)                      -- export
 		);
 	end component nios2VGA;
 
@@ -70,7 +69,6 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			reset_reset_n => KEY(0),
 			red_led_pio_external_connection_export => LEDR,
 			green_led_pio_external_connection_export => LEDG,
-			key_pio_external_connection_export => KEY(3 DOWNTO 1),
 			
 			vga_controller_external_CLK => VGA_CLK,
 			vga_controller_external_HS => VGA_HS,

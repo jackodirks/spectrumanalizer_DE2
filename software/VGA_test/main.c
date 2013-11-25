@@ -37,10 +37,12 @@ unsigned short maxVal = 100;
 
 //This function does stuff that does not belong in the final version
 void temp(void){
+
 	//Write the const data to the mem
-	for (int i = 0; i < 1024; ++i){
-		for (int j = 0 ; j < 2; ++j){
-			(*fftA)[i][j] = tempFFT[i][j];
+	int x,y;
+	for (x = 0; x < 1024; ++x){
+		for (y = 0 ; y < 2; ++y){
+			fftA[y*TEMPCOLMN+x] = tempFFT[x][y];
 		}
 	}
 }
@@ -53,6 +55,15 @@ void init(void){
 int main(void){
 	temp();
 	init();
+	//Test the SRAM buffer
+	//int x,y;
+	//for (x = 0; x < 1024; ++x){
+	//	for (y = 0 ; y < 2; ++y){
+	//		printf("Row %d, Colmn %d: %f\n",x,y,fftA[y*TEMPCOLMN+x]);
+	//	}
+	//}
+	int x = 22,y = 0;
+	printf("Row %d, Colmn %d: %f\n",x,y,fftA[y*TEMPCOLMN+x]);
 	int colors[3] = {RED,GREEN,BLUE};
 	int colorIndicator = 0;
 	int buffer = 1;
