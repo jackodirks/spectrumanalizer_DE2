@@ -37,7 +37,6 @@ unsigned short maxVal = 100;
 
 //This function does stuff that does not belong in the final version
 void temp(void){
-
 	//Write the const data to the mem
 	int x,y;
 	for (x = 0; x < 1024; ++x){

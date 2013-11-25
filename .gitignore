@@ -5,7 +5,9 @@ incremental_db/
 simulation/
 .qsys_edit/
 *.elf
+*.objdump
 *.o
+*/*.a
 *.rpt
 *.*/
 obj/
