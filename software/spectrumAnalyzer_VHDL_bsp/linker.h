@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Mon Nov 25 20:55:46 CET 2013
+ * Generated: Tue Nov 26 11:03:45 CET 2013
  */
 
 /*
@@ -65,9 +65,9 @@
  *
  */
 
-#define ONCHIP_MEM_REGION_BASE 0x800020
+#define ONCHIP_MEM_REGION_BASE 0x88020
 #define ONCHIP_MEM_REGION_SPAN 20448
-#define RESET_REGION_BASE 0x800000
+#define RESET_REGION_BASE 0x88000
 #define RESET_REGION_SPAN 32
 
 

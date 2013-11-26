@@ -1,6 +1,6 @@
 #define TEMPCOLMN 2
 #define TEMPROW 11
-const float tempFFT[TEMPROW][TEMPCOLMN] = {
+const float tempFFT[][TEMPCOLMN] = {
 			{0.068212,0.000000},
 			{0.071462,97.656250},
 			{0.081872,195.312500},

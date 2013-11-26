@@ -33,11 +33,26 @@ alt_up_char_buffer_dev *char_buffer_dev;
 unsigned short minval = 0;
 unsigned short maxVal = 1;
 
-#include "FFT_temp.h"
+#define TEMPCOLMN 2
+#define TEMPROW 11
+const float tempFFT [][TEMPCOLMN] = {
+			{0.068212,0.000000},
+			{0.071462,97.656250},
+			{0.081872,195.312500},
+			{0.102120,292.968750},
+			{0.140045,390.625000},
+			{0.222301,488.281250},
+			{0.507912,585.937500},
+			{2.381345,683.593750},
+			{0.374205,781.250000},
+			{0.208150,878.906250},
+			{0.146334,976.562500}
+};
 
 //This function does stuff that does not belong in the final version
 void temp(void){
 	//Write the const data to the mem
+	printf ("%f\n",0.22);
 	int x,y;
 	for (x = 0; x < TEMPROW; ++x){
 		for (y = 0 ; y < TEMPCOLMN; ++y){
@@ -47,7 +62,8 @@ void temp(void){
 	//Test the SRAM buffer
 	for (x = 0; x < TEMPROW; ++x){
 		for (y = 0 ; y < TEMPCOLMN; ++y){
-			printf("Row %d, Colmn %d: %f\n",x,y,fftA[y*TEMPCOLMN+x]);
+			//printf("Row %d, Colmn %d: %F\n",x,y,fftA[y*TEMPCOLMN+x]);
+			printf("Printing tempFFT: row %d, colmn %d: %F\n",x,y,tempFFT[x][y]);
 		}
 	}
 }

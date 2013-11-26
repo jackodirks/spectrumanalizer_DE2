@@ -3,19 +3,19 @@
 
 <cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<buildSystem id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396">
-			<storageModule id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396" moduleId="org.eclipse.cdt.core.settings"/>
+		<buildSystem id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267">
+			<storageModule id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267" moduleId="org.eclipse.cdt.core.settings"/>
 		</buildSystem>
-		<cconfiguration id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396">
+		<cconfiguration id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267">
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" description="" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396" name="Nios II" parent="org.eclipse.cdt.build.core.prefbase.cfg">
-					<folderInfo id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396." name="/" resourcePath="">
-						<toolChain id="altera.nios2.linux.gcc4.1709636054" name="Linux Nios II GCC4" superClass="altera.nios2.linux.gcc4">
-							<targetPlatform id="altera.nios2.linux.gcc4.148845262" name="Nios II" superClass="altera.nios2.linux.gcc4"/>
-							<builder buildPath="${workspace_loc://spectrumAnalyzer_VHDL_bsp}" id="cdt.managedbuild.target.gnu.builder.base.1672321945" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1984114486" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.1243233857" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
-								<option id="gnu.cpp.compiler.option.preprocessor.undef.1760259486" name="Undefined symbols (-U)" superClass="gnu.cpp.compiler.option.preprocessor.undef" valueType="undefDefinedSymbols">
+				<configuration buildProperties="" description="" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267" name="Nios II" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+					<folderInfo id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267." name="/" resourcePath="">
+						<toolChain id="altera.nios2.linux.gcc4.1522057408" name="Linux Nios II GCC4" superClass="altera.nios2.linux.gcc4">
+							<targetPlatform id="altera.nios2.linux.gcc4.1317659385" name="Nios II" superClass="altera.nios2.linux.gcc4"/>
+							<builder buildPath="${workspace_loc://spectrumAnalyzer_VHDL_bsp}" id="cdt.managedbuild.target.gnu.builder.base.606085691" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1516568130" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.674458952" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<option id="gnu.cpp.compiler.option.preprocessor.undef.568639925" superClass="gnu.cpp.compiler.option.preprocessor.undef" valueType="undefDefinedSymbols">
 									<listOptionValue builtIn="false" value="__x86_64"/>
 									<listOptionValue builtIn="false" value="__INT_FAST32_MAX__"/>
 									<listOptionValue builtIn="false" value="__SIG_ATOMIC_MAX__"/>
@@ -65,7 +65,6 @@
 									<listOptionValue builtIn="false" value="__SIZEOF_LONG_LONG__"/>
 									<listOptionValue builtIn="false" value="__UINT_FAST8_MAX__"/>
 									<listOptionValue builtIn="false" value="__DEC64_MAX_EXP__"/>
-									<listOptionValue builtIn="false" value="__STDC_IEC_559__"/>
 									<listOptionValue builtIn="false" value="__UINT16_C(c)"/>
 									<listOptionValue builtIn="false" value="__INT16_MAX__"/>
 									<listOptionValue builtIn="false" value="__k8__"/>
@@ -85,7 +84,6 @@
 									<listOptionValue builtIn="false" value="__SIZEOF_INT128__"/>
 									<listOptionValue builtIn="false" value="__LONG_LONG_MAX__"/>
 									<listOptionValue builtIn="false" value="__amd64"/>
-									<listOptionValue builtIn="false" value="_PREDEFS_H"/>
 									<listOptionValue builtIn="false" value="__DBL_HAS_INFINITY__"/>
 									<listOptionValue builtIn="false" value="__UINT32_C(c)"/>
 									<listOptionValue builtIn="false" value="__DBL_MAX_10_EXP__"/>
@@ -107,8 +105,8 @@
 									<listOptionValue builtIn="false" value="__SSP__"/>
 									<listOptionValue builtIn="false" value="__INTPTR_TYPE__"/>
 									<listOptionValue builtIn="false" value="__INT64_TYPE__"/>
-									<listOptionValue builtIn="false" value="__ATOMIC_ACQUIRE"/>
 									<listOptionValue builtIn="false" value="__DBL_MAX_EXP__"/>
+									<listOptionValue builtIn="false" value="__ATOMIC_ACQUIRE"/>
 									<listOptionValue builtIn="false" value="__WINT_TYPE__"/>
 									<listOptionValue builtIn="false" value="__FLOAT_WORD_ORDER__"/>
 									<listOptionValue builtIn="false" value="__DEC64_SUBNORMAL_MIN__"/>
@@ -143,7 +141,6 @@
 									<listOptionValue builtIn="false" value="__UINT64_C(c)"/>
 									<listOptionValue builtIn="false" value="__REGISTER_PREFIX__"/>
 									<listOptionValue builtIn="false" value="__INT_FAST8_TYPE__"/>
-									<listOptionValue builtIn="false" value="__STDC_NO_THREADS__"/>
 									<listOptionValue builtIn="false" value="__ORDER_LITTLE_ENDIAN__"/>
 									<listOptionValue builtIn="false" value="__LDBL_HAS_QUIET_NAN__"/>
 									<listOptionValue builtIn="false" value="__INT8_MAX__"/>
@@ -151,15 +148,12 @@
 									<listOptionValue builtIn="false" value="__CHAR32_TYPE__"/>
 									<listOptionValue builtIn="false" value="__WCHAR_MIN__"/>
 									<listOptionValue builtIn="false" value="__ELF__"/>
-									<listOptionValue builtIn="false" value="__FXSR__"/>
 									<listOptionValue builtIn="false" value="__UINTMAX_MAX__"/>
 									<listOptionValue builtIn="false" value="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8"/>
-									<listOptionValue builtIn="false" value="__ATOMIC_HLE_RELEASE"/>
 									<listOptionValue builtIn="false" value="__FLT_MIN_10_EXP__"/>
 									<listOptionValue builtIn="false" value="__UINTPTR_MAX__"/>
 									<listOptionValue builtIn="false" value="__UINT64_MAX__"/>
 									<listOptionValue builtIn="false" value="__WCHAR_MAX__"/>
-									<listOptionValue builtIn="false" value="__ATOMIC_HLE_ACQUIRE"/>
 									<listOptionValue builtIn="false" value="__INT_FAST16_TYPE__"/>
 									<listOptionValue builtIn="false" value="__LDBL_HAS_DENORM__"/>
 									<listOptionValue builtIn="false" value="__GXX_ABI_VERSION"/>
@@ -202,17 +196,14 @@
 									<listOptionValue builtIn="false" value="__INT64_MAX__"/>
 									<listOptionValue builtIn="false" value="__INT_MAX__"/>
 									<listOptionValue builtIn="false" value="__DEC64_EPSILON__"/>
-									<listOptionValue builtIn="false" value="__STDC_ISO_10646__"/>
 									<listOptionValue builtIn="false" value="__INT32_C(c)"/>
 									<listOptionValue builtIn="false" value="__INT32_TYPE__"/>
 									<listOptionValue builtIn="false" value="__INT_LEAST32_MAX__"/>
-									<listOptionValue builtIn="false" value="__STDC_IEC_559_COMPLEX__"/>
 									<listOptionValue builtIn="false" value="__STDC__"/>
 									<listOptionValue builtIn="false" value="__LDBL_MIN__"/>
 									<listOptionValue builtIn="false" value="__SSE2__"/>
 									<listOptionValue builtIn="false" value="__INT8_TYPE__"/>
 									<listOptionValue builtIn="false" value="__BYTE_ORDER__"/>
-									<listOptionValue builtIn="false" value="_STDC_PREDEF_H"/>
 									<listOptionValue builtIn="false" value="__SIZEOF_FLOAT__"/>
 									<listOptionValue builtIn="false" value="__INTMAX_MAX__"/>
 									<listOptionValue builtIn="false" value="__GCC_ATOMIC_LLONG_LOCK_FREE"/>
@@ -264,10 +255,10 @@
 									<listOptionValue builtIn="false" value="__GCC_ATOMIC_CHAR16_T_LOCK_FREE"/>
 									<listOptionValue builtIn="false" value="__CHAR16_TYPE__"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.930148144" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.144729275" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.1056761303" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
-								<option id="gnu.c.compiler.option.preprocessor.undef.symbol.1945121326" name="Undefined symbols (-U)" superClass="gnu.c.compiler.option.preprocessor.undef.symbol" valueType="undefDefinedSymbols">
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.16037971" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
+								<option id="gnu.c.compiler.option.preprocessor.undef.symbol.1478369254" superClass="gnu.c.compiler.option.preprocessor.undef.symbol" valueType="undefDefinedSymbols">
 									<listOptionValue builtIn="false" value="__x86_64"/>
 									<listOptionValue builtIn="false" value="__INT_FAST32_MAX__"/>
 									<listOptionValue builtIn="false" value="__SIG_ATOMIC_MAX__"/>
@@ -316,7 +307,6 @@
 									<listOptionValue builtIn="false" value="__SIZEOF_LONG_LONG__"/>
 									<listOptionValue builtIn="false" value="__UINT_FAST8_MAX__"/>
 									<listOptionValue builtIn="false" value="__DEC64_MAX_EXP__"/>
-									<listOptionValue builtIn="false" value="__STDC_IEC_559__"/>
 									<listOptionValue builtIn="false" value="__UINT16_C(c)"/>
 									<listOptionValue builtIn="false" value="__INT16_MAX__"/>
 									<listOptionValue builtIn="false" value="__k8__"/>
@@ -336,7 +326,6 @@
 									<listOptionValue builtIn="false" value="__SIZEOF_INT128__"/>
 									<listOptionValue builtIn="false" value="__LONG_LONG_MAX__"/>
 									<listOptionValue builtIn="false" value="__amd64"/>
-									<listOptionValue builtIn="false" value="_PREDEFS_H"/>
 									<listOptionValue builtIn="false" value="__DBL_HAS_INFINITY__"/>
 									<listOptionValue builtIn="false" value="__UINT32_C(c)"/>
 									<listOptionValue builtIn="false" value="__DBL_MAX_10_EXP__"/>
@@ -391,7 +380,6 @@
 									<listOptionValue builtIn="false" value="__UINT64_C(c)"/>
 									<listOptionValue builtIn="false" value="__REGISTER_PREFIX__"/>
 									<listOptionValue builtIn="false" value="__INT_FAST8_TYPE__"/>
-									<listOptionValue builtIn="false" value="__STDC_NO_THREADS__"/>
 									<listOptionValue builtIn="false" value="__ORDER_LITTLE_ENDIAN__"/>
 									<listOptionValue builtIn="false" value="__LDBL_HAS_QUIET_NAN__"/>
 									<listOptionValue builtIn="false" value="__INT8_MAX__"/>
@@ -399,15 +387,12 @@
 									<listOptionValue builtIn="false" value="__CHAR32_TYPE__"/>
 									<listOptionValue builtIn="false" value="__WCHAR_MIN__"/>
 									<listOptionValue builtIn="false" value="__ELF__"/>
-									<listOptionValue builtIn="false" value="__FXSR__"/>
 									<listOptionValue builtIn="false" value="__UINTMAX_MAX__"/>
 									<listOptionValue builtIn="false" value="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8"/>
-									<listOptionValue builtIn="false" value="__ATOMIC_HLE_RELEASE"/>
 									<listOptionValue builtIn="false" value="__FLT_MIN_10_EXP__"/>
 									<listOptionValue builtIn="false" value="__UINTPTR_MAX__"/>
 									<listOptionValue builtIn="false" value="__UINT64_MAX__"/>
 									<listOptionValue builtIn="false" value="__WCHAR_MAX__"/>
-									<listOptionValue builtIn="false" value="__ATOMIC_HLE_ACQUIRE"/>
 									<listOptionValue builtIn="false" value="__INT_FAST16_TYPE__"/>
 									<listOptionValue builtIn="false" value="__LDBL_HAS_DENORM__"/>
 									<listOptionValue builtIn="false" value="__GXX_ABI_VERSION"/>
@@ -447,31 +432,28 @@
 									<listOptionValue builtIn="false" value="__INT64_MAX__"/>
 									<listOptionValue builtIn="false" value="__INT_MAX__"/>
 									<listOptionValue builtIn="false" value="__DEC64_EPSILON__"/>
-									<listOptionValue builtIn="false" value="__STDC_ISO_10646__"/>
 									<listOptionValue builtIn="false" value="__INT32_C(c)"/>
 									<listOptionValue builtIn="false" value="__INT32_TYPE__"/>
 									<listOptionValue builtIn="false" value="__INT_LEAST32_MAX__"/>
-									<listOptionValue builtIn="false" value="__STDC_IEC_559_COMPLEX__"/>
 									<listOptionValue builtIn="false" value="__STDC__"/>
 									<listOptionValue builtIn="false" value="__LDBL_MIN__"/>
 									<listOptionValue builtIn="false" value="__SSE2__"/>
 									<listOptionValue builtIn="false" value="__INT8_TYPE__"/>
 									<listOptionValue builtIn="false" value="__BYTE_ORDER__"/>
-									<listOptionValue builtIn="false" value="_STDC_PREDEF_H"/>
 									<listOptionValue builtIn="false" value="__SIZEOF_FLOAT__"/>
 									<listOptionValue builtIn="false" value="__INTMAX_MAX__"/>
 									<listOptionValue builtIn="false" value="__GCC_ATOMIC_LLONG_LOCK_FREE"/>
 									<listOptionValue builtIn="false" value="__INT_FAST64_TYPE__"/>
 									<listOptionValue builtIn="false" value="__UINT64_TYPE__"/>
-									<listOptionValue builtIn="false" value="__DEC32_MAX_EXP__"/>
 									<listOptionValue builtIn="false" value="__ATOMIC_SEQ_CST"/>
-									<listOptionValue builtIn="false" value="__INT32_MAX__"/>
+									<listOptionValue builtIn="false" value="__DEC32_MAX_EXP__"/>
 									<listOptionValue builtIn="false" value="__VERSION__"/>
+									<listOptionValue builtIn="false" value="__INT32_MAX__"/>
 									<listOptionValue builtIn="false" value="__INT64_C(c)"/>
 									<listOptionValue builtIn="false" value="__GCC_ATOMIC_CHAR_LOCK_FREE"/>
 									<listOptionValue builtIn="false" value="__SIZEOF_WINT_T__"/>
-									<listOptionValue builtIn="false" value="__SIZEOF_INT__"/>
 									<listOptionValue builtIn="false" value="__USER_LABEL_PREFIX__"/>
+									<listOptionValue builtIn="false" value="__SIZEOF_INT__"/>
 									<listOptionValue builtIn="false" value="__LONG_MAX__"/>
 									<listOptionValue builtIn="false" value="__INT16_TYPE__"/>
 									<listOptionValue builtIn="false" value="__INT8_C(c)"/>
@@ -509,23 +491,23 @@
 									<listOptionValue builtIn="false" value="__GCC_ATOMIC_CHAR16_T_LOCK_FREE"/>
 									<listOptionValue builtIn="false" value="__CHAR16_TYPE__"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1951413226" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.563972253" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.871747038" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1560372674" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base">
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.298181082" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1077153109" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.346029252" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1288319976" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.base.263388683" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.115133149" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.base.1740871408" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.248554410" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 				</configuration>
 			</storageModule>
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396" moduleId="org.eclipse.cdt.core.settings" name="Nios II">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267" moduleId="org.eclipse.cdt.core.settings" name="Nios II">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -540,25 +522,12 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="spectrumAnalyzer_VHDL_bsp.null.1263725455" name="spectrumAnalyzer_VHDL_bsp"/>
+		<project id="spectrumAnalyzer_VHDL_bsp.null.681461154" name="spectrumAnalyzer_VHDL_bsp"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396.;cdt.managedbuild.tool.gnu.cpp.compiler.base.1243233857;cdt.managedbuild.tool.gnu.cpp.compiler.input.930148144">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
-			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-				<buildOutputProvider>
-					<openAction enabled="true" filePath=""/>
-					<parser enabled="true"/>
-				</buildOutputProvider>
-				<scannerInfoProvider id="specsFile">
-					<runAction arguments="-E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;" command="nios2-elf-g++" useDefault="true"/>
-					<parser enabled="true"/>
-				</scannerInfoProvider>
-			</profile>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.486589396.;cdt.managedbuild.tool.gnu.c.compiler.base.1056761303;cdt.managedbuild.tool.gnu.c.compiler.input.1951413226">
+		<scannerConfigBuildInfo instanceId="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267.;cdt.managedbuild.tool.gnu.c.compiler.base.16037971;cdt.managedbuild.tool.gnu.c.compiler.input.563972253">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
 				<buildOutputProvider>
@@ -571,9 +540,18 @@
 				</scannerInfoProvider>
 			</profile>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1871136267.;cdt.managedbuild.tool.gnu.cpp.compiler.base.674458952;cdt.managedbuild.tool.gnu.cpp.compiler.input.144729275">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;" command="nios2-elf-g++" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="refreshScope" versionNumber="1">
-		<resource resourceType="PROJECT" workspacePath="/spectrumAnalyzer_VHDL_bsp"/>
-	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

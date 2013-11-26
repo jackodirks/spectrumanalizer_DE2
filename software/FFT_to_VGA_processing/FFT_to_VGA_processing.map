@@ -114,8 +114,8 @@ pixel_buffer_dev    0x4               obj/default/main.o
 Memory Configuration
 
 Name             Origin             Length             Attributes
-reset            0x00800000         0x00000020
-onchip_mem       0x00800020         0x00004fe0
+reset            0x00088000         0x00000020
+onchip_mem       0x00088020         0x00004fe0
 *default*        0x00000000         0xffffffff
 
 Linker script and memory map
@@ -131,70 +131,70 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
 LOAD ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a
 END GROUP
 LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a
-                0x00800000                __alt_mem_onchip_mem = 0x800000
+                0x00088000                __alt_mem_onchip_mem = 0x88000
 
-.entry          0x00800000       0x20
+.entry          0x00088000       0x20
  *(.entry)
- .entry         0x00800000       0x20 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
-                0x00800000                __reset
+ .entry         0x00088000       0x20 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
+                0x00088000                __reset
 
-.exceptions     0x00800020      0x120
-                0x00800020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
-                0x00800020                . = ALIGN (0x20)
+.exceptions     0x00088020      0x120
+                0x00088020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x00088020                . = ALIGN (0x20)
  *(.irq)
  *(.exceptions.entry.label)
  .exceptions.entry.label
-                0x00800020        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
-                0x00800020                alt_irq_entry
+                0x00088020        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00088020                alt_irq_entry
  .exceptions.entry.label
-                0x00800020        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
-                0x00800020                alt_exception
+                0x00088020        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00088020                alt_exception
  *(.exceptions.entry.user)
  *(.exceptions.entry)
  .exceptions.entry
-                0x00800020       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00088020       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.irqtest.user)
  *(.exceptions.irqtest)
  .exceptions.irqtest
-                0x00800074       0x10 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00088074       0x10 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.irqhandler.user)
  *(.exceptions.irqhandler)
  .exceptions.irqhandler
-                0x00800084        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00088084        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.irqreturn.user)
  *(.exceptions.irqreturn)
  .exceptions.irqreturn
-                0x00800088        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00088088        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.notirq.label)
  .exceptions.notirq.label
-                0x0080008c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x0008808c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.notirq.user)
  *(.exceptions.notirq)
  .exceptions.notirq
-                0x0080008c        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x0008808c        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.soft.user)
  *(.exceptions.soft)
  *(.exceptions.unknown.user)
  *(.exceptions.unknown)
  .exceptions.unknown
-                0x00800094        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00088094        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.exit.label)
  .exceptions.exit.label
-                0x00800098        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+                0x00088098        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
  .exceptions.exit.label
-                0x00800098        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00088098        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.exit.user)
  *(.exceptions.exit)
  .exceptions.exit
-                0x00800098       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+                0x00088098       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions)
- .exceptions    0x008000ec       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
-                0x008000ec                alt_irq_handler
-                0x00800140                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
-                0x00800020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+ .exceptions    0x000880ec       0x54 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x000880ec                alt_irq_handler
+                0x00088140                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x00088020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x00800140     0x2e0c
-                0x00800140                PROVIDE (stext, ABSOLUTE (.))
+.text           0x00088140     0x2e24
+                0x00088140                PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
  *(.dynsym)
@@ -238,385 +238,385 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  *(.init)
  *(.plt)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x00800140       0x3c ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
-                0x00800140                _start
- .text          0x0080017c      0x294 obj/default/main.o
-                0x0080017c                temp
-                0x008002cc                init
-                0x00800308                main
- .text          0x00800410       0x54 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
-                0x00800410                __extendsfdf2
- .text          0x00800464       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
-                0x00800464                __make_dp
- .text          0x0080049c       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
-                0x0080049c                __unpack_f
- .text          0x00800564      0x314 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
-                0x00800564                __pack_d
- .text          0x00800878       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
-                0x00800878                printf
-                0x008008cc                _printf_r
- .text          0x00800910       0xa4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
-                0x00800910                _puts_r
-                0x008009a0                puts
- .text          0x008009b4       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x008009b4                strlen
- .text          0x008009d4      0x740 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
-                0x00800a54                ___vfprintf_internal_r
-                0x008010f0                __vfprintf_internal
- .text          0x00801114       0xbc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
-                0x00801114                __sfvwrite_small_dev
- .text          0x008011d0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .text          0x008011d0       0x78 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
-                0x008011d0                _write_r
- .text          0x00801248        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .text          0x00801248      0x14c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
-                0x008012c4                __divsi3
-                0x00801324                __modsi3
-                0x00801384                __udivsi3
-                0x0080138c                __umodsi3
- .text          0x00801394       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x00801394                __mulsi3
- .text          0x008013cc       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
-                0x008013ec                alt_load
- .text          0x00801458       0x50 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
-                0x00801458                alt_main
- .text          0x008014a8        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
-                0x008014a8                usleep
- .text          0x008014ac       0xd4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
-                0x008014cc                write
- .text          0x00801580      0x184 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x0080158c                alt_sys_init
-                0x008016e4                alt_irq_init
- .text          0x00801704       0x20 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x00801704                altera_avalon_jtag_uart_write_fd
-                0x00801714                altera_avalon_jtag_uart_read_fd
- .text          0x00801724       0x60 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x00801724                altera_avalon_jtag_uart_read
- .text          0x00801784       0x34 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x00801784                altera_avalon_jtag_uart_write
- .text          0x008017b8       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
-                0x008017b8                alt_avalon_timer_sc_init
- .text          0x00801844      0x12c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
-                0x00801844                alt_up_char_buffer_string
-                0x0080189c                alt_up_char_buffer_draw
-                0x008018f4                alt_up_char_buffer_clear
-                0x00801918                alt_up_char_buffer_open_dev
-                0x00801924                alt_up_char_buffer_init
- .text          0x00801970      0xb68 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
-                0x00801970                helper_plot_pixel
-                0x00801a18                alt_up_pixel_buffer_dma_draw_line
-                0x00801c08                alt_up_pixel_buffer_dma_draw_vline
-                0x00801df0                alt_up_pixel_buffer_dma_draw_hline
-                0x00801fac                alt_up_pixel_buffer_dma_draw_rectangle
-                0x00802078                alt_up_pixel_buffer_dma_draw_box
-                0x008022e4                alt_up_pixel_buffer_dma_clear_screen
-                0x00802390                alt_up_pixel_buffer_dma_swap_buffers
-                0x008023b4                alt_up_pixel_buffer_dma_draw
-                0x00802494                alt_up_pixel_buffer_dma_check_swap_buffers_status
-                0x008024a4                alt_up_pixel_buffer_dma_change_back_buffer_address
-                0x008024cc                alt_up_pixel_buffer_dma_open_dev
- .text          0x008024d8       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
-                0x008024d8                alt_busy_sleep
- .text          0x00802564       0xbc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
-                0x00802584                close
- .text          0x00802620        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
-                0x00802620                alt_dcache_flush_all
- .text          0x00802624        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
- .text          0x0080262c       0x70 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0080262c                alt_dev_llist_insert
- .text          0x0080269c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
- .text          0x0080269c       0x70 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
-                0x0080269c                alt_find_dev
- .text          0x0080270c        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
-                0x0080270c                alt_icache_flush_all
- .text          0x00802710       0x9c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
-                0x00802710                alt_ic_irq_enabled
-                0x00802728                alt_ic_irq_enable
-                0x00802768                alt_ic_irq_disable
-                0x008027a8                alt_ic_isr_register
- .text          0x008027ac       0x6c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
-                0x008027ac                alt_iic_isr_register
- .text          0x00802818      0x114 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
-                0x008028a0                alt_io_redirect
- .text          0x0080292c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
- .text          0x0080292c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
- .text          0x0080292c        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
- .text          0x0080292c      0x17c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
-                0x0080292c                open
- .text          0x00802aa8       0x5c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
-                0x00802aa8                alt_release_fd
- .text          0x00802b04       0xe0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
-                0x00802b04                alt_alarm_stop
-                0x00802b38                alt_tick
- .text          0x00802be4        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
-                0x00802be4                altera_nios2_qsys_irq_init
- .text          0x00802bec        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
- .text          0x00802bec       0x9c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
-                0x00802bec                alt_find_file
- .text          0x00802c88       0x5c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
-                0x00802c88                alt_get_fd
- .text          0x00802ce4       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
-                0x00802ce4                exit
- .text          0x00802d04       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                0x00802d04                memcmp
- .text          0x00802d40       0x34 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
-                0x00802d40                strcmp
- .text          0x00802d74      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x00802d78                __call_exitprocs
- .text          0x00802f34       0x14 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
-                0x00802f34                _exit
+ .text          0x00088140       0x3c ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
+                0x00088140                _start
+ .text          0x0008817c      0x2ac obj/default/main.o
+                0x0008817c                temp
+                0x000882e4                init
+                0x00088320                main
+ .text          0x00088428       0x54 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+                0x00088428                __extendsfdf2
+ .text          0x0008847c       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+                0x0008847c                __make_dp
+ .text          0x000884b4       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+                0x000884b4                __unpack_f
+ .text          0x0008857c      0x314 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+                0x0008857c                __pack_d
+ .text          0x00088890       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+                0x00088890                printf
+                0x000888e4                _printf_r
+ .text          0x00088928       0xa4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                0x00088928                _puts_r
+                0x000889b8                puts
+ .text          0x000889cc       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x000889cc                strlen
+ .text          0x000889ec      0x740 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+                0x00088a6c                ___vfprintf_internal_r
+                0x00089108                __vfprintf_internal
+ .text          0x0008912c       0xbc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x0008912c                __sfvwrite_small_dev
+ .text          0x000891e8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .text          0x000891e8       0x78 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+                0x000891e8                _write_r
+ .text          0x00089260        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .text          0x00089260      0x14c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                0x000892dc                __divsi3
+                0x0008933c                __modsi3
+                0x0008939c                __udivsi3
+                0x000893a4                __umodsi3
+ .text          0x000893ac       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x000893ac                __mulsi3
+ .text          0x000893e4       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
+                0x00089404                alt_load
+ .text          0x00089470       0x50 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
+                0x00089470                alt_main
+ .text          0x000894c0        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
+                0x000894c0                usleep
+ .text          0x000894c4       0xd4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
+                0x000894e4                write
+ .text          0x00089598      0x184 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x000895a4                alt_sys_init
+                0x000896fc                alt_irq_init
+ .text          0x0008971c       0x20 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0008971c                altera_avalon_jtag_uart_write_fd
+                0x0008972c                altera_avalon_jtag_uart_read_fd
+ .text          0x0008973c       0x60 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0008973c                altera_avalon_jtag_uart_read
+ .text          0x0008979c       0x34 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0008979c                altera_avalon_jtag_uart_write
+ .text          0x000897d0       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x000897d0                alt_avalon_timer_sc_init
+ .text          0x0008985c      0x12c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x0008985c                alt_up_char_buffer_string
+                0x000898b4                alt_up_char_buffer_draw
+                0x0008990c                alt_up_char_buffer_clear
+                0x00089930                alt_up_char_buffer_open_dev
+                0x0008993c                alt_up_char_buffer_init
+ .text          0x00089988      0xb68 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+                0x00089988                helper_plot_pixel
+                0x00089a30                alt_up_pixel_buffer_dma_draw_line
+                0x00089c20                alt_up_pixel_buffer_dma_draw_vline
+                0x00089e08                alt_up_pixel_buffer_dma_draw_hline
+                0x00089fc4                alt_up_pixel_buffer_dma_draw_rectangle
+                0x0008a090                alt_up_pixel_buffer_dma_draw_box
+                0x0008a2fc                alt_up_pixel_buffer_dma_clear_screen
+                0x0008a3a8                alt_up_pixel_buffer_dma_swap_buffers
+                0x0008a3cc                alt_up_pixel_buffer_dma_draw
+                0x0008a4ac                alt_up_pixel_buffer_dma_check_swap_buffers_status
+                0x0008a4bc                alt_up_pixel_buffer_dma_change_back_buffer_address
+                0x0008a4e4                alt_up_pixel_buffer_dma_open_dev
+ .text          0x0008a4f0       0x8c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                0x0008a4f0                alt_busy_sleep
+ .text          0x0008a57c       0xbc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
+                0x0008a59c                close
+ .text          0x0008a638        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0008a638                alt_dcache_flush_all
+ .text          0x0008a63c        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
+ .text          0x0008a644       0x70 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x0008a644                alt_dev_llist_insert
+ .text          0x0008a6b4        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
+ .text          0x0008a6b4       0x70 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x0008a6b4                alt_find_dev
+ .text          0x0008a724        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x0008a724                alt_icache_flush_all
+ .text          0x0008a728       0x9c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
+                0x0008a728                alt_ic_irq_enabled
+                0x0008a740                alt_ic_irq_enable
+                0x0008a780                alt_ic_irq_disable
+                0x0008a7c0                alt_ic_isr_register
+ .text          0x0008a7c4       0x6c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+                0x0008a7c4                alt_iic_isr_register
+ .text          0x0008a830      0x114 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
+                0x0008a8b8                alt_io_redirect
+ .text          0x0008a944        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .text          0x0008a944        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .text          0x0008a944        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .text          0x0008a944      0x17c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
+                0x0008a944                open
+ .text          0x0008aac0       0x5c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
+                0x0008aac0                alt_release_fd
+ .text          0x0008ab1c       0xe0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
+                0x0008ab1c                alt_alarm_stop
+                0x0008ab50                alt_tick
+ .text          0x0008abfc        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x0008abfc                altera_nios2_qsys_irq_init
+ .text          0x0008ac04        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .text          0x0008ac04       0x9c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
+                0x0008ac04                alt_find_file
+ .text          0x0008aca0       0x5c ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
+                0x0008aca0                alt_get_fd
+ .text          0x0008acfc       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                0x0008acfc                exit
+ .text          0x0008ad1c       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x0008ad1c                memcmp
+ .text          0x0008ad58       0x34 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+                0x0008ad58                strcmp
+ .text          0x0008ad8c      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x0008ad90                __call_exitprocs
+ .text          0x0008af4c       0x14 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
+                0x0008af4c                _exit
  *(.gnu.warning.*)
  *(.fini)
-                0x00802f48                PROVIDE (__etext, ABSOLUTE (.))
-                0x00802f48                PROVIDE (_etext, ABSOLUTE (.))
-                0x00802f48                PROVIDE (etext, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__etext, ABSOLUTE (.))
+                0x0008af60                PROVIDE (_etext, ABSOLUTE (.))
+                0x0008af60                PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00802f48                . = ALIGN (0x4)
-                0x00802f48                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+                0x0008af60                . = ALIGN (0x4)
+                0x0008af60                PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
-                0x00802f48                PROVIDE (__preinit_array_end, ABSOLUTE (.))
-                0x00802f48                PROVIDE (__init_array_start, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__init_array_start, ABSOLUTE (.))
  *(.init_array)
-                0x00802f48                PROVIDE (__init_array_end, ABSOLUTE (.))
-                0x00802f48                PROVIDE (__fini_array_start, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__fini_array_start, ABSOLUTE (.))
  *(.fini_array)
-                0x00802f48                PROVIDE (__fini_array_end, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__fini_array_end, ABSOLUTE (.))
  *(.eh_frame)
  *(.gcc_except_table)
  *(.dynamic)
-                0x00802f48                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x0008af60                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
- .ctors.65535   0x00802f48        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x00802f4c                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x00802f4c                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ .ctors.65535   0x0008af60        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x0008af64                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x0008af64                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x00802f4c                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x0008af64                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x00802f4c                . = ALIGN (0x4)
+                0x0008af64                . = ALIGN (0x4)
 
-.rodata         0x00802f4c      0x15c
-                0x00802f4c                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x00802f4c                . = ALIGN (0x4)
+.rodata         0x0008af64      0x174
+                0x0008af64                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x0008af64                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00802f4c       0xd4 obj/default/main.o
-                0x00802f98                tempFFT
+ .rodata        0x0008af64       0xec obj/default/main.o
+                0x0008afb0                tempFFT
  .rodata.str1.4
-                0x00803020        0x2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+                0x0008b050        0x2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
                                   0x4 (size before relaxing)
- *fill*         0x00803022        0x2 00
+ *fill*         0x0008b052        0x2 00
  .rodata.str1.4
-                0x00803024        0xf ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
+                0x0008b054        0xf ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
                                  0x10 (size before relaxing)
- *fill*         0x00803033        0x1 00
+ *fill*         0x0008b063        0x1 00
  .rodata.str1.4
-                0x00803034       0x4a ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0008b064       0x4a ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
                                  0x5c (size before relaxing)
- *fill*         0x0080307e        0x2 00
+ *fill*         0x0008b0ae        0x2 00
  .rodata.str1.4
-                0x00803080       0x1a ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+                0x0008b0b0       0x1a ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
                                  0x1c (size before relaxing)
- *fill*         0x0080309a        0x2 00
+ *fill*         0x0008b0ca        0x2 00
  .rodata.str1.4
-                0x0080309c        0xc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008b0cc        0xc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
  *(.rodata1)
-                0x008030a8                . = ALIGN (0x4)
-                0x008030a8                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x00802f4c                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x0008b0d8                . = ALIGN (0x4)
+                0x0008b0d8                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x0008af64                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x008030a8      0x39c load address 0x00803444
-                0x008030a8                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x008030a8                . = ALIGN (0x4)
+.rwdata         0x0008b0d8      0x39c load address 0x0008b474
+                0x0008b0d8                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0008b0d8                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x008030a8        0x0 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
- .data          0x008030a8        0x0 obj/default/main.o
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .data          0x008030a8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .data          0x008030a8       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .data          0x00803188        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .data          0x00803188        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .data          0x00803188        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .data          0x00803188        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .data          0x00803188        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
- .data          0x00803188        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
- .data          0x00803188        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
- .data          0x00803188        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
- .data          0x00803188       0xc8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
- .data          0x00803250        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x00803250      0x1a8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
-                0x00803250                alt_dev_null
-                0x00803278                alt_fd_list
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
- .data          0x008033f8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .data          0x008033f8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .data          0x008033f8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .data          0x008033f8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .data          0x008033f8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
-                0x0080b3f8                _gp = ABSOLUTE ((. + 0x8000))
-                0x0080b3f8                PROVIDE (gp, _gp)
+ .data          0x0008b0d8        0x0 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
+ .data          0x0008b0d8        0x0 obj/default/main.o
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .data          0x0008b0d8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .data          0x0008b0d8       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .data          0x0008b1b8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .data          0x0008b1b8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .data          0x0008b1b8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .data          0x0008b1b8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .data          0x0008b1b8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
+ .data          0x0008b1b8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
+ .data          0x0008b1b8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
+ .data          0x0008b1b8        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
+ .data          0x0008b1b8       0xc8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
+ .data          0x0008b280        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0008b280      0x1a8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008b280                alt_dev_null
+                0x0008b2a8                alt_fd_list
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
+ .data          0x0008b428        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .data          0x0008b428        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .data          0x0008b428        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .data          0x0008b428        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .data          0x0008b428        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
+                0x00093428                _gp = ABSOLUTE ((. + 0x8000))
+                0x00093428                PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x008033f8       0x20 obj/default/main.o
-                0x008033f8                ledR
-                0x008033fc                ledG
-                0x00803400                keys
-                0x00803404                character_buffer
-                0x00803408                fftA
-                0x0080340c                pixelBufferName
-                0x00803410                charBufferName
-                0x00803414                maxVal
- .sdata         0x00803418        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
-                0x00803418                _impure_ptr
-                0x0080341c                _global_impure_ptr
- .sdata         0x00803420       0x14 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
-                0x00803420                alt_fs_list
-                0x00803428                alt_dev_list
-                0x00803430                alt_max_fd
- .sdata         0x00803434        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
-                0x00803434                alt_errno
- .sdata         0x00803438        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x00803438                alt_priority_mask
- .sdata         0x0080343c        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
-                0x0080343c                alt_alarm_list
+ .sdata         0x0008b428       0x20 obj/default/main.o
+                0x0008b428                ledR
+                0x0008b42c                ledG
+                0x0008b430                keys
+                0x0008b434                character_buffer
+                0x0008b438                fftA
+                0x0008b43c                pixelBufferName
+                0x0008b440                charBufferName
+                0x0008b444                maxVal
+ .sdata         0x0008b448        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+                0x0008b448                _impure_ptr
+                0x0008b44c                _global_impure_ptr
+ .sdata         0x0008b450       0x14 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
+                0x0008b450                alt_fs_list
+                0x0008b458                alt_dev_list
+                0x0008b460                alt_max_fd
+ .sdata         0x0008b464        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
+                0x0008b464                alt_errno
+ .sdata         0x0008b468        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0008b468                alt_priority_mask
+ .sdata         0x0008b46c        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
+                0x0008b46c                alt_alarm_list
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x00803444                . = ALIGN (0x4)
-                0x00803444                _edata = ABSOLUTE (.)
-                0x00803444                PROVIDE (edata, ABSOLUTE (.))
-                0x00803444                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x00803444                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x0008b474                . = ALIGN (0x4)
+                0x0008b474                _edata = ABSOLUTE (.)
+                0x0008b474                PROVIDE (edata, ABSOLUTE (.))
+                0x0008b474                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0008b474                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x008037e0      0x128
-                0x008037e0                __bss_start = ABSOLUTE (.)
-                0x008037e0                PROVIDE (__sbss_start, ABSOLUTE (.))
-                0x008037e0                PROVIDE (___sbss_start, ABSOLUTE (.))
+.bss            0x0008b810      0x128
+                0x0008b810                __bss_start = ABSOLUTE (.)
+                0x0008b810                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x0008b810                PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x008037e0        0x2 obj/default/main.o
-                0x008037e0                minval
- *fill*         0x008037e2        0x2 00
- .sbss          0x008037e4        0x8 obj/default/main.o
-                0x008037e4                char_buffer_dev
-                0x008037e8                pixel_buffer_dev
- .sbss          0x008037ec        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                0x008037ec                errno
- .sbss          0x008037f0        0xc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
-                0x008037f0                alt_argc
-                0x008037f4                alt_argv
-                0x008037f8                alt_envp
- .sbss          0x008037fc        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x008037fc                alt_irq_active
- .sbss          0x00803800        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
-                0x00803800                _alt_tick_rate
-                0x00803804                _alt_nticks
+ .sbss          0x0008b810        0x2 obj/default/main.o
+                0x0008b810                minval
+ *fill*         0x0008b812        0x2 00
+ .sbss          0x0008b814        0x8 obj/default/main.o
+                0x0008b814                char_buffer_dev
+                0x0008b818                pixel_buffer_dev
+ .sbss          0x0008b81c        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0008b81c                errno
+ .sbss          0x0008b820        0xc ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
+                0x0008b820                alt_argc
+                0x0008b824                alt_argv
+                0x0008b828                alt_envp
+ .sbss          0x0008b82c        0x4 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0008b82c                alt_irq_active
+ .sbss          0x0008b830        0x8 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
+                0x0008b830                _alt_tick_rate
+                0x0008b834                _alt_nticks
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
-                0x00803808                PROVIDE (__sbss_end, ABSOLUTE (.))
-                0x00803808                PROVIDE (___sbss_end, ABSOLUTE (.))
+                0x0008b838                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x0008b838                PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
- .bss           0x00803808        0x0 obj/default/main.o
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .bss           0x00803808        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .bss           0x00803808        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
+ .bss           0x0008b838        0x0 obj/default/main.o
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_load.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_main.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_usleep.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_write.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_character_buffer_with_dma.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_up_avalon_video_pixel_buffer_dma.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_close.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_errno.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_open.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_release_fd.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_tick.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_find_file.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_get_fd.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .bss           0x0008b838        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .bss           0x0008b838        0x0 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x00803808      0x100 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
-                0x00803808                alt_irq
-                0x00803908                . = ALIGN (0x4)
-                0x00803908                __bss_end = ABSOLUTE (.)
+ COMMON         0x0008b838      0x100 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x0008b838                alt_irq
+                0x0008b938                . = ALIGN (0x4)
+                0x0008b938                __bss_end = ABSOLUTE (.)
 
-.onchip_mem     0x00803908        0x0
-                0x00803908                PROVIDE (_alt_partition_onchip_mem_start, ABSOLUTE (.))
+.onchip_mem     0x0008b938        0x0
+                0x0008b938                PROVIDE (_alt_partition_onchip_mem_start, ABSOLUTE (.))
  *(.onchip_mem. onchip_mem.*)
-                0x00803908                . = ALIGN (0x4)
-                0x00803908                PROVIDE (_alt_partition_onchip_mem_end, ABSOLUTE (.))
-                0x00803908                _end = ABSOLUTE (.)
-                0x00803908                end = ABSOLUTE (.)
-                0x00803908                __alt_stack_base = ABSOLUTE (.)
-                0x00803908                PROVIDE (_alt_partition_onchip_mem_load_addr, LOADADDR (.onchip_mem))
+                0x0008b938                . = ALIGN (0x4)
+                0x0008b938                PROVIDE (_alt_partition_onchip_mem_end, ABSOLUTE (.))
+                0x0008b938                _end = ABSOLUTE (.)
+                0x0008b938                end = ABSOLUTE (.)
+                0x0008b938                __alt_stack_base = ABSOLUTE (.)
+                0x0008b938                PROVIDE (_alt_partition_onchip_mem_load_addr, LOADADDR (.onchip_mem))
 
 .stab
  *(.stab)
@@ -837,30 +837,30 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_abbrev  0x00001311       0x60 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
  .debug_abbrev  0x00001371      0x1c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
 
-.debug_line     0x00000000     0x30f0
+.debug_line     0x00000000     0x30ea
  *(.debug_line)
  .debug_line    0x00000000       0x66 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
- .debug_line    0x00000066      0x3d9 obj/default/main.o
- .debug_line    0x0000043f       0xd1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .debug_line    0x00000510       0xe9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .debug_line    0x000005f9      0x197 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .debug_line    0x00000790      0x222 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .debug_line    0x000009b2      0x2be /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .debug_line    0x00000c70      0x2b2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
- .debug_line    0x00000f22      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_line    0x00001172      0x666 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .debug_line    0x000017d8      0x2a9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .debug_line    0x00001a81      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_line    0x00001cb1      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .debug_line    0x00001f4e      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x00002130      0x2c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_line    0x000023f6      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_line    0x00002587       0x6b ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
- .debug_line    0x000025f2       0xab ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
- .debug_line    0x0000269d      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_line    0x000028c0      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_line    0x00002b30      0x260 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
- .debug_line    0x00002d90      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_line    0x00000066      0x3d3 obj/default/main.o
+ .debug_line    0x00000439       0xd1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .debug_line    0x0000050a       0xe9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .debug_line    0x000005f3      0x197 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .debug_line    0x0000078a      0x222 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .debug_line    0x000009ac      0x2be /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .debug_line    0x00000c6a      0x2b2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-puts.o)
+ .debug_line    0x00000f1c      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x0000116c      0x666 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .debug_line    0x000017d2      0x2a9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_line    0x00001a7b      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_line    0x00001cab      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_line    0x00001f48      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x0000212a      0x2c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_line    0x000023f0      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_line    0x00002581       0x6b ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_irq_entry.o)
+ .debug_line    0x000025ec       0xab ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_exception_entry.o)
+ .debug_line    0x00002697      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_line    0x000028ba      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x00002b2a      0x260 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strcmp.o)
+ .debug_line    0x00002d8a      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
 
 .debug_frame    0x00000000      0x3a4
  *(.debug_frame)
@@ -963,11 +963,11 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
                 0x00000000       0x10 ../spectrumAnalyzer_VHDL_bsp//obj/HAL/src/crt0.o
  .debug_alt_sim_info
                 0x00000010       0x30 ../spectrumAnalyzer_VHDL_bsp//libhal_bsp.a(alt_busy_sleep.o)
-                0x00805000                __alt_data_end = 0x805000
-                0x00805000                PROVIDE (__alt_stack_pointer, __alt_data_end)
-                0x00803908                PROVIDE (__alt_stack_limit, __alt_stack_base)
-                0x00803908                PROVIDE (__alt_heap_start, end)
-                0x00805000                PROVIDE (__alt_heap_limit, 0x805000)
+                0x0008d000                __alt_data_end = 0x8d000
+                0x0008d000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                0x0008b938                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0008b938                PROVIDE (__alt_heap_start, end)
+                0x0008d000                PROVIDE (__alt_heap_limit, 0x8d000)
 OUTPUT(FFT_to_VGA_processing.elf elf32-littlenios2)
 
 .debug_ranges   0x00000000      0x1f8
