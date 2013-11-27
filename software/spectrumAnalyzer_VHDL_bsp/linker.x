@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Tue Nov 26 11:03:45 CET 2013
+ * Generated: Wed Nov 27 17:00:17 CET 2013
  */
 
 /*
@@ -50,12 +50,13 @@
 
 MEMORY
 {
-    reset : ORIGIN = 0x88000, LENGTH = 32
-    onchip_mem : ORIGIN = 0x88020, LENGTH = 20448
+    SRAM_BEFORE_RESET : ORIGIN = 0x0, LENGTH = 323584
+    reset : ORIGIN = 0x4f000, LENGTH = 32
+    SRAM : ORIGIN = 0x4f020, LENGTH = 200672
 }
 
 /* Define symbols for each memory base-address */
-__alt_mem_onchip_mem = 0x88000;
+__alt_mem_SRAM = 0x0;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",
@@ -110,7 +111,7 @@ SECTIONS
         KEEP (*(.exceptions.exit));
         KEEP (*(.exceptions));
         PROVIDE (__ram_exceptions_end = ABSOLUTE(.));
-    } > onchip_mem
+    } > SRAM
 
     PROVIDE (__flash_exceptions_start = LOADADDR(.exceptions));
 
@@ -206,7 +207,7 @@ SECTIONS
         PROVIDE (__DTOR_END__ = ABSOLUTE(.));
         KEEP (*(.jcr))
         . = ALIGN(4);
-    } > onchip_mem = 0x3a880100 /* Nios II NOP instruction */
+    } > SRAM = 0x3a880100 /* Nios II NOP instruction */
 
     .rodata :
     {
@@ -216,7 +217,7 @@ SECTIONS
         *(.rodata1)
         . = ALIGN(4);
         PROVIDE (__ram_rodata_end = ABSOLUTE(.));
-    } > onchip_mem
+    } > SRAM
 
     PROVIDE (__flash_rodata_start = LOADADDR(.rodata));
 
@@ -250,7 +251,7 @@ SECTIONS
         _edata = ABSOLUTE(.);
         PROVIDE (edata = ABSOLUTE(.));
         PROVIDE (__ram_rwdata_end = ABSOLUTE(.));
-    } > onchip_mem
+    } > SRAM
 
     PROVIDE (__flash_rwdata_start = LOADADDR(.rwdata));
 
@@ -281,7 +282,7 @@ SECTIONS
 
         . = ALIGN(4);
         __bss_end = ABSOLUTE(.);
-    } > onchip_mem
+    } > SRAM
 
     /*
      *
@@ -306,18 +307,18 @@ SECTIONS
      *
      */
 
-    .onchip_mem LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    .SRAM LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
     {
-        PROVIDE (_alt_partition_onchip_mem_start = ABSOLUTE(.));
-        *(.onchip_mem. onchip_mem.*)
+        PROVIDE (_alt_partition_SRAM_start = ABSOLUTE(.));
+        *(.SRAM. SRAM.*)
         . = ALIGN(4);
-        PROVIDE (_alt_partition_onchip_mem_end = ABSOLUTE(.));
+        PROVIDE (_alt_partition_SRAM_end = ABSOLUTE(.));
         _end = ABSOLUTE(.);
         end = ABSOLUTE(.);
         __alt_stack_base = ABSOLUTE(.);
-    } > onchip_mem
+    } > SRAM
 
-    PROVIDE (_alt_partition_onchip_mem_load_addr = LOADADDR(.onchip_mem));
+    PROVIDE (_alt_partition_SRAM_load_addr = LOADADDR(.SRAM));
 
     /*
      * Stabs debugging sections.
@@ -366,7 +367,7 @@ SECTIONS
 /*
  * Don't override this, override the __alt_stack_* symbols instead.
  */
-__alt_data_end = 0x8d000;
+__alt_data_end = 0x80000;
 
 /*
  * The next two symbols define the location of the default stack.  You can
@@ -382,4 +383,4 @@ PROVIDE( __alt_stack_limit   = __alt_stack_base );
  * Override this symbol to put the heap in a different memory.
  */
 PROVIDE( __alt_heap_start    = end );
-PROVIDE( __alt_heap_limit    = 0x8d000 );
+PROVIDE( __alt_heap_limit    = 0x80000 );

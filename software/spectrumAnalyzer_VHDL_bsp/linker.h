@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Tue Nov 26 11:03:45 CET 2013
+ * Generated: Wed Nov 27 16:53:15 CET 2013
  */
 
 /*
@@ -65,10 +65,12 @@
  *
  */
 
-#define ONCHIP_MEM_REGION_BASE 0x88020
-#define ONCHIP_MEM_REGION_SPAN 20448
-#define RESET_REGION_BASE 0x88000
+#define RESET_REGION_BASE 0x4f000
 #define RESET_REGION_SPAN 32
+#define SRAM_BEFORE_RESET_REGION_BASE 0x0
+#define SRAM_BEFORE_RESET_REGION_SPAN 323584
+#define SRAM_REGION_BASE 0x4f020
+#define SRAM_REGION_SPAN 200672
 
 
 /*
@@ -76,11 +78,11 @@
  *
  */
 
-#define ALT_EXCEPTIONS_DEVICE ONCHIP_MEM
-#define ALT_RESET_DEVICE ONCHIP_MEM
-#define ALT_RODATA_DEVICE ONCHIP_MEM
-#define ALT_RWDATA_DEVICE ONCHIP_MEM
-#define ALT_TEXT_DEVICE ONCHIP_MEM
+#define ALT_EXCEPTIONS_DEVICE SRAM
+#define ALT_RESET_DEVICE SRAM
+#define ALT_RODATA_DEVICE SRAM
+#define ALT_RWDATA_DEVICE SRAM
+#define ALT_TEXT_DEVICE SRAM
 
 
 /*

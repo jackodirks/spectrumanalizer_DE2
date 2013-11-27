@@ -12,7 +12,7 @@
 #define RED 0xf800 //1111000000000
 #define GREEN 0x7e0 //0000111110000
 #define BLUE 0x1f //0000000001111
-#define USLEEP_TIME 1000000
+#define USLEEP_TIME 10000
 
 //Declarations of positions of buffers and hardware components
 volatile int * ledR = (int*) 0x00093050;
@@ -25,7 +25,7 @@ volatile float* fftA = (float *)0x4B000; //FFT A buffer
 //Global vars
 //Device names
 const char* pixelBufferName = "/dev/VGA_Pixel_Buffer";
-const char* charBufferName = "/dev/VGA_Character_buffer_avalon_char_control_slave";
+const char* charBufferName = "/dev/VGA_Character_buffer";
 //Device pointers
 alt_up_pixel_buffer_dma_dev *pixel_buffer_dev;
 alt_up_char_buffer_dev *char_buffer_dev;
@@ -62,26 +62,39 @@ void temp(void){
 	//Test the SRAM buffer
 	for (x = 0; x < TEMPROW; ++x){
 		for (y = 0 ; y < TEMPCOLMN; ++y){
-			//printf("Row %d, Colmn %d: %F\n",x,y,fftA[y*TEMPCOLMN+x]);
-			printf("Printing tempFFT: row %d, colmn %d: %F\n",x,y,tempFFT[x][y]);
+			printf("Row %d, Colmn %d: %f\n",x,y,fftA[y*TEMPCOLMN+x]);
+			//printf("Printing tempFFT: row %d, colmn %d: %f\n",x,y,tempFFT[x][y]);
 		}
 	}
+	printf("Done with TEMP stuff\n");
 }
 //This function initializes everything to get it prepared for work
-void init(void){
+int init(void){
 	pixel_buffer_dev = alt_up_pixel_buffer_dma_open_dev(pixelBufferName); //Init HAL for pixelbuffer
+	if (pixel_buffer_dev == NULL){
+		printf("Error! pixel_buffer_dev == NULL!\n");
+		return 1;
+	}
 	char_buffer_dev = alt_up_char_buffer_open_dev(charBufferName); //Init HAL for char buffer
+	if (char_buffer_dev == NULL){
+		printf("Error! char_buffer_dev == NULL!\n");
+		return 1;
+	}
+	return 0;
 }
 
 int main(void){
 	temp();
-	init();
+	if (init()) return -1;
+	alt_up_char_buffer_clear(char_buffer_dev);
+	alt_up_char_buffer_string(char_buffer_dev,"Hello",38,30);
 	int colors[3] = {RED,GREEN,BLUE};
 	int colorIndicator = 0;
 	int buffer = 1;
 	while(1){
 		if ( colorIndicator > 2 ) colorIndicator = 0;
 		alt_up_pixel_buffer_dma_clear_screen(pixel_buffer_dev, buffer);  //Clear the buffer
+		printf("Here!");
 		// draw something to the back buffer
 		alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, 0, 0, 319, 239, colors[colorIndicator++], buffer);
 		//VGA_box (0, 0, 319, 239, 0, pixelBuffer); // clear screen
@@ -91,6 +104,9 @@ int main(void){
 			return -1;
 		}
 		while (alt_up_pixel_buffer_dma_check_swap_buffers_status(pixel_buffer_dev));
+		//Invert the buffer
+		//if (buffer) buffer = 0;
+		//else buffer = 1;
 		//Sleep, softly.
 		usleep(USLEEP_TIME);
 	}

@@ -155,31 +155,11 @@ ACDS_VERSION := 13.0sp1
 SIM_OPTIMIZE ?= 0
 
 # The CPU reset address as needed by elf2flash
-RESET_ADDRESS ?= 0x00088000
+RESET_ADDRESS ?= 0x0004f000
 
 #-------------------------------------
 # Pre-Initialized Memory Descriptions
 #-------------------------------------
-
-# Memory: onchip_mem
-MEM_0 := nios2VGA_onchip_mem
-$(MEM_0)_NAME := onchip_mem
-$(MEM_0)_MEM_INIT_FILE_PARAM_NAME := INIT_FILE
-HEX_FILES += $(MEM_INIT_DIR)/$(MEM_0).hex
-MEM_INIT_INSTALL_FILES += $(MEM_INIT_INSTALL_DIR)/$(MEM_0).hex
-DAT_FILES += $(HDL_SIM_DIR)/$(MEM_0).dat
-HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_0).dat
-SYM_FILES += $(HDL_SIM_DIR)/$(MEM_0).sym
-HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_0).sym
-$(MEM_0)_START := 0x00088000
-$(MEM_0)_END := 0x0008cfff
-$(MEM_0)_HIERARCHICAL_PATH := onchip_mem
-$(MEM_0)_WIDTH := 32
-$(MEM_0)_ENDIANNESS := --little-endian-mem
-$(MEM_0)_CREATE_LANES := 0
-
-.PHONY: onchip_mem
-onchip_mem: check_elf_exists $(MEM_INIT_DIR)/$(MEM_0).hex $(HDL_SIM_DIR)/$(MEM_0).dat $(HDL_SIM_DIR)/$(MEM_0).sym
 
 
 #END OF BSP SPECIFIC

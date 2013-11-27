@@ -208,11 +208,11 @@
          type = "boolean";
       }
    }
-   element green_led_pio.s1
+   element sys_clk_timer.s1
    {
       datum baseAddress
       {
-         value = "528416";
+         value = "528384";
          type = "String";
       }
    }
@@ -224,11 +224,11 @@
          type = "String";
       }
    }
-   element sys_clk_timer.s1
+   element green_led_pio.s1
    {
       datum baseAddress
       {
-         value = "528384";
+         value = "528416";
          type = "String";
       }
    }
@@ -273,7 +273,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1385541533337" />
+ <parameter name="timeStamp" value="1385564588319" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -362,8 +362,8 @@
   <parameter name="mpu_numOfDataRegion" value="8" />
   <parameter name="mmu_TLBMissExcOffset" value="0" />
   <parameter name="debug_jtagInstanceID" value="0" />
-  <parameter name="resetOffset" value="315392" />
-  <parameter name="exceptionOffset" value="315424" />
+  <parameter name="resetOffset" value="323584" />
+  <parameter name="exceptionOffset" value="323616" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuID_stored" value="0" />
   <parameter name="breakOffset" value="32" />
@@ -579,7 +579,7 @@
    version="12.0"
    enabled="1"
    name="VGA_Pixel_Buffer">
-  <parameter name="addr_mode" value="X-Y" />
+  <parameter name="addr_mode" value="Consecutive" />
   <parameter name="start_address" value="0" />
   <parameter name="back_start_address" value="153600" />
   <parameter name="image_width" value="320" />
@@ -961,6 +961,11 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection
+   kind="reset"
+   version="13.0"
+   start="external_clocks.sys_clk_reset"
+   end="cpu.reset_n" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

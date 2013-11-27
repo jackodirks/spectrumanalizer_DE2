@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Tue Nov 26 11:15:52 CET 2013
+ * Generated: Wed Nov 27 16:53:15 CET 2013
  */
 
 /*
@@ -62,7 +62,7 @@
 
 #define ALT_CPU_ARCHITECTURE "altera_nios2_qsys"
 #define ALT_CPU_BIG_ENDIAN 0
-#define ALT_CPU_BREAK_ADDR 0x92820
+#define ALT_CPU_BREAK_ADDR 0x80820
 #define ALT_CPU_CPU_FREQ 200000000u
 #define ALT_CPU_CPU_ID_SIZE 1
 #define ALT_CPU_CPU_ID_VALUE 0x00000000
@@ -71,7 +71,7 @@
 #define ALT_CPU_DCACHE_LINE_SIZE 0
 #define ALT_CPU_DCACHE_LINE_SIZE_LOG2 0
 #define ALT_CPU_DCACHE_SIZE 0
-#define ALT_CPU_EXCEPTION_ADDR 0x88020
+#define ALT_CPU_EXCEPTION_ADDR 0x4f020
 #define ALT_CPU_FLUSHDA_SUPPORTED
 #define ALT_CPU_FREQ 200000000
 #define ALT_CPU_HARDWARE_DIVIDE_PRESENT 0
@@ -85,7 +85,7 @@
 #define ALT_CPU_ICACHE_SIZE 0
 #define ALT_CPU_INST_ADDR_WIDTH 0x14
 #define ALT_CPU_NAME "cpu"
-#define ALT_CPU_RESET_ADDR 0x88000
+#define ALT_CPU_RESET_ADDR 0x4f000
 
 
 /*
@@ -94,7 +94,7 @@
  */
 
 #define NIOS2_BIG_ENDIAN 0
-#define NIOS2_BREAK_ADDR 0x92820
+#define NIOS2_BREAK_ADDR 0x80820
 #define NIOS2_CPU_FREQ 200000000u
 #define NIOS2_CPU_ID_SIZE 1
 #define NIOS2_CPU_ID_VALUE 0x00000000
@@ -103,7 +103,7 @@
 #define NIOS2_DCACHE_LINE_SIZE 0
 #define NIOS2_DCACHE_LINE_SIZE_LOG2 0
 #define NIOS2_DCACHE_SIZE 0
-#define NIOS2_EXCEPTION_ADDR 0x88020
+#define NIOS2_EXCEPTION_ADDR 0x4f020
 #define NIOS2_FLUSHDA_SUPPORTED
 #define NIOS2_HARDWARE_DIVIDE_PRESENT 0
 #define NIOS2_HARDWARE_MULTIPLY_PRESENT 0
@@ -115,7 +115,7 @@
 #define NIOS2_ICACHE_LINE_SIZE_LOG2 0
 #define NIOS2_ICACHE_SIZE 0
 #define NIOS2_INST_ADDR_WIDTH 0x14
-#define NIOS2_RESET_ADDR 0x88000
+#define NIOS2_RESET_ADDR 0x4f000
 
 
 /*
@@ -124,7 +124,6 @@
  */
 
 #define __ALTERA_AVALON_JTAG_UART
-#define __ALTERA_AVALON_ONCHIP_MEMORY2
 #define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_TIMER
@@ -164,19 +163,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x93060
+#define ALT_STDERR_BASE 0x81060
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x93060
+#define ALT_STDIN_BASE 0x81060
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x93060
+#define ALT_STDOUT_BASE 0x81060
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -204,7 +203,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Character_buffer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
-#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x93050
+#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x81050
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/VGA_Character_buffer_avalon_char_control_slave"
@@ -218,7 +217,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define VGA_PIXEL_BUFFER_BASE 0x93030
+#define VGA_PIXEL_BUFFER_BASE 0x81030
 #define VGA_PIXEL_BUFFER_IRQ -1
 #define VGA_PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_PIXEL_BUFFER_NAME "/dev/VGA_Pixel_Buffer"
@@ -232,7 +231,7 @@
  */
 
 #define ALT_MODULE_CLASS_green_led_pio altera_avalon_pio
-#define GREEN_LED_PIO_BASE 0x93020
+#define GREEN_LED_PIO_BASE 0x81020
 #define GREEN_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LED_PIO_CAPTURE 0
@@ -269,7 +268,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x93060
+#define JTAG_UART_BASE 0x81060
 #define JTAG_UART_IRQ 16
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -282,41 +281,12 @@
 
 
 /*
- * onchip_mem configuration
- *
- */
-
-#define ALT_MODULE_CLASS_onchip_mem altera_avalon_onchip_memory2
-#define ONCHIP_MEM_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
-#define ONCHIP_MEM_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
-#define ONCHIP_MEM_BASE 0x88000
-#define ONCHIP_MEM_CONTENTS_INFO ""
-#define ONCHIP_MEM_DUAL_PORT 0
-#define ONCHIP_MEM_GUI_RAM_BLOCK_TYPE "AUTO"
-#define ONCHIP_MEM_INIT_CONTENTS_FILE "nios2VGA_onchip_mem"
-#define ONCHIP_MEM_INIT_MEM_CONTENT 1
-#define ONCHIP_MEM_INSTANCE_ID "NONE"
-#define ONCHIP_MEM_IRQ -1
-#define ONCHIP_MEM_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define ONCHIP_MEM_NAME "/dev/onchip_mem"
-#define ONCHIP_MEM_NON_DEFAULT_INIT_FILE_ENABLED 0
-#define ONCHIP_MEM_RAM_BLOCK_TYPE "AUTO"
-#define ONCHIP_MEM_READ_DURING_WRITE_MODE "DONT_CARE"
-#define ONCHIP_MEM_SINGLE_CLOCK_OP 0
-#define ONCHIP_MEM_SIZE_MULTIPLE 1
-#define ONCHIP_MEM_SIZE_VALUE 20480
-#define ONCHIP_MEM_SPAN 20480
-#define ONCHIP_MEM_TYPE "altera_avalon_onchip_memory2"
-#define ONCHIP_MEM_WRITABLE 1
-
-
-/*
  * red_led_pio configuration
  *
  */
 
 #define ALT_MODULE_CLASS_red_led_pio altera_avalon_pio
-#define RED_LED_PIO_BASE 0x93040
+#define RED_LED_PIO_BASE 0x81040
 #define RED_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define RED_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define RED_LED_PIO_CAPTURE 0
@@ -344,7 +314,7 @@
 
 #define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
 #define SYS_CLK_TIMER_ALWAYS_RUN 0
-#define SYS_CLK_TIMER_BASE 0x93000
+#define SYS_CLK_TIMER_BASE 0x81000
 #define SYS_CLK_TIMER_COUNTER_SIZE 32
 #define SYS_CLK_TIMER_FIXED_PERIOD 0
 #define SYS_CLK_TIMER_FREQ 200000000
@@ -369,13 +339,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x93058
+#define SYSID_BASE 0x81058
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1385460721
+#define SYSID_TIMESTAMP 1385567097
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

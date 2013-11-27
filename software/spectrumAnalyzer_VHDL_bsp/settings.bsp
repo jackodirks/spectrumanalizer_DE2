@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 26, 2013 11:16:55 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1385461015981</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Nov 27, 2013 5:00:16 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1385568016819</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
@@ -146,7 +146,7 @@
                 <SettingName>hal.linker.exception_stack_memory_region_name</SettingName>
                 <Identifier>NONE</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>onchip_mem</Value>
+                <Value>SRAM_BEFORE_RESET</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>none</DestinationFile>
                 <Description>Name of the existing memory region that will be divided up to create the 'exception_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'exception_stack' memory region.</Description>
@@ -182,7 +182,7 @@
                 <SettingName>hal.linker.interrupt_stack_memory_region_name</SettingName>
                 <Identifier>NONE</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>onchip_mem</Value>
+                <Value>SRAM_BEFORE_RESET</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>none</DestinationFile>
                 <Description>Name of the existing memory region that will be divided up to create the 'interrupt_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'interrupt_stack' memory region.</Description>
@@ -314,7 +314,7 @@
                 <SettingName>hal.make.bsp_cflags_debug</SettingName>
                 <Identifier>BSP_CFLAGS_DEBUG</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>none</Value>
+                <Value>-g</Value>
                 <DefaultValue>-g</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler debug level. '-g' provides the default set of debug symbols typically required to debug a typical application. Omitting '-g' removes debug symbols from the ELF. This setting defines the value of BSP_CFLAGS_DEBUG in Makefile.</Description>
@@ -386,7 +386,7 @@
                 <SettingName>hal.make.bsp_cflags_optimization</SettingName>
                 <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-Os</Value>
+                <Value>-O0</Value>
                 <DefaultValue>-O0</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>
@@ -698,7 +698,7 @@
                 <SettingName>hal.enable_small_c_library</SettingName>
                 <Identifier>NONE</Identifier>
                 <Type>Boolean</Type>
-                <Value>1</Value>
+                <Value>0</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Causes the small newlib (C library) to be used. This reduces code and data footprint at the expense of reduced functionality. Several newlib features are removed such as floating-point support in printf(), stdin input routines, and buffered I/O. The small C library is not compatible with Micrium MicroC/OS-II. If true, adds -msmallc to ALT_LDFLAGS in public.mk.</Description>
@@ -758,7 +758,7 @@
                 <SettingName>hal.enable_reduced_device_drivers</SettingName>
                 <Identifier>ALT_USE_SMALL_DRIVERS</Identifier>
                 <Type>Boolean</Type>
-                <Value>1</Value>
+                <Value>0</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Certain drivers are compiled with reduced functionality to reduce code footprint. Not all drivers observe this setting. The altera_avalon_uart and altera_avalon_jtag_uart drivers switch from interrupt-driven to polled operation. CAUTION: Several device drivers are disabled entirely. These include the altera_avalon_cfi_flash, altera_avalon_epcs_flash_controller, and altera_avalon_lcd_16207 drivers. This can result in certain API (HAL flash access routines) to fail. You can define a symbol provided by each driver to prevent it from being removed. If true, adds -DALT_USE_SMALL_DRIVERS to ALT_CPPFLAGS in public.mk.</Description>
@@ -866,13 +866,49 @@
                 <slaveDescriptor>SRAM</slaveDescriptor>
                 <addressRange>0x00000000 - 0x0007FFFF</addressRange>
                 <addressSpan>524288</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sys_clk_timer</slaveDescriptor>
+                <addressRange>0x00081000 - 0x0008101F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>green_led_pio</slaveDescriptor>
+                <addressRange>0x00081020 - 0x0008102F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>onchip_mem</slaveDescriptor>
-                <addressRange>0x00088000 - 0x0008CFFF</addressRange>
-                <addressSpan>20480</addressSpan>
-                <attributes>memory</attributes>
+                <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
+                <addressRange>0x00081030 - 0x0008103F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>red_led_pio</slaveDescriptor>
+                <addressRange>0x00081040 - 0x0008104F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>VGA_Character_buffer_avalon_char_control_slave</slaveDescriptor>
+                <addressRange>0x00081050 - 0x00081057</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sysid</slaveDescriptor>
+                <addressRange>0x00081058 - 0x0008105F</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>jtag_uart</slaveDescriptor>
+                <addressRange>0x00081060 - 0x00081067</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>VGA_Character_buffer_avalon_char_buffer_slave</slaveDescriptor>
@@ -880,70 +916,28 @@
                 <addressSpan>8192</addressSpan>
                 <attributes/>
         </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>sys_clk_timer</slaveDescriptor>
-                <addressRange>0x00093000 - 0x0009301F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes>timer</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>green_led_pio</slaveDescriptor>
-                <addressRange>0x00093020 - 0x0009302F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
-                <addressRange>0x00093030 - 0x0009303F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>red_led_pio</slaveDescriptor>
-                <addressRange>0x00093040 - 0x0009304F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>VGA_Character_buffer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x00093050 - 0x00093057</addressRange>
-                <addressSpan>8</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x00093058 - 0x0009305F</addressRange>
-                <addressSpan>8</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00093060 - 0x00093067</addressRange>
-                <addressSpan>8</addressSpan>
-                <attributes>printable</attributes>
-        </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rodata</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rwdata</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.bss</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.heap</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.stack</sectionName>
-                <regionName>onchip_mem</regionName>
+                <regionName>SRAM</regionName>
         </LinkerSection>
 </sch:Settings>

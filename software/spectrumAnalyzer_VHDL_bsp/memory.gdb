@@ -3,7 +3,7 @@
 # Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
 # SOPC Builder design path: ../../nios2VGA.sopcinfo
 #
-# Generated: Tue Nov 26 11:03:45 CET 2013
+# Generated: Wed Nov 27 16:53:15 CET 2013
 
 # DO NOT MODIFY THIS FILE
 #
@@ -46,5 +46,5 @@
 # The cache attribute is specified which improves GDB performance
 # by allowing GDB to cache memory contents on the host.
 
-# onchip_mem
-memory 0x88000 0x8d000 cache
+# SRAM
+memory 0x0 0x80000 cache
