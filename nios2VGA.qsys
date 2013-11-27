@@ -16,15 +16,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
-         type = "int";
-      }
-   }
-   element SDRAM
-   {
-      datum _sortIndex
-      {
-         value = "8";
+         value = "14";
          type = "int";
       }
    }
@@ -32,7 +24,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -40,7 +32,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "13";
          type = "int";
       }
    }
@@ -48,7 +40,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "16";
          type = "int";
       }
    }
@@ -56,7 +48,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "15";
          type = "int";
       }
    }
@@ -64,7 +56,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "10";
          type = "int";
       }
    }
@@ -72,7 +64,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "12";
          type = "int";
       }
    }
@@ -88,7 +80,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "11";
          type = "int";
       }
    }
@@ -170,7 +162,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "9";
          type = "int";
       }
    }
@@ -216,11 +208,11 @@
          type = "boolean";
       }
    }
-   element sys_clk_timer.s1
+   element green_led_pio.s1
    {
       datum baseAddress
       {
-         value = "528384";
+         value = "528416";
          type = "String";
       }
    }
@@ -232,19 +224,11 @@
          type = "String";
       }
    }
-   element green_led_pio.s1
+   element sys_clk_timer.s1
    {
       datum baseAddress
       {
-         value = "528416";
-         type = "String";
-      }
-   }
-   element SDRAM.s1
-   {
-      datum baseAddress
-      {
-         value = "16777216";
+         value = "528384";
          type = "String";
       }
    }
@@ -289,7 +273,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1385467597654" />
+ <parameter name="timeStamp" value="1385541533337" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -324,7 +308,6 @@
    internal="external_clocks.sdram_clk"
    type="clock"
    dir="start" />
- <interface name="sdram_wire" internal="SDRAM.wire" type="conduit" dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="200000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -379,15 +362,15 @@
   <parameter name="mpu_numOfDataRegion" value="8" />
   <parameter name="mmu_TLBMissExcOffset" value="0" />
   <parameter name="debug_jtagInstanceID" value="0" />
-  <parameter name="resetOffset" value="0" />
-  <parameter name="exceptionOffset" value="32" />
+  <parameter name="resetOffset" value="315392" />
+  <parameter name="exceptionOffset" value="315424" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuID_stored" value="0" />
   <parameter name="breakOffset" value="32" />
   <parameter name="userDefinedSettings" value="" />
-  <parameter name="resetSlave" value="SDRAM.s1" />
+  <parameter name="resetSlave">SRAM.avalon_sram_slave</parameter>
   <parameter name="mmu_TLBMissExcSlave" value="None" />
-  <parameter name="exceptionSlave" value="SDRAM.s1" />
+  <parameter name="exceptionSlave">SRAM.avalon_sram_slave</parameter>
   <parameter name="breakSlave">cpu.jtag_debug_module</parameter>
   <parameter name="setting_perfCounterWidth" value="32" />
   <parameter name="setting_interruptControllerType" value="Internal" />
@@ -422,7 +405,7 @@
   <parameter name="ocimem_ramBlockType" value="Automatic" />
   <parameter name="mmu_ramBlockType" value="Automatic" />
   <parameter name="bht_ramBlockType" value="Automatic" />
-  <parameter name="instAddrWidth" value="25" />
+  <parameter name="instAddrWidth" value="20" />
   <parameter name="dataAddrWidth" value="20" />
   <parameter name="tightlyCoupledDataMaster0AddrWidth" value="1" />
   <parameter name="tightlyCoupledDataMaster1AddrWidth" value="1" />
@@ -432,7 +415,7 @@
   <parameter name="tightlyCoupledInstructionMaster1AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='SDRAM.s1' start='0x1000000' end='0x1800000' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /></address-map>]]></parameter>
   <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='green_led_pio.s1' start='0x81020' end='0x81030' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81030' end='0x81040' /><slave name='red_led_pio.s1' start='0x81040' end='0x81050' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81050' end='0x81058' /><slave name='sysid.control_slave' start='0x81058' end='0x81060' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81060' end='0x81068' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="200000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
@@ -637,35 +620,6 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="9" />
   <parameter name="clockRate" value="200000000" />
- </module>
- <module
-   kind="altera_avalon_new_sdram_controller"
-   version="13.0.1.99.2"
-   enabled="1"
-   name="SDRAM">
-  <parameter name="TAC" value="5.5" />
-  <parameter name="TRCD" value="20.0" />
-  <parameter name="TRFC" value="70.0" />
-  <parameter name="TRP" value="20.0" />
-  <parameter name="TWR" value="14.0" />
-  <parameter name="casLatency" value="3" />
-  <parameter name="columnWidth" value="8" />
-  <parameter name="dataWidth" value="16" />
-  <parameter name="generateSimulationModel" value="false" />
-  <parameter name="initRefreshCommands" value="2" />
-  <parameter name="model">single_Micron_MT48LC4M32B2_7_chip</parameter>
-  <parameter name="numberOfBanks" value="4" />
-  <parameter name="numberOfChipSelects" value="1" />
-  <parameter name="pinsSharedViaTriState" value="false" />
-  <parameter name="powerUpDelay" value="100.0" />
-  <parameter name="refreshPeriod" value="15.625" />
-  <parameter name="rowWidth" value="12" />
-  <parameter name="masteredTristateBridgeSlave" value="0" />
-  <parameter name="TMRD" value="3" />
-  <parameter name="initNOPDelay" value="0.0" />
-  <parameter name="registerDataIn" value="true" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="componentName" value="$${FILENAME}_SDRAM" />
  </module>
  <connection
    kind="avalon"
@@ -999,23 +953,12 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
-   kind="clock"
-   version="13.0"
-   start="external_clocks.sys_clk"
-   end="SDRAM.clk" />
- <connection kind="reset" version="13.0" start="clk_0.clk_reset" end="SDRAM.reset" />
- <connection
-   kind="reset"
-   version="13.0"
-   start="cpu.jtag_debug_module_reset"
-   end="SDRAM.reset" />
- <connection
    kind="avalon"
    version="13.0"
    start="cpu.instruction_master"
-   end="SDRAM.s1">
+   end="SRAM.avalon_sram_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000000" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
