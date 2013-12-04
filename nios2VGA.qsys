@@ -273,7 +273,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1385564588319" />
+ <parameter name="timeStamp" value="1385974562667" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -309,7 +309,7 @@
    type="clock"
    dir="start" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
-  <parameter name="clockFrequency" value="200000000" />
+  <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
@@ -417,7 +417,7 @@
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /></address-map>]]></parameter>
   <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='green_led_pio.s1' start='0x81020' end='0x81030' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81030' end='0x81040' /><slave name='red_led_pio.s1' start='0x81040' end='0x81050' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81050' end='0x81058' /><slave name='sysid.control_slave' start='0x81058' end='0x81060' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81060' end='0x81068' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
-  <parameter name="clockFrequency" value="200000000" />
+  <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="65538" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
@@ -462,7 +462,7 @@
   <parameter name="resetOutput" value="false" />
   <parameter name="snapshot" value="true" />
   <parameter name="timeoutPulseOutput" value="false" />
-  <parameter name="systemFrequency" value="200000000" />
+  <parameter name="systemFrequency" value="50000000" />
  </module>
  <module
    kind="altera_avalon_sysid_qsys"
@@ -471,7 +471,7 @@
    name="sysid">
   <parameter name="id" value="0" />
   <parameter name="timestamp" value="0" />
-  <parameter name="AUTO_CLK_CLOCK_RATE" value="200000000" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <module
@@ -490,7 +490,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="18" />
-  <parameter name="clockRate" value="200000000" />
+  <parameter name="clockRate" value="50000000" />
  </module>
  <module
    kind="altera_up_clocks"
@@ -503,7 +503,7 @@
   <parameter name="vga_clk" value="true" />
   <parameter name="audio_clk" value="false" />
   <parameter name="audio_clk_freq" value="12.288" />
-  <parameter name="AUTO_CLK_IN_PRIMARY_CLOCK_RATE" value="200000000" />
+  <parameter name="AUTO_CLK_IN_PRIMARY_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <module
@@ -619,7 +619,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="9" />
-  <parameter name="clockRate" value="200000000" />
+  <parameter name="clockRate" value="50000000" />
  </module>
  <connection
    kind="avalon"

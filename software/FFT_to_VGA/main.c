@@ -12,15 +12,16 @@
 #define RED 0xf800 //1111000000000
 #define GREEN 0x7e0 //0000111110000
 #define BLUE 0x1f //0000000001111
-#define USLEEP_TIME 10000
+#define USLEEP_TIME 10000 //Sleep Time
+#define BACKGROUNDCOLOR 0x0 //Black background
+#define SYSLINECOLOR 0xFFFF //White lines for the "system" lines
+#define INFOCOLOR RED //Red lines that contain the true information
 
 //Declarations of positions of buffers and hardware components
 volatile int * ledR = (int*) 0x00093050;
 volatile int * ledG = (int*) 0x00093030;
-volatile char * character_buffer = (char *) 0x00090000;	// VGA character buffer
 volatile float* fftA = (float *)0x4B000; //FFT A buffer
-//volatile float* fftB = (float *)0x4B800; //FFT B buffer
-
+volatile float* fftB = (float *)0x4D000; //FFT B buffer
 
 //Global vars
 //Device names
@@ -31,25 +32,31 @@ alt_up_pixel_buffer_dma_dev *pixel_buffer_dev;
 alt_up_char_buffer_dev *char_buffer_dev;
 //The values is value in Hz /1000 (steps of 1 KHz)
 unsigned short minval = 0;
-unsigned short maxVal = 1;
+unsigned short maxVal = 100;
 
 #include "FFT_temp.h"
 
 //This function does stuff that does not belong in the final version
 void temp(void){
 	//Write the const data to the mem
-	printf ("%f\n",0.22);
 	int x,y;
 	for (x = 0; x < TEMPROW; ++x){
 		for (y = 0 ; y < TEMPCOLMN; ++y){
-			fftA[y*TEMPCOLMN+x] = tempFFT[x][y];
+			fftA[x*TEMPCOLMN+y] = tempFFT[x][y];
+			fftB[x*TEMPCOLMN+y] = tempFFT[x][y];
 		}
 	}
 	//Test the SRAM buffer
 	for (x = 0; x < TEMPROW; ++x){
 		for (y = 0 ; y < TEMPCOLMN; ++y){
-			printf("Row %d, Colmn %d: %f\n",x,y,fftA[y*TEMPCOLMN+x]);
-			//printf("Printing tempFFT: row %d, colmn %d: %f\n",x,y,tempFFT[x][y]);
+			//printf("Row %d, Colmn %d: %f\n",x,y,tempFFT[x][y]);
+			//printf("Printing fftA: row %d, colmn %d: %f\n",x,y,fftA[x*TEMPCOLMN +y]);
+			if (fftA[x*TEMPCOLMN +y] != tempFFT[x][y]){
+				printf("Error: buffer A inconsistent at x=%d, y=%d (tempFFT = %f, FFTA = %f)", x,y,fftA[x*TEMPCOLMN +y],tempFFT[x][y]);
+			}
+			if (fftB[x*TEMPCOLMN +y] != tempFFT[x][y]){
+				printf("Error: buffer B inconsistent at x=%d, y=%d (tempFFT = %f, FFTB = %f)", x,y,fftA[x*TEMPCOLMN +y],tempFFT[x][y]);
+			}
 		}
 	}
 	printf("Done with TEMP stuff\n");
@@ -70,22 +77,34 @@ int init(void){
 	return 0;
 }
 
+void prepareText(void){
+	alt_up_char_buffer_clear(char_buffer_dev);
+	alt_up_char_buffer_string(char_buffer_dev,"2.5 Vpp",1,0);
+}
+
+void prepareBackground(void){
+	alt_up_pixel_buffer_dma_clear_screen(pixel_buffer_dev, 1);  //Clear the backbuffer
+	alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, 0, 0, 319, 239, BACKGROUNDCOLOR, 1); //Make the backbuffer the correct color
+	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer_dev, 2,  319, 227,SYSLINECOLOR, 1); //Draw the horizontal sysline to the backbuffer
+	alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev, 2, 0, 227,SYSLINECOLOR, 1); //Draw the vertical line
+}
+
 int main(void){
 	temp();
 	if (init()) return -1;
-	alt_up_char_buffer_clear(char_buffer_dev);
-	alt_up_char_buffer_string(char_buffer_dev,"Hello",38,30);
-	int colors[3] = {RED,GREEN,BLUE};
-	int colorIndicator = 0;
-	int buffer = 1;
+
+	//int colors[3] = {RED,GREEN,BLUE};
+	//int colorIndicator = 0;
+	//int buffer = 1;
+	prepareText();
 	while(1){
-		if ( colorIndicator > 2 ) colorIndicator = 0;
-		alt_up_pixel_buffer_dma_clear_screen(pixel_buffer_dev, buffer);  //Clear the buffer
-		printf("Here!");
+		//if ( colorIndicator > 2 ) colorIndicator = 0;
+		//alt_up_pixel_buffer_dma_clear_screen(pixel_buffer_dev, buffer);  //Clear the buffer
 		// draw something to the back buffer
-		alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, 0, 0, 319, 239, colors[colorIndicator++], buffer);
+		//alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, 0, 0, 319, 239, colors[colorIndicator++], buffer);
 		//VGA_box (0, 0, 319, 239, 0, pixelBuffer); // clear screen
 		//VGA_box (0 /*x1*/, 0 /*y1*/, 319 /*x2*/, 239 /*y2*/, colors[colorIndicator++], pixelBuffer);
+		prepareBackground();
 		if (alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer_dev)){
 			printf("Buffer swapping failed!\n");
 			return -1;

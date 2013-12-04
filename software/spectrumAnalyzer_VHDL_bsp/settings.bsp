@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 27, 2013 5:00:16 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1385568016819</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 4, 2013 11:11:21 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1386151881451</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
