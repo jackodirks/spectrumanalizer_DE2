@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 4, 2013 11:11:21 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1386151881451</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 9, 2013 12:56:40 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1386590200779</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
@@ -314,7 +314,7 @@
                 <SettingName>hal.make.bsp_cflags_debug</SettingName>
                 <Identifier>BSP_CFLAGS_DEBUG</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-g</Value>
+                <Value>none</Value>
                 <DefaultValue>-g</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler debug level. '-g' provides the default set of debug symbols typically required to debug a typical application. Omitting '-g' removes debug symbols from the ELF. This setting defines the value of BSP_CFLAGS_DEBUG in Makefile.</Description>
@@ -386,7 +386,7 @@
                 <SettingName>hal.make.bsp_cflags_optimization</SettingName>
                 <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-O0</Value>
+                <Value>-O3</Value>
                 <DefaultValue>-O0</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>

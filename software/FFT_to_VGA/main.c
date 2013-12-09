@@ -43,7 +43,8 @@ const unsigned short drawX0 = 13, drawX1 = 319, drawY0 = 0, drawY1 = 225;
 volatile float* currentFFT = NULL;
 //The values is value in Hz /1000 (steps of 1 KHz)
 unsigned short minval = 0;
-unsigned short maxval = 100;
+unsigned short maxval = 20;
+char rangeChanged = 0;
 //For FPS counting
 time_t lastTime = 0;
 unsigned short frames = 0;
@@ -105,14 +106,7 @@ int init(void){
 	return 0;
 }
 
-void prepareText(void){
-	alt_up_char_buffer_clear(char_buffer_dev);
-	//Chars for the vertical line (Vpp)
-	alt_up_char_buffer_string(char_buffer_dev,"2.5",0,0);
-	alt_up_char_buffer_string(char_buffer_dev," V ",0,29);
-	alt_up_char_buffer_string(char_buffer_dev,"0.0",0,56);
-	//Chars for the horizontal line (KHz) (soft, except for KHz)
-	alt_up_char_buffer_string(char_buffer_dev,"KHz",37,58);
+void displayHorRange(void){
 	char tempstr[3];
 	sprintf(tempstr,"%d",minval);
 	int pos = 3;
@@ -122,7 +116,16 @@ void prepareText(void){
 	alt_up_char_buffer_string(char_buffer_dev,tempstr, pos,57);
 	sprintf(tempstr,"%d",maxval);
 	alt_up_char_buffer_string(char_buffer_dev,tempstr,80 - strlen(tempstr),57);
+}
 
+void prepareText(void){
+	alt_up_char_buffer_clear(char_buffer_dev);
+	//Chars for the vertical line (Vpp)
+	alt_up_char_buffer_string(char_buffer_dev,"2.5",0,0);
+	alt_up_char_buffer_string(char_buffer_dev," V ",0,29);
+	alt_up_char_buffer_string(char_buffer_dev,"0.0",0,56);
+	//Chars for the horizontal line (KHz) (soft, except for KHz)
+	alt_up_char_buffer_string(char_buffer_dev,"KHz",37,58);
 }
 
 void prepareBackground(void){
@@ -156,7 +159,6 @@ void drawGraph(void){
 			if (firstval < 0) firstval = x;
 			elementCount++;
 		}
-		else printf("Out of range: %d,%f\n", x,currentFFT[x*FFTCOLMNS+1]);
 	}
 	//Malloc the necessary size
 	float * voltArray = malloc(sizeof(float) * elementCount);
@@ -183,6 +185,22 @@ void drawGraph(void){
 				//tempPixelFilling = 0;
 			}
 		}
+	} else { //Pixels per element > 1 (so multiple pixels are going to represent the same value)
+		pixelsPerElement = 1/pixelsPerElement; //invert: pixelsPerElement is now elementsPerPixel
+		float element = 0;
+		int x;
+		//Variables for optimalization
+		int lastElement = elementCount; int yPixel = -1; //init lastElement with an impossible value to force recalculation the first time
+		for ( x = drawX0; x < drawX1; ++x){ //We have the Y coördinate, calculate the x one
+			int currentRealElement = (int)element; //Change the float to an int to get the correct value
+			if (currentRealElement != lastElement){ //Calculate the yValue if the currentelement is different from the last calculated one
+				lastElement = currentRealElement;
+				yPixel = (226 - (((float)226/2.5) * voltArray[lastElement]));
+
+			}
+			element+= pixelsPerElement;
+			alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,x,yPixel,drawY1,INFOCOLOR,backbuffer);
+		}
 	}
 	//Free the array and cleanup
 	free(voltArray);
@@ -197,6 +215,7 @@ int main(void){
 	//int colorIndicator = 0;
 	//int buffer = 1;
 	prepareText();
+	displayHorRange();
 	prepareBackground();
 	clearDrawingboard();
 	if (alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer_dev)){
@@ -214,6 +233,10 @@ int main(void){
 		//VGA_box (0 /*x1*/, 0 /*y1*/, 319 /*x2*/, 239 /*y2*/, colors[colorIndicator++], pixelBuffer);
 		clearDrawingboard();
 		drawGraph();
+		if (rangeChanged){
+			rangeChanged = 0;
+			displayHorRange();
+		}
 		if (alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer_dev)){
 			printf("Buffer swapping failed!\n");
 			return -1;
@@ -224,7 +247,7 @@ int main(void){
 		//else buffer = 1;
 		//Sleep, softly.
 		//usleep(USLEEP_TIME);
-		//displayFPS();
+		displayFPS();
 		//printf("%i",time(NULL));
 	}
 	return 0;
