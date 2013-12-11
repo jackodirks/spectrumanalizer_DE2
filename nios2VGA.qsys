@@ -84,6 +84,14 @@
          type = "int";
       }
    }
+   element VHDL_to_Avalon
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+   }
    element VGA_Character_buffer.avalon_char_buffer_slave
    {
       datum _lockedAddress
@@ -273,7 +281,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1385974562667" />
+ <parameter name="timeStamp" value="1386757915104" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -308,6 +316,11 @@
    internal="external_clocks.sdram_clk"
    type="clock"
    dir="start" />
+ <interface
+   name="vhdl_to_avalon_external_interface"
+   internal="VHDL_to_Avalon.external_interface"
+   type="conduit"
+   dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -620,6 +633,17 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="9" />
   <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_up_external_bus_to_avalon_bridge"
+   version="12.0"
+   enabled="1"
+   name="VHDL_to_Avalon">
+  <parameter name="addr_size" value="512" />
+  <parameter name="addr_size_multiplier" value="Kbytes" />
+  <parameter name="data_size" value="128" />
+  <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="25000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <connection
    kind="avalon"
@@ -966,6 +990,30 @@
    version="13.0"
    start="external_clocks.sys_clk_reset"
    end="cpu.reset_n" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="external_clocks.vga_clk"
+   end="VHDL_to_Avalon.clock_reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="cpu.jtag_debug_module_reset"
+   end="VHDL_to_Avalon.clock_reset_reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="VHDL_to_Avalon.clock_reset_reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="VHDL_to_Avalon.avalon_master"
+   end="SRAM.avalon_sram_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
