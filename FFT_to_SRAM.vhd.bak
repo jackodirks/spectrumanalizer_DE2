@@ -1,0 +1,4 @@
+ENTITY FFT_to_SRAM IS
+	PORT(
+	);
+	
