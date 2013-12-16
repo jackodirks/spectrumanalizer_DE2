@@ -63,19 +63,67 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			vhdl_to_avalon_external_interface_write       : in    std_logic                      := 'X';             -- write
 			vhdl_to_avalon_external_interface_write_data  : in    std_logic_vector(127 downto 0) := (others => 'X'); -- write_data
 			vhdl_to_avalon_external_interface_acknowledge : out   std_logic;                                         -- acknowledge
-			vhdl_to_avalon_external_interface_read_data   : out   std_logic_vector(127 downto 0)                     -- read_data
+			vhdl_to_avalon_external_interface_read_data   : out   std_logic_vector(127 downto 0);                    -- read_data
+			control_signals_io_external_connection_export : inout std_logic_vector(3 downto 0)   := (others => 'X')  -- export
 		);
 	end component nios2VGA;
-
+	
+	COMPONENT FFT_to_SRAM IS
+	PORT(
+		clk, ctrl_rcv, nios_ctr_rcv: IN STD_LOGIC;
+		ctrl_snd, nios_ctr_snd : OUT STD_LOGIC := '0' ;
+		data : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+		
+		avalon_address : OUT std_logic_vector(18 downto 0);
+		avalon_byte_enable : OUT std_logic_vector(15 downto 0);
+		avalon_read : OUT STD_LOGIC;
+		avalon_write : OUT STD_LOGIC;
+		avalon_write_data : OUT std_logic_vector(127 DOWNTO 0);
+		avalon_acknowledge : IN STD_LOGIC;
+		avalon_read_data : OUT STD_LOGIC_vector(127 DOWNTO 0)
+	);
+	END COMPONENT FFT_to_SRAM;
+	
+	SIGNAL nios_ctr_nios, nios_ctr_other : STD_LOGIC := '0';
+	SIGNAL avalon_address_ex : std_logic_vector(18 downto 0);
+	SIGNAL avalon_byte_enable_ex : std_logic_vector(15 downto 0);
+	SIGNAL avalon_read_ex, avalon_write_ex, avalon_acknowledge_ex : STD_LOGIC := '0';
+	SIGNAL avalon_write_data_ex, avalon_read_data_ex : STD_LOGIC_vector(127 DOWNTO 0);
 	BEGIN
 	TD_RESET <= '1';
-	
+	fft_to_sram_comp	: FFT_to_SRAM
+	port map(
+		--NIOS 2 signals
+		nios_ctr_snd => nios_ctr_nios,
+		nios_ctr_rcv => nios_ctr_other,
+		
+		--To Avalon signals
+		avalon_address => avalon_address_ex,
+		avalon_byte_enable => avalon_byte_enable_ex,
+		avalon_read => avalon_read_ex,
+		avalon_write => avalon_write_ex,
+		avalon_write_data => avalon_write_data_ex,
+		avalon_acknowledge => avalon_acknowledge_ex,
+		avalon_read_data => avalon_read_data_ex
+	);
 	nios2 : nios2VGA
 		port map (
+			--General stuffs
 			clk_clk => CLOCK_50,
 			reset_reset_n => KEY(0),
 			red_led_pio_external_connection_export => LEDR,
 			green_led_pio_external_connection_export => LEDG,
+			control_signals_io_external_connection_export(0) => nios_ctr_nios, --Commincation to the Nios2
+			control_signals_io_external_connection_export(1) => nios_ctr_other, --Comincation from the Nios2
+			
+			--Configuration For Ex To Avalon
+			vhdl_to_avalon_external_interface_address => avalon_address_ex,
+			vhdl_to_avalon_external_interface_byte_enable => avalon_byte_enable_ex,
+			vhdl_to_avalon_external_interface_read => avalon_read_ex,
+			vhdl_to_avalon_external_interface_write => avalon_write_ex,
+			vhdl_to_avalon_external_interface_write_data => avalon_write_data_ex,
+			vhdl_to_avalon_external_interface_acknowledge => avalon_acknowledge_ex,
+			vhdl_to_avalon_external_interface_read_data => avalon_read_data_ex,
 			
 			vga_controller_external_CLK => VGA_CLK,
 			vga_controller_external_HS => VGA_HS,
@@ -94,5 +142,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			sram_external_interface_OE_N => SRAM_OE_N,
 			sram_external_interface_WE_N => SRAM_WE_N
 		);
+		
+		
 	
 END ARCHITECTURE;

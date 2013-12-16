@@ -16,59 +16,11 @@
    {
       datum _sortIndex
       {
-         value = "14";
-         type = "int";
-      }
-   }
-   element SRAM
-   {
-      datum _sortIndex
-      {
-         value = "8";
-         type = "int";
-      }
-   }
-   element VGA_Character_buffer
-   {
-      datum _sortIndex
-      {
-         value = "13";
-         type = "int";
-      }
-   }
-   element VGA_Controller
-   {
-      datum _sortIndex
-      {
-         value = "16";
-         type = "int";
-      }
-   }
-   element VGA_Dual_Clock_FIFO
-   {
-      datum _sortIndex
-      {
          value = "15";
          type = "int";
       }
    }
-   element VGA_Pixel_Buffer
-   {
-      datum _sortIndex
-      {
-         value = "10";
-         type = "int";
-      }
-   }
-   element VGA_Scaler
-   {
-      datum _sortIndex
-      {
-         value = "12";
-         type = "int";
-      }
-   }
-   element VGA_clock
+   element Control_signals_io
    {
       datum _sortIndex
       {
@@ -76,7 +28,39 @@
          type = "int";
       }
    }
-   element VGA_pixel_RGB_Resampler
+   element SRAM
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element VGA_Character_buffer
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element VGA_Controller
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+   }
+   element VGA_Dual_Clock_FIFO
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+   }
+   element VGA_Pixel_Buffer
    {
       datum _sortIndex
       {
@@ -84,11 +68,35 @@
          type = "int";
       }
    }
+   element VGA_Scaler
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element VGA_clock
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
+   element VGA_pixel_RGB_Resampler
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
    element VHDL_to_Avalon
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -109,7 +117,7 @@
    {
       datum baseAddress
       {
-         value = "528464";
+         value = "528480";
          type = "String";
       }
    }
@@ -117,7 +125,7 @@
    {
       datum baseAddress
       {
-         value = "528432";
+         value = "528448";
          type = "String";
       }
    }
@@ -125,7 +133,7 @@
    {
       datum baseAddress
       {
-         value = "528480";
+         value = "528496";
          type = "String";
       }
    }
@@ -154,7 +162,7 @@
    {
       datum baseAddress
       {
-         value = "528472";
+         value = "528488";
          type = "String";
       }
    }
@@ -170,7 +178,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "10";
          type = "int";
       }
    }
@@ -220,11 +228,11 @@
    {
       datum baseAddress
       {
-         value = "528448";
+         value = "528464";
          type = "String";
       }
    }
-   element green_led_pio.s1
+   element Control_signals_io.s1
    {
       datum baseAddress
       {
@@ -237,6 +245,14 @@
       datum baseAddress
       {
          value = "528384";
+         type = "String";
+      }
+   }
+   element green_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "528432";
          type = "String";
       }
    }
@@ -281,7 +297,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1386853684801" />
+ <parameter name="timeStamp" value="1387195450676" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -319,6 +335,11 @@
  <interface
    name="vhdl_to_avalon_external_interface"
    internal="VHDL_to_Avalon.external_interface"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="control_signals_io_external_connection"
+   internal="Control_signals_io.external_connection"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
@@ -429,7 +450,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='green_led_pio.s1' start='0x81020' end='0x81030' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81030' end='0x81040' /><slave name='red_led_pio.s1' start='0x81040' end='0x81050' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81050' end='0x81058' /><slave name='sysid.control_slave' start='0x81058' end='0x81060' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81060' end='0x81068' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='Control_signals_io.s1' start='0x81020' end='0x81030' /><slave name='green_led_pio.s1' start='0x81030' end='0x81040' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81040' end='0x81050' /><slave name='red_led_pio.s1' start='0x81050' end='0x81060' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81060' end='0x81068' /><slave name='sysid.control_slave' start='0x81068' end='0x81070' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81070' end='0x81078' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="65538" />
@@ -645,6 +666,24 @@
   <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="25000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="Control_signals_io">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Bidir" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
  <connection
    kind="avalon"
    version="13.0"
@@ -676,7 +715,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081060" />
+  <parameter name="baseAddress" value="0x00081070" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="sys_clk_timer.clk" />
@@ -702,7 +741,7 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081058" />
+  <parameter name="baseAddress" value="0x00081068" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="red_led_pio.clk" />
@@ -717,7 +756,7 @@
    start="cpu.data_master"
    end="red_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081040" />
+  <parameter name="baseAddress" value="0x00081050" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="cpu.clk" />
@@ -812,7 +851,7 @@
    start="cpu.data_master"
    end="VGA_Character_buffer.avalon_char_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081050" />
+  <parameter name="baseAddress" value="0x00081060" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -929,7 +968,7 @@
    start="cpu.data_master"
    end="VGA_Pixel_Buffer.avalon_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081030" />
+  <parameter name="baseAddress" value="0x00081040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -973,7 +1012,7 @@
    start="cpu.data_master"
    end="green_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081020" />
+  <parameter name="baseAddress" value="0x00081030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1012,6 +1051,25 @@
    end="SRAM.avalon_sram_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.0"
+   start="clk_0.clk"
+   end="Control_signals_io.clk" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="Control_signals_io.reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="Control_signals_io.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00081020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />

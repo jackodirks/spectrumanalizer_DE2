@@ -13,6 +13,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.ALL;
 
 
 ENTITY FFT_to_SRAM IS
@@ -33,18 +34,63 @@ END FFT_to_SRAM;
 	
 ARCHITECTURE FFT_to_SRAM OF FFT_to_SRAM IS
 BEGIN
-	PROCESS(clk,ctrl_rcv,data,avalon_acknowledge) 
-	VARIABLE ctrl_rcv_old  : STD_LOGIC := '0'; --Indicate if the signal has been flipped
+	PROCESS(clk,ctrl_rcv,nios_ctr_rcv,data,avalon_acknowledge) 
 	VARIABLE writing_data  : STD_LOGIC := '0'; --indicates if we are currently writing to the SRAM
-	VARIABLE nios_ctr_rcv_old : STD_LOGIC := '0'; --Indicates the previous NIOS2 signal
-	CONSTANT buffer_a : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(0x4B800,18)); --Buffer A
-	CONSTANT buffer_b : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(0x4BC00,18)); --Buffer B
+	CONSTANT buffer_a : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(309248,18)); --Buffer A 0x4B800
+	CONSTANT buffer_b : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(310272,18)); --Buffer B 0x4BC00
+	VARIABLE buffer_is_a : BOOLEAN := TRUE; --Indicates if the current buffer is buffer a
+	VARIABLE buffer_ready, send_started, preparation_finished, send_done, backup_buffer_ready : BOOLEAN := FALSE; --Indicates if the NIOS 2 is done with its buffer
+	VARIABLE data_ready : BOOLEAN := FALSE;
+	VARIABLE amount_send : UNSIGNED(6 DOWNTO 0) := TO_UNSIGNED(0,7);
+	VARIABLE ctrl_snd_buf : STD_LOGIC := '0';
 	BEGIN
-		IF FALLING_EDGE(clk) THEN
-			IF NOT ctrl_rcv_old = ctrl_rcv THEN --We can start sending the data
-			
-				
+		IF RISING_EDGE(ctrl_rcv) OR FALLING_EDGE(ctrl_rcv) THEN --A new sample is ready
+			--First, set the address
+			IF preparation_finished = FALSE THEN --Send has not yet started, prepare basic shit for starting
+				IF buffer_is_a = TRUE THEN
+					avalon_address <= buffer_a;
+					buffer_is_a := FALSE;
+				ELSE
+					avalon_address <= buffer_b;
+					buffer_is_a := TRUE;
+				END IF;
+				preparation_finished := TRUE;
 			END IF;
+			data_ready := TRUE;
+			--Preparation done, wait for buffer being ready and start sending
+		END IF;
+		
+		IF preparation_finished = TRUE AND  buffer_ready = TRUE AND data_ready = TRUE THEN --Everything is ready: start sending
+			send_started := TRUE;
+			avalon_write_data <= data;
+			avalon_write <= '1';
+			avalon_read <= '0';
+			data_ready := FALSE;
+		END IF;
+		
+		IF RISING_EDGE(avalon_acknowledge) THEN
+			amount_send := amount_send + 1;
+			IF amount_send = TO_UNSIGNED(128,7) THEN --All data has been send, reset everything
+				preparation_finished := FALSE;
+				buffer_ready := FALSE;
+				send_started := FALSE;
+			END IF;
+			avalon_write <= '0';
+			ctrl_snd_buf := NOT ctrl_snd_buf;
+			ctrl_snd <= ctrl_snd_buf;
+		END IF;
+		
+		IF RISING_EDGE(nios_ctr_rcv) OR FALLING_EDGE(nios_ctr_rcv) THEN
+			IF send_started = TRUE THEN
+				backup_buffer_ready := TRUE;
+			ELSE
+				buffer_ready := TRUE; --IF the vhdl is still sending, write to a temporary backup
+			END IF;
+		END IF;
+		
+		IF backup_buffer_ready = TRUE AND send_started = FALSE THEN --After the write is done, immedeatly notify the system that another buffer can be written
+			buffer_ready := TRUE;
+			backup_buffer_ready := FALSE;
 		END IF;
 	END PROCESS;
 END ARCHITECTURE;
