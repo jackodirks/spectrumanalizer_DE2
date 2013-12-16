@@ -1,5 +1,11 @@
 //http://monash-psychophysics-test.googlecode.com/svn-history/r55/trunk/LowLevel/First_Proto/VGA_SD_Keyboard/Software/hello.c
 
+/*
+ * TODO:
+ * Prevent redraw of screen when nothing has changed
+ * Test
+ */
+
 #include <stdio.h> //printf etc
 #include <unistd.h> //usleep
 #include "stdlib.h"
@@ -27,8 +33,8 @@ typedef enum {frontbuffer, backbuffer} vgaBuffers;
 //Declarations of positions of buffers and hardware components
 volatile int * ledR = (int*) 0x00093050;
 volatile int * ledG = (int*) 0x00093030;
-volatile float* fftA = (float *)0x4B000; //FFT A buffer
-volatile float* fftB = (float *)0x4D000; //FFT B buffer
+volatile unsigned char* fftA = (char *)0x4B000; //FFT A buffer, contains data about height in pixels
+volatile unsigned char* fftB = (char *)0x4B400; //FFT B buffer, contains data about heigt in pixels
 
 //Global vars
 //Device names
@@ -40,7 +46,7 @@ alt_up_char_buffer_dev *char_buffer_dev;
 //Measurements of the drawingboard
 const unsigned short drawX0 = 13, drawX1 = 319, drawY0 = 0, drawY1 = 225;
 //Current FFT buffer
-volatile float* currentFFT = NULL;
+volatile unsigned char* currentFFT = NULL;
 //The values is value in Hz /1000 (steps of 1 KHz)
 unsigned short minval = 0;
 unsigned short maxval = 20;
@@ -50,6 +56,7 @@ time_t lastTime = 0;
 unsigned short frames = 0;
 
 #include "FFT_temp.h"
+#include "cnst_hz.h"
 
 //This is also an temp function
 void displayFPS(void){
@@ -68,25 +75,21 @@ void displayFPS(void){
 void temp(void){
 	//Write the const data to the mem
 	int x,y;
-	for (x = 0; x < FFTROWS; ++x){
-		for (y = 0 ; y < FFTCOLMNS; ++y){
-			fftA[x*FFTCOLMNS+y] = tempFFT[x][y];
-			fftB[x*FFTCOLMNS+y] = tempFFT[x][y];
+	for (x = 0; x < FFTDATAPOINTS; ++x){
+			fftA[x] = tempFFT[x];
+			fftB[x] = tempFFT[x];
 		}
-	}
 	//Test the SRAM buffer
-	for (x = 0; x < FFTROWS; ++x){
-		for (y = 0 ; y < FFTCOLMNS; ++y){
+	for (x = 0; x < FFTDATAPOINTS; ++x){
 			//printf("Row %d, Colmn %d: %f\n",x,y,tempFFT[x][y]);
 			//printf("Printing fftA: row %d, colmn %d: %f\n",x,y,fftA[x*TEMPCOLMN +y]);
-			if (fftA[x*FFTCOLMNS +y] != tempFFT[x][y]){
-				printf("Error: buffer A inconsistent at x=%d, y=%d (tempFFT = %f, FFTA = %f)", x,y,fftA[x*TEMPCOLMN +y],tempFFT[x][y]);
+			if (fftA[x] != tempFFT[x]){
+				printf("Error: buffer A inconsistent at x=%d (tempFFT = %f, FFTA = %f)", x,y,fftA[x],tempFFT[x]);
 			}
 			if (fftB[x*FFTCOLMNS +y] != tempFFT[x][y]){
-				printf("Error: buffer B inconsistent at x=%d, y=%d (tempFFT = %f, FFTB = %f)", x,y,fftA[x*TEMPCOLMN +y],tempFFT[x][y]);
+				printf("Error: buffer B inconsistent at x=%d (tempFFT = %f, FFTB = %f)", x,fftA[x],tempFFT[x]);
 			}
 		}
-	}
 	printf("Done with TEMP stuff\n");
 }
 //This function initializes everything to get it prepared for work
@@ -154,17 +157,17 @@ void clearDrawingboard(void){
 void drawGraph(void){
 	//First: count the amount of points that fits within minval and maxval
 	int elementCount,x = 0, firstval = -1; //firstval indicates the startpoint in the array
-	for (elementCount = 0; currentFFT[x*FFTCOLMNS + 1] <= maxval * 1000 && x < FFTROWS; x++){
-		if (currentFFT[x*FFTCOLMNS+1] >= minval*1000 ){
+	for (elementCount = 0; currentFFT[x] <= maxval * 1000 && x < FFTDATAPOINTS; x++){
+		if (cnst_hz[x] >= minval*1000 ){
 			if (firstval < 0) firstval = x;
 			elementCount++;
 		}
 	}
 	//Malloc the necessary size
-	float * voltArray = malloc(sizeof(float) * elementCount);
+	unsigned char * voltArray = malloc(sizeof(char) * elementCount);
 	//Move all volt vals to the newborn array
 	for (x = firstval; x < firstval + elementCount; ++x){
-		voltArray[x - firstval] = currentFFT[x*FFTCOLMNS];
+		voltArray[x - firstval] = currentFFT[x];
 	}
 	float pixelsPerElement = ((float)drawX1 - (float)drawX0) / elementCount;
 	if (pixelsPerElement < 1){
@@ -177,8 +180,8 @@ void drawGraph(void){
 			if (tempPixelFilling >= 1){
 				tempPixelFilling -=1;
 				tempAmount /= tempElementsAmount;
-				int yPixel = (226 - (((float)226/2.5) * tempAmount));
-				alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,xPixel++,yPixel,drawY1,INFOCOLOR,backbuffer);
+				int yPixel = (tempAmount);
+				alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,xPixel++,tempAmount,drawY1,INFOCOLOR,backbuffer);
 				//alt_up_pixel_buffer_dma_draw(pixel_buffer_dev,INFOCOLOR,xPixel++, yPixel);
 				tempAmount = 0;
 				tempElementsAmount = 0;
@@ -192,14 +195,8 @@ void drawGraph(void){
 		//Variables for optimalization
 		int lastElement = elementCount; int yPixel = -1; //init lastElement with an impossible value to force recalculation the first time
 		for ( x = drawX0; x < drawX1; ++x){ //We have the Y coördinate, calculate the x one
-			int currentRealElement = (int)element; //Change the float to an int to get the correct value
-			if (currentRealElement != lastElement){ //Calculate the yValue if the currentelement is different from the last calculated one
-				lastElement = currentRealElement;
-				yPixel = (226 - (((float)226/2.5) * voltArray[lastElement]));
-
-			}
 			element+= pixelsPerElement;
-			alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,x,yPixel,drawY1,INFOCOLOR,backbuffer);
+			alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,x,voltArray[(int)element],drawY1,INFOCOLOR,backbuffer);
 		}
 	}
 	//Free the array and cleanup
