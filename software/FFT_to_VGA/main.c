@@ -6,10 +6,17 @@
  * Test
  */
 
+/*
+ * PROBLEMS:
+ * The small lines on the horizontal axis should be drawn after the graph instead of before
+ *
+ */
+
 #include <stdio.h> //printf etc
 #include <unistd.h> //usleep
+#include "time.h" //Time_t, time()
 #include "stdlib.h"
-#include "string.h" //strlen
+#include "string.h" //strlendisplayHorRange
 #include "system.h" //declaration of available hardware
 #include "altera_up_avalon_video_pixel_buffer_dma.h" //HAL for pixel buffer
 #include "altera_up_avalon_video_character_buffer_with_dma.h" //HAL for Character Buffer
@@ -23,7 +30,7 @@ typedef enum {frontbuffer, backbuffer} vgaBuffers;
 #define RED 0xf800 //1111000000000
 #define GREEN 0x7e0 //0000111110000
 #define BLUE 0x1f //0000000001111
-#define USLEEP_TIME 10000 //Sleep Time
+#define USLEEP_TIME 50000 //Sleep Time
 #define BACKGROUNDCOLOR 0x0 //Black background
 #define SYSLINECOLOR 0xFFFF //White lines for the "system" lines
 #define INFOCOLOR RED //Red lines that contain the true information
@@ -33,8 +40,8 @@ typedef enum {frontbuffer, backbuffer} vgaBuffers;
 //Declarations of positions of buffers and hardware components
 volatile int * ledR = (int*) 0x00093050;
 volatile int * ledG = (int*) 0x00093030;
-volatile unsigned char* fftA = (char *)0x4B000; //FFT A buffer, contains data about height in pixels
-volatile unsigned char* fftB = (char *)0x4B400; //FFT B buffer, contains data about heigt in pixels
+volatile unsigned char* fftA = (unsigned char *)0x4B000; //FFT A buffer, contains data about height in pixels
+volatile unsigned char* fftB = (unsigned char *)0x4B400; //FFT B buffer, contains data about heigt in pixels
 
 //Global vars
 //Device names
@@ -48,8 +55,8 @@ const unsigned short drawX0 = 13, drawX1 = 319, drawY0 = 0, drawY1 = 225;
 //Current FFT buffer
 volatile unsigned char* currentFFT = NULL;
 //The values is value in Hz /1000 (steps of 1 KHz)
-unsigned short minval = 0;
-unsigned short maxval = 20;
+unsigned short minval = 2;
+unsigned short maxval = 3;
 char rangeChanged = 0;
 //For FPS counting
 time_t lastTime = 0;
@@ -74,7 +81,7 @@ void displayFPS(void){
 //This function does stuff that does not belong in the final version
 void temp(void){
 	//Write the const data to the mem
-	int x,y;
+	int x;
 	for (x = 0; x < FFTDATAPOINTS; ++x){
 			fftA[x] = tempFFT[x];
 			fftB[x] = tempFFT[x];
@@ -84,10 +91,10 @@ void temp(void){
 			//printf("Row %d, Colmn %d: %f\n",x,y,tempFFT[x][y]);
 			//printf("Printing fftA: row %d, colmn %d: %f\n",x,y,fftA[x*TEMPCOLMN +y]);
 			if (fftA[x] != tempFFT[x]){
-				printf("Error: buffer A inconsistent at x=%d (tempFFT = %f, FFTA = %f)", x,y,fftA[x],tempFFT[x]);
+				printf("Error: buffer A inconsistent at x=%d (tempFFT = %d, FFTA = %d)", x,fftA[x],tempFFT[x]);
 			}
-			if (fftB[x*FFTCOLMNS +y] != tempFFT[x][y]){
-				printf("Error: buffer B inconsistent at x=%d (tempFFT = %f, FFTB = %f)", x,fftA[x],tempFFT[x]);
+			if (fftB[x] != tempFFT[x]){
+				printf("Error: buffer B inconsistent at x=%d (tempFFT = %d, FFTB = %d)", x,fftA[x],tempFFT[x]);
 			}
 		}
 	printf("Done with TEMP stuff\n");
@@ -115,9 +122,17 @@ void displayHorRange(void){
 	int pos = 3;
 	if (strlen(tempstr) > 1){
 		pos--;
+	} else {
+		alt_up_char_buffer_string(char_buffer_dev," ", pos-1,57);
 	}
 	alt_up_char_buffer_string(char_buffer_dev,tempstr, pos,57);
 	sprintf(tempstr,"%d",maxval);
+
+	if (strlen(tempstr) < 3){
+		alt_up_char_buffer_string(char_buffer_dev,"  ",80 - 3,57);
+	} else 	if (strlen(tempstr) < 2){
+		alt_up_char_buffer_string(char_buffer_dev," ",80 - 2,57);
+	}
 	alt_up_char_buffer_string(char_buffer_dev,tempstr,80 - strlen(tempstr),57);
 }
 
@@ -127,11 +142,11 @@ void prepareText(void){
 	alt_up_char_buffer_string(char_buffer_dev,"2.5",0,0);
 	alt_up_char_buffer_string(char_buffer_dev," V ",0,29);
 	alt_up_char_buffer_string(char_buffer_dev,"0.0",0,56);
-	//Chars for the horizontal line (KHz) (soft, except for KHz)
-	alt_up_char_buffer_string(char_buffer_dev,"KHz",37,58);
+	//Chars for the horizontal line (kHz) (soft, except for kHz)
+	alt_up_char_buffer_string(char_buffer_dev,"kHz",37,58);
 }
 
-void prepareBackground(void){
+void prepareBackground(void){displayHorRange(); //For non-static text
 	alt_up_pixel_buffer_dma_clear_screen(pixel_buffer_dev, 1);  //Clear the backbuffer
 	//Main lines
 	alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, 0, 0, 319, 239, BACKGROUNDCOLOR, backbuffer); //Make the backbuffer the correct color
@@ -142,6 +157,9 @@ void prepareBackground(void){
 void clearDrawingboard(void){
 	//Clean up the entire draw section
 	alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, drawX0,drawY0 , drawX1, drawY1, BACKGROUNDCOLOR, backbuffer); //Make the backbuffer the correct color
+}
+
+void drawHelpLines(void){
 	//Redraw the indicationlines
 	//Smaller lines(horizontal)
 	int tPos;
@@ -157,7 +175,7 @@ void clearDrawingboard(void){
 void drawGraph(void){
 	//First: count the amount of points that fits within minval and maxval
 	int elementCount,x = 0, firstval = -1; //firstval indicates the startpoint in the array
-	for (elementCount = 0; currentFFT[x] <= maxval * 1000 && x < FFTDATAPOINTS; x++){
+	for (elementCount = 0; cnst_hz[x] <= maxval * 1000 && x < FFTDATAPOINTS; x++){
 		if (cnst_hz[x] >= minval*1000 ){
 			if (firstval < 0) firstval = x;
 			elementCount++;
@@ -169,23 +187,19 @@ void drawGraph(void){
 	for (x = firstval; x < firstval + elementCount; ++x){
 		voltArray[x - firstval] = currentFFT[x];
 	}
-	float pixelsPerElement = ((float)drawX1 - (float)drawX0) / elementCount;
+	float pixelsPerElement = (((float)(drawX1) - (float)drawX0) + 1.0) / elementCount;
 	if (pixelsPerElement < 1){
-		int elementsProcessed, tempElementsAmount = 0, xPixel = 13;
-		float tempPixelFilling = 0, tempAmount = 0;
+		int elementsProcessed, xPixel = 13, highestPeak = 225;
+		float tempPixelFilling = 0;
 		for (elementsProcessed = 0; elementsProcessed < elementCount; ++elementsProcessed){
-			tempElementsAmount++;
 			tempPixelFilling +=pixelsPerElement;
-			tempAmount += voltArray[elementsProcessed];
+			if (voltArray[elementsProcessed] < highestPeak) highestPeak = voltArray[elementsProcessed];
 			if (tempPixelFilling >= 1){
 				tempPixelFilling -=1;
-				tempAmount /= tempElementsAmount;
-				int yPixel = (tempAmount);
-				alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,xPixel++,tempAmount,drawY1,INFOCOLOR,backbuffer);
+				alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,xPixel++,highestPeak,drawY1,INFOCOLOR,backbuffer);
 				//alt_up_pixel_buffer_dma_draw(pixel_buffer_dev,INFOCOLOR,xPixel++, yPixel);
-				tempAmount = 0;
-				tempElementsAmount = 0;
-				//tempPixelFilling = 0;
+				highestPeak = 225;
+				//tempPixelFilling = 0;displayHorRange(); //For non-static text
 			}
 		}
 	} else { //Pixels per element > 1 (so multiple pixels are going to represent the same value)
@@ -193,10 +207,9 @@ void drawGraph(void){
 		float element = 0;
 		int x;
 		//Variables for optimalization
-		int lastElement = elementCount; int yPixel = -1; //init lastElement with an impossible value to force recalculation the first time
-		for ( x = drawX0; x < drawX1; ++x){ //We have the Y coördinate, calculate the x one
-			element+= pixelsPerElement;
+		for ( x = drawX0; x <= drawX1; ++x){ //We have the Y coördinate, calculate the x one
 			alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,x,voltArray[(int)element],drawY1,INFOCOLOR,backbuffer);
+			element+= pixelsPerElement;
 		}
 	}
 	//Free the array and cleanup
@@ -211,10 +224,11 @@ int main(void){
 	//int colors[3] = {RED,GREEN,BLUE};
 	//int colorIndicator = 0;
 	//int buffer = 1;
-	prepareText();
-	displayHorRange();
+	prepareText(); //For static text
+	displayHorRange(); //For non-static text
 	prepareBackground();
 	clearDrawingboard();
+	drawHelpLines();
 	if (alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer_dev)){
 				printf("Buffer swapping failed!\n");
 				return -1;
@@ -230,6 +244,7 @@ int main(void){
 		//VGA_box (0 /*x1*/, 0 /*y1*/, 319 /*x2*/, 239 /*y2*/, colors[colorIndicator++], pixelBuffer);
 		clearDrawingboard();
 		drawGraph();
+		drawHelpLines();
 		if (rangeChanged){
 			rangeChanged = 0;
 			displayHorRange();
@@ -243,8 +258,20 @@ int main(void){
 		//if (buffer) buffer = 0;
 		//else buffer = 1;
 		//Sleep, softly.
-		//usleep(USLEEP_TIME);
-		displayFPS();
+		usleep(USLEEP_TIME);
+		//displayFPS();
+//		minval++;
+//		maxval++;
+//		if (maxval >100){
+//			if (minval != 1){
+//				minval = 0;
+//				maxval = 100;
+//			} else {
+//				minval = 0;
+//				maxval = 1;
+//			}
+//		}
+		displayHorRange(); //For non-static text
 		//printf("%i",time(NULL));
 	}
 	return 0;

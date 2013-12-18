@@ -36,15 +36,19 @@ ARCHITECTURE FFT_to_SRAM OF FFT_to_SRAM IS
 BEGIN
 	PROCESS(clk,ctrl_rcv,nios_ctr_rcv,data,avalon_acknowledge) 
 	VARIABLE writing_data  : STD_LOGIC := '0'; --indicates if we are currently writing to the SRAM
-	CONSTANT buffer_a : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(309248,18)); --Buffer A 0x4B800
-	CONSTANT buffer_b : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(310272,18)); --Buffer B 0x4BC00
+	CONSTANT buffer_a : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(309248,19)); --Buffer A 0x4B800
+	CONSTANT buffer_b : STD_LOGIC_VECTOR(18 DOWNTO 0) := STD_LOGIC_VECTOR(TO_UNSIGNED(310272,19)); --Buffer B 0x4BC00
 	VARIABLE buffer_is_a : BOOLEAN := TRUE; --Indicates if the current buffer is buffer a
 	VARIABLE buffer_ready, send_started, preparation_finished, send_done, backup_buffer_ready : BOOLEAN := FALSE; --Indicates if the NIOS 2 is done with its buffer
 	VARIABLE data_ready : BOOLEAN := FALSE;
 	VARIABLE amount_send : UNSIGNED(6 DOWNTO 0) := TO_UNSIGNED(0,7);
 	VARIABLE ctrl_snd_buf : STD_LOGIC := '0';
+	
+	VARIABLE last_known_ctrl_rcv, last_known_avalon_acknowledge, last_known_nios_ctr_rcv : STD_LOGIC := '0';
 	BEGIN
-		IF RISING_EDGE(ctrl_rcv) OR FALLING_EDGE(ctrl_rcv) THEN --A new sample is ready
+	IF RISING_EDGE(CLK) THEN
+		IF ctrl_rcv /=  last_known_ctrl_rcv THEN --A new sample is ready
+		last_known_ctrl_rcv := ctrl_rcv;
 			--First, set the address
 			IF preparation_finished = FALSE THEN --Send has not yet started, prepare basic shit for starting
 				IF buffer_is_a = TRUE THEN
@@ -68,7 +72,8 @@ BEGIN
 			data_ready := FALSE;
 		END IF;
 		
-		IF RISING_EDGE(avalon_acknowledge) THEN
+		IF avalon_acknowledge /= last_known_avalon_acknowledge THEN  --(WARNING: ONLY RISING EDGE, POSSIBLY NEEDS FIX)
+			last_known_avalon_acknowledge := avalon_acknowledge;
 			amount_send := amount_send + 1;
 			IF amount_send = TO_UNSIGNED(128,7) THEN --All data has been send, reset everything
 				preparation_finished := FALSE;
@@ -80,7 +85,8 @@ BEGIN
 			ctrl_snd <= ctrl_snd_buf;
 		END IF;
 		
-		IF RISING_EDGE(nios_ctr_rcv) OR FALLING_EDGE(nios_ctr_rcv) THEN
+		IF nios_ctr_rcv /= last_known_nios_ctr_rcv THEN
+		
 			IF send_started = TRUE THEN
 				backup_buffer_ready := TRUE;
 			ELSE
@@ -92,5 +98,6 @@ BEGIN
 			buffer_ready := TRUE;
 			backup_buffer_ready := FALSE;
 		END IF;
+	END IF;
 	END PROCESS;
 END ARCHITECTURE;

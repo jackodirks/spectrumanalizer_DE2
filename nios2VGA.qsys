@@ -224,19 +224,19 @@
          type = "boolean";
       }
    }
-   element red_led_pio.s1
-   {
-      datum baseAddress
-      {
-         value = "528464";
-         type = "String";
-      }
-   }
    element Control_signals_io.s1
    {
       datum baseAddress
       {
          value = "528416";
+         type = "String";
+      }
+   }
+   element red_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "528464";
          type = "String";
       }
    }
@@ -297,7 +297,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1387195450676" />
+ <parameter name="timeStamp" value="1387367957024" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -396,8 +396,8 @@
   <parameter name="mpu_numOfDataRegion" value="8" />
   <parameter name="mmu_TLBMissExcOffset" value="0" />
   <parameter name="debug_jtagInstanceID" value="0" />
-  <parameter name="resetOffset" value="311296" />
-  <parameter name="exceptionOffset" value="311328" />
+  <parameter name="resetOffset" value="309248" />
+  <parameter name="exceptionOffset" value="309280" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuID_stored" value="0" />
   <parameter name="breakOffset" value="32" />

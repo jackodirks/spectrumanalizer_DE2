@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 9, 2013 12:56:40 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1386590200779</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 18, 2013 3:05:34 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1387375534374</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
@@ -314,7 +314,7 @@
                 <SettingName>hal.make.bsp_cflags_debug</SettingName>
                 <Identifier>BSP_CFLAGS_DEBUG</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>none</Value>
+                <Value>-g</Value>
                 <DefaultValue>-g</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler debug level. '-g' provides the default set of debug symbols typically required to debug a typical application. Omitting '-g' removes debug symbols from the ELF. This setting defines the value of BSP_CFLAGS_DEBUG in Makefile.</Description>
@@ -386,7 +386,7 @@
                 <SettingName>hal.make.bsp_cflags_optimization</SettingName>
                 <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-O3</Value>
+                <Value>-O0</Value>
                 <DefaultValue>-O0</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>
@@ -870,44 +870,50 @@
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sys_clk_timer</slaveDescriptor>
-                <addressRange>0x00081000 - 0x0008101F</addressRange>
-                <addressSpan>32</addressSpan>
+                <addressRange>0x00081000 - 0x0008107F</addressRange>
+                <addressSpan>128</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>Control_signals_io</slaveDescriptor>
+                <addressRange>0x00081020 - 0x0008105F</addressRange>
+                <addressSpan>64</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>green_led_pio</slaveDescriptor>
-                <addressRange>0x00081020 - 0x0008102F</addressRange>
-                <addressSpan>16</addressSpan>
+                <addressRange>0x00081030 - 0x0008106F</addressRange>
+                <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
-                <addressRange>0x00081030 - 0x0008103F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>red_led_pio</slaveDescriptor>
                 <addressRange>0x00081040 - 0x0008104F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>red_led_pio</slaveDescriptor>
+                <addressRange>0x00081050 - 0x0008108F</addressRange>
+                <addressSpan>64</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>VGA_Character_buffer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x00081050 - 0x00081057</addressRange>
+                <addressRange>0x00081060 - 0x00081067</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x00081058 - 0x0008105F</addressRange>
+                <addressRange>0x00081068 - 0x0008106F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00081060 - 0x00081067</addressRange>
-                <addressSpan>8</addressSpan>
+                <addressRange>0x00081070 - 0x0008108F</addressRange>
+                <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>

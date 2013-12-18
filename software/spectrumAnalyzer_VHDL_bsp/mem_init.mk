@@ -155,7 +155,7 @@ ACDS_VERSION := 13.0sp1
 SIM_OPTIMIZE ?= 0
 
 # The CPU reset address as needed by elf2flash
-RESET_ADDRESS ?= 0x0004f000
+RESET_ADDRESS ?= 0x0004b800
 
 #-------------------------------------
 # Pre-Initialized Memory Descriptions

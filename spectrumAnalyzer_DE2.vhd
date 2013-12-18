@@ -84,28 +84,38 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	);
 	END COMPONENT FFT_to_SRAM;
 	
-	SIGNAL nios_ctr_nios, nios_ctr_other : STD_LOGIC := '0';
+	SIGNAL nios_ctr_nios, nios_ctr_other, fft_ctr_fft, fft_ctr_other : STD_LOGIC := '0';
 	SIGNAL avalon_address_ex : std_logic_vector(18 downto 0);
 	SIGNAL avalon_byte_enable_ex : std_logic_vector(15 downto 0);
 	SIGNAL avalon_read_ex, avalon_write_ex, avalon_acknowledge_ex : STD_LOGIC := '0';
-	SIGNAL avalon_write_data_ex, avalon_read_data_ex : STD_LOGIC_vector(127 DOWNTO 0);
+	SIGNAL avalon_write_data_ex, avalon_read_data_ex, fft_data_bus : STD_LOGIC_vector(127 DOWNTO 0);
 	BEGIN
 	TD_RESET <= '1';
-	fft_to_sram_comp	: FFT_to_SRAM
-	port map(
-		--NIOS 2 signals
-		nios_ctr_snd => nios_ctr_nios,
-		nios_ctr_rcv => nios_ctr_other,
-		
-		--To Avalon signals
-		avalon_address => avalon_address_ex,
-		avalon_byte_enable => avalon_byte_enable_ex,
-		avalon_read => avalon_read_ex,
-		avalon_write => avalon_write_ex,
-		avalon_write_data => avalon_write_data_ex,
-		avalon_acknowledge => avalon_acknowledge_ex,
-		avalon_read_data => avalon_read_data_ex
-	);
+--	fft_to_sram_comp	: FFT_to_SRAM
+--	port map(
+--		--Stuffis Generalis
+--		clk => CLOCK_50,
+--	
+--		--NIOS 2 signals
+--		nios_ctr_snd => nios_ctr_nios,
+--		nios_ctr_rcv => nios_ctr_other,
+--		
+--		--FFT Signals
+--		ctrl_rcv => fft_ctr_other,
+--		ctrl_snd => fft_ctr_fft,
+--		
+--		--To Avalon signals
+--		avalon_address => avalon_address_ex,
+--		avalon_byte_enable => avalon_byte_enable_ex,
+--		avalon_read => avalon_read_ex,
+--		avalon_write => avalon_write_ex,
+--		avalon_write_data => avalon_write_data_ex,
+--		avalon_acknowledge => avalon_acknowledge_ex,
+--		avalon_read_data => avalon_read_data_ex,
+--		
+--		--Data Bus
+--		data => fft_data_bus
+--	);
 	nios2 : nios2VGA
 		port map (
 			--General stuffs

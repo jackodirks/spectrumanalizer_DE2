@@ -22,10 +22,10 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Dec 9, 2013 12:56:40 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Dec 18, 2013 3:05:34 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1386590200779</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1387375534374</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</td>
@@ -41,25 +41,28 @@
 <td>VGA_Character_buffer_avalon_char_buffer_slave</td><td>0x00090000 - 0x00091FFF</td><td>8192</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart</td><td>0x00081060 - 0x00081067</td><td>8</td><td class="listing">printable</td>
+<td>jtag_uart</td><td>0x00081070 - 0x0008108F</td><td>32</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid</td><td>0x00081058 - 0x0008105F</td><td>8</td><td class="listing">&nbsp;</td>
+<td>sysid</td><td>0x00081068 - 0x0008106F</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>VGA_Character_buffer_avalon_char_control_slave</td><td>0x00081050 - 0x00081057</td><td>8</td><td class="listing">&nbsp;</td>
+<td>VGA_Character_buffer_avalon_char_control_slave</td><td>0x00081060 - 0x00081067</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>red_led_pio</td><td>0x00081040 - 0x0008104F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>red_led_pio</td><td>0x00081050 - 0x0008108F</td><td>64</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>VGA_Pixel_Buffer</td><td>0x00081030 - 0x0008103F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>VGA_Pixel_Buffer</td><td>0x00081040 - 0x0008104F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>green_led_pio</td><td>0x00081020 - 0x0008102F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>green_led_pio</td><td>0x00081030 - 0x0008106F</td><td>64</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sys_clk_timer</td><td>0x00081000 - 0x0008101F</td><td>32</td><td class="listing">timer</td>
+<td>Control_signals_io</td><td>0x00081020 - 0x0008105F</td><td>64</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sys_clk_timer</td><td>0x00081000 - 0x0008107F</td><td>128</td><td class="listing">timer</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>SRAM</td><td>0x00000000 - 0x0007FFFF</td><td>524288</td><td class="listing">memory</td>
@@ -1083,7 +1086,7 @@
 <td width="20%">Default Value:</td><td>-g</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>none</td>
+<td width="20%">Value:</td><td>-g</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
@@ -1137,7 +1140,7 @@
 <td width="20%">Default Value:</td><td>-O0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>-O3</td>
+<td width="20%">Value:</td><td>-O0</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
