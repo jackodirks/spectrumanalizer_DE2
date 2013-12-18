@@ -182,11 +182,12 @@ void drawGraph(void){
 		}
 	}
 	//Malloc the necessary size
-	unsigned char * voltArray = malloc(sizeof(char) * elementCount);
+	//unsigned char * voltArray = malloc(sizeof(char) * elementCount);
 	//Move all volt vals to the newborn array
-	for (x = firstval; x < firstval + elementCount; ++x){
-		voltArray[x - firstval] = currentFFT[x];
-	}
+	//for (x = firstval; x < firstval + elementCount; ++x){
+	//	voltArray[x - firstval] = currentFFT[x];
+	//}
+	volatile unsigned char * voltArray = &currentFFT[firstval]; //Point voltArray to the correct place in the entire RAM
 	float pixelsPerElement = (((float)(drawX1) - (float)drawX0) + 1.0) / elementCount;
 	if (pixelsPerElement < 1){
 		int elementsProcessed, xPixel = 13, highestPeak = 225;
@@ -213,8 +214,8 @@ void drawGraph(void){
 		}
 	}
 	//Free the array and cleanup
-	free(voltArray);
-	voltArray = NULL;
+	//free(voltArray);
+	//voltArray = NULL;
 }
 
 int main(void){
@@ -258,8 +259,8 @@ int main(void){
 		//if (buffer) buffer = 0;
 		//else buffer = 1;
 		//Sleep, softly.
-		usleep(USLEEP_TIME);
-		//displayFPS();
+		//usleep(USLEEP_TIME);
+		displayFPS();
 //		minval++;
 //		maxval++;
 //		if (maxval >100){
