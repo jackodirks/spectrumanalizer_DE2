@@ -11141,7 +11141,7 @@ parameters are a RESULT of the module parameters. -->
    </assignment>
    <assignment>
     <name>embeddedsw.configuration.isMemoryDevice</name>
-    <value>0</value>
+    <value>1</value>
    </assignment>
    <assignment>
     <name>embeddedsw.configuration.isNonVolatileStorage</name>

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Wed Dec 18 13:05:44 CET 2013
+ * Generated: Fri Jan 03 19:36:50 CET 2014
  */
 
 /*
@@ -119,33 +119,6 @@
 
 
 /*
- * Control_signals_io configuration
- *
- */
-
-#define ALT_MODULE_CLASS_Control_signals_io altera_avalon_pio
-#define CONTROL_SIGNALS_IO_BASE 0x81020
-#define CONTROL_SIGNALS_IO_BIT_CLEARING_EDGE_REGISTER 0
-#define CONTROL_SIGNALS_IO_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define CONTROL_SIGNALS_IO_CAPTURE 0
-#define CONTROL_SIGNALS_IO_DATA_WIDTH 4
-#define CONTROL_SIGNALS_IO_DO_TEST_BENCH_WIRING 0
-#define CONTROL_SIGNALS_IO_DRIVEN_SIM_VALUE 0
-#define CONTROL_SIGNALS_IO_EDGE_TYPE "NONE"
-#define CONTROL_SIGNALS_IO_FREQ 50000000
-#define CONTROL_SIGNALS_IO_HAS_IN 0
-#define CONTROL_SIGNALS_IO_HAS_OUT 0
-#define CONTROL_SIGNALS_IO_HAS_TRI 1
-#define CONTROL_SIGNALS_IO_IRQ -1
-#define CONTROL_SIGNALS_IO_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define CONTROL_SIGNALS_IO_IRQ_TYPE "NONE"
-#define CONTROL_SIGNALS_IO_NAME "/dev/Control_signals_io"
-#define CONTROL_SIGNALS_IO_RESET_VALUE 0
-#define CONTROL_SIGNALS_IO_SPAN 64
-#define CONTROL_SIGNALS_IO_TYPE "altera_avalon_pio"
-
-
-/*
  * Define for each module class mastered by the CPU
  *
  */
@@ -190,19 +163,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x81070
+#define ALT_STDERR_BASE 0x81080
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x81070
+#define ALT_STDIN_BASE 0x81080
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x81070
+#define ALT_STDOUT_BASE 0x81080
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -230,7 +203,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Character_buffer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
-#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x81060
+#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x81070
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/VGA_Character_buffer_avalon_char_control_slave"
@@ -244,7 +217,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define VGA_PIXEL_BUFFER_BASE 0x81040
+#define VGA_PIXEL_BUFFER_BASE 0x81050
 #define VGA_PIXEL_BUFFER_IRQ -1
 #define VGA_PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_PIXEL_BUFFER_NAME "/dev/VGA_Pixel_Buffer"
@@ -253,12 +226,66 @@
 
 
 /*
+ * control_in configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_control_in altera_avalon_pio
+#define CONTROL_IN_BASE 0x81030
+#define CONTROL_IN_BIT_CLEARING_EDGE_REGISTER 0
+#define CONTROL_IN_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define CONTROL_IN_CAPTURE 0
+#define CONTROL_IN_DATA_WIDTH 8
+#define CONTROL_IN_DO_TEST_BENCH_WIRING 0
+#define CONTROL_IN_DRIVEN_SIM_VALUE 0
+#define CONTROL_IN_EDGE_TYPE "NONE"
+#define CONTROL_IN_FREQ 50000000
+#define CONTROL_IN_HAS_IN 1
+#define CONTROL_IN_HAS_OUT 0
+#define CONTROL_IN_HAS_TRI 0
+#define CONTROL_IN_IRQ -1
+#define CONTROL_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define CONTROL_IN_IRQ_TYPE "NONE"
+#define CONTROL_IN_NAME "/dev/control_in"
+#define CONTROL_IN_RESET_VALUE 0
+#define CONTROL_IN_SPAN 64
+#define CONTROL_IN_TYPE "altera_avalon_pio"
+
+
+/*
+ * control_out configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_control_out altera_avalon_pio
+#define CONTROL_OUT_BASE 0x81020
+#define CONTROL_OUT_BIT_CLEARING_EDGE_REGISTER 0
+#define CONTROL_OUT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define CONTROL_OUT_CAPTURE 0
+#define CONTROL_OUT_DATA_WIDTH 8
+#define CONTROL_OUT_DO_TEST_BENCH_WIRING 0
+#define CONTROL_OUT_DRIVEN_SIM_VALUE 0
+#define CONTROL_OUT_EDGE_TYPE "NONE"
+#define CONTROL_OUT_FREQ 50000000
+#define CONTROL_OUT_HAS_IN 0
+#define CONTROL_OUT_HAS_OUT 1
+#define CONTROL_OUT_HAS_TRI 0
+#define CONTROL_OUT_IRQ -1
+#define CONTROL_OUT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define CONTROL_OUT_IRQ_TYPE "NONE"
+#define CONTROL_OUT_NAME "/dev/control_out"
+#define CONTROL_OUT_RESET_VALUE 0
+#define CONTROL_OUT_SPAN 64
+#define CONTROL_OUT_TYPE "altera_avalon_pio"
+
+
+/*
  * green_led_pio configuration
  *
  */
 
 #define ALT_MODULE_CLASS_green_led_pio altera_avalon_pio
-#define GREEN_LED_PIO_BASE 0x81030
+#define GREEN_LED_PIO_BASE 0x81040
 #define GREEN_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LED_PIO_CAPTURE 0
@@ -295,7 +322,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x81070
+#define JTAG_UART_BASE 0x81080
 #define JTAG_UART_IRQ 16
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -313,7 +340,7 @@
  */
 
 #define ALT_MODULE_CLASS_red_led_pio altera_avalon_pio
-#define RED_LED_PIO_BASE 0x81050
+#define RED_LED_PIO_BASE 0x81060
 #define RED_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define RED_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define RED_LED_PIO_CAPTURE 0
@@ -366,13 +393,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x81068
+#define SYSID_BASE 0x81078
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1387368038
+#define SYSID_TIMESTAMP 1388773300
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

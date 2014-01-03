@@ -1,55 +1,15 @@
-//http://monash-psychophysics-test.googlecode.com/svn-history/r55/trunk/LowLevel/First_Proto/VGA_SD_Keyboard/Software/hello.c
-
-/*
- * TODO:
- * Prevent redraw of screen when nothing has changed
- * Test
- */
-
-/*
- * PROBLEMS:
- * The small lines on the horizontal axis should be drawn after the graph instead of before
- *
- */
-
-#include <stdio.h> //printf etc
-#include <unistd.h> //usleep
-#include "time.h" //Time_t, time()
-#include "stdlib.h"
-#include "string.h" //strlendisplayHorRange
-#include "system.h" //declaration of available hardware
-#include "altera_up_avalon_video_pixel_buffer_dma.h" //HAL for pixel buffer
-#include "altera_up_avalon_video_character_buffer_with_dma.h" //HAL for Character Buffer
-#include "altera_avalon_pio_regs.h"
-#include <sys/alt_irq.h>
-
-//Typedefs etc
-typedef enum {frontbuffer, backbuffer} vgaBuffers;
-
-//Hard Defines
-#define RED 0xf800 //1111000000000
-#define GREEN 0x7e0 //0000111110000
-#define BLUE 0x1f //0000000001111
-#define USLEEP_TIME 50000 //Sleep Time
-#define BACKGROUNDCOLOR 0x0 //Black background
-#define SYSLINECOLOR 0xFFFF //White lines for the "system" lines
-#define INFOCOLOR RED //Red lines that contain the true information
-#define FFTROWS 1024
-#define FFTCOLMNS 2
-
-//Declarations of positions of buffers and hardware components
-volatile int * ledR = (int*) 0x00093050;
-volatile int * ledG = (int*) 0x00093030;
-volatile unsigned char* fftA = (unsigned char *)0x4B000; //FFT A buffer, contains data about height in pixels
-volatile unsigned char* fftB = (unsigned char *)0x4B400; //FFT B buffer, contains data about heigt in pixels
+#include "sharedHeader.h"
+#include "text.h"
+#include "FFT_temp.h"
+#include "cnst_hz.h"
 
 //Global vars
 //Device names
 const char* pixelBufferName = "/dev/VGA_Pixel_Buffer";
-const char* charBufferName = "/dev/VGA_Character_buffer";
+
 //Device pointers
 alt_up_pixel_buffer_dma_dev *pixel_buffer_dev;
-alt_up_char_buffer_dev *char_buffer_dev;
+
 //Measurements of the drawingboard
 const unsigned short drawX0 = 13, drawX1 = 319, drawY0 = 0, drawY1 = 225;
 //Current FFT buffer
@@ -58,25 +18,16 @@ volatile unsigned char* currentFFT = NULL;
 unsigned short minval = 2;
 unsigned short maxval = 3;
 char rangeChanged = 0;
-//For FPS counting
-time_t lastTime = 0;
-unsigned short frames = 0;
 
-#include "FFT_temp.h"
-#include "cnst_hz.h"
+//Declarations of positions of buffers and hardware components
+volatile int * ledR = (int*) RED_LED_PIO_BASE;
+volatile int * ledG = (int*) GREEN_LED_PIO_BASE;
+volatile unsigned char* fftA = (unsigned char *)0x4B000; //FFT A buffer, contains data about height in pixels (lives in SRAM)
+volatile unsigned char* fftB = (unsigned char *)0x4B400; //FFT B buffer, contains data about heigt in pixels (lives in SRAM)
+volatile unsigned char* control_in = (unsigned char*)CONTROL_IN_BASE; //The control in signals
+volatile unsigned char* control_out = (unsigned char*)CONTROL_OUT_BASE; //The control out signals
 
-//This is also an temp function
-void displayFPS(void){
-	frames++;
-	time_t currentTime = time(NULL);
-	if (currentTime > lastTime){
-		char tempstr[5];
-		sprintf(tempstr,"%d",frames);
-		alt_up_char_buffer_string(char_buffer_dev,tempstr,80 - strlen(tempstr),0);
-		lastTime = currentTime;
-		frames = 0;
-	}
-}
+
 
 //This function does stuff that does not belong in the final version
 void temp(void){
@@ -107,43 +58,8 @@ int init(void){
 		printf("Error! pixel_buffer_dev == NULL!\n");
 		return 1;
 	}
-	char_buffer_dev = alt_up_char_buffer_open_dev(charBufferName); //Init HAL for char buffer
-	if (char_buffer_dev == NULL){
-		printf("Error! char_buffer_dev == NULL!\n");
-		return 1;
-	}
 	currentFFT = fftA;
 	return 0;
-}
-
-void displayHorRange(void){
-	char tempstr[3];
-	sprintf(tempstr,"%d",minval);
-	int pos = 3;
-	if (strlen(tempstr) > 1){
-		pos--;
-	} else {
-		alt_up_char_buffer_string(char_buffer_dev," ", pos-1,57);
-	}
-	alt_up_char_buffer_string(char_buffer_dev,tempstr, pos,57);
-	sprintf(tempstr,"%d",maxval);
-
-	if (strlen(tempstr) < 3){
-		alt_up_char_buffer_string(char_buffer_dev,"  ",80 - 3,57);
-	} else 	if (strlen(tempstr) < 2){
-		alt_up_char_buffer_string(char_buffer_dev," ",80 - 2,57);
-	}
-	alt_up_char_buffer_string(char_buffer_dev,tempstr,80 - strlen(tempstr),57);
-}
-
-void prepareText(void){
-	alt_up_char_buffer_clear(char_buffer_dev);
-	//Chars for the vertical line (Vpp)
-	alt_up_char_buffer_string(char_buffer_dev,"2.5",0,0);
-	alt_up_char_buffer_string(char_buffer_dev," V ",0,29);
-	alt_up_char_buffer_string(char_buffer_dev,"0.0",0,56);
-	//Chars for the horizontal line (kHz) (soft, except for kHz)
-	alt_up_char_buffer_string(char_buffer_dev,"kHz",37,58);
 }
 
 void prepareBackground(void){displayHorRange(); //For non-static text
@@ -220,7 +136,8 @@ void drawGraph(void){
 
 int main(void){
 	temp();
-	if (init()) return -1;
+
+	if (init() || initText()) return -1;
 
 	//int colors[3] = {RED,GREEN,BLUE};
 	//int colorIndicator = 0;

@@ -142,7 +142,8 @@ ACDS_VERSION := 13.0sp1
 ELF := FFT_to_VGA.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := main.c
+C_SRCS += main.c
+C_SRCS += text.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -177,7 +178,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../spectrumAnalyzer_VHDL_bsp/
+BSP_ROOT_DIR := ../spectrumAnalyzer_VHDL_bsp
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=

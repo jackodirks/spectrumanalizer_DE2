@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 18, 2013 3:05:34 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1387375534374</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jan 3, 2014 7:36:49 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1388774209929</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
@@ -875,44 +875,50 @@
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>Control_signals_io</slaveDescriptor>
+                <slaveDescriptor>control_out</slaveDescriptor>
                 <addressRange>0x00081020 - 0x0008105F</addressRange>
                 <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>green_led_pio</slaveDescriptor>
+                <slaveDescriptor>control_in</slaveDescriptor>
                 <addressRange>0x00081030 - 0x0008106F</addressRange>
                 <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>green_led_pio</slaveDescriptor>
+                <addressRange>0x00081040 - 0x0008107F</addressRange>
+                <addressSpan>64</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
-                <addressRange>0x00081040 - 0x0008104F</addressRange>
+                <addressRange>0x00081050 - 0x0008105F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>red_led_pio</slaveDescriptor>
-                <addressRange>0x00081050 - 0x0008108F</addressRange>
+                <addressRange>0x00081060 - 0x0008109F</addressRange>
                 <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>VGA_Character_buffer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x00081060 - 0x00081067</addressRange>
+                <addressRange>0x00081070 - 0x00081077</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x00081068 - 0x0008106F</addressRange>
+                <addressRange>0x00081078 - 0x0008107F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00081070 - 0x0008108F</addressRange>
+                <addressRange>0x00081080 - 0x0008109F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
