@@ -1,6 +1,8 @@
 #include "draw.h"
 #include "cnst_hz.h"
 
+//TODO: Add lookup tables
+
 //Typedefs etc
 typedef enum {frontbuffer, backbuffer} vgaBuffers;
 //Device names
@@ -82,7 +84,12 @@ void drawGraph(volatile unsigned char* currentFFT, unsigned int maxval, unsigned
 			element+= pixelsPerElement;
 		}
 	}
-	//Free the array and cleanup
-	//free(voltArray);
-	//voltArray = NULL;
+}
+
+int swapVGABuffer(void){
+	if (alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer_dev)){
+		return 1;
+	}
+	while (alt_up_pixel_buffer_dma_check_swap_buffers_status(pixel_buffer_dev));
+	return 0;
 }

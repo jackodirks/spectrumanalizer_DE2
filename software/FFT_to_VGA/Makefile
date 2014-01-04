@@ -145,6 +145,7 @@ ELF := FFT_to_VGA.elf
 C_SRCS += main.c
 C_SRCS += text.c
 C_SRCS += draw.c
+C_SRCS += externalInterfaces.c
 CXX_SRCS :=
 ASM_SRCS :=
 
