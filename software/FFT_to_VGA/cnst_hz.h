@@ -1,4 +1,3 @@
-#define FFTDATAPOINTS 1024
 const unsigned int cnst_hz[] = {
 		0,
 		97,

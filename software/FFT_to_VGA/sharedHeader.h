@@ -12,9 +12,6 @@
 #include "altera_avalon_pio_regs.h"
 #include <sys/alt_irq.h>
 
-//Typedefs etc
-typedef enum {frontbuffer, backbuffer} vgaBuffers;
-
 //Hard Defines
 #define RED 0xf800 //1111000000000
 #define GREEN 0x7e0 //0000111110000
@@ -23,7 +20,6 @@ typedef enum {frontbuffer, backbuffer} vgaBuffers;
 #define BACKGROUNDCOLOR 0x0 //Black background
 #define SYSLINECOLOR 0xFFFF //White lines for the "system" lines
 #define INFOCOLOR RED //Red lines that contain the true information
-#define FFTROWS 1024
-#define FFTCOLMNS 2
+#define FFTDATAPOINTS 1024
 
 #endif //SHAREDHEADER_H

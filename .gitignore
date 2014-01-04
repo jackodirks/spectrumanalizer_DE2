@@ -11,3 +11,4 @@ simulation/
 *.rpt
 *.*/
 obj/
+*.force_relink

@@ -144,6 +144,7 @@ ELF := FFT_to_VGA.elf
 # Paths to C, C++, and assembly source files.
 C_SRCS += main.c
 C_SRCS += text.c
+C_SRCS += draw.c
 CXX_SRCS :=
 ASM_SRCS :=
 
