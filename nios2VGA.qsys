@@ -16,7 +16,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "17";
          type = "int";
       }
    }
@@ -24,7 +24,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "11";
          type = "int";
       }
    }
@@ -32,7 +32,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "16";
          type = "int";
       }
    }
@@ -40,7 +40,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "19";
          type = "int";
       }
    }
@@ -48,7 +48,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -56,7 +56,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "13";
          type = "int";
       }
    }
@@ -64,7 +64,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "15";
          type = "int";
       }
    }
@@ -72,7 +72,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "10";
          type = "int";
       }
    }
@@ -80,7 +80,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "14";
          type = "int";
       }
    }
@@ -88,7 +88,15 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "20";
+         type = "int";
+      }
+   }
+   element address_PIO
+   {
+      datum _sortIndex
+      {
+         value = "6";
          type = "int";
       }
    }
@@ -109,7 +117,7 @@
    {
       datum baseAddress
       {
-         value = "528496";
+         value = "528512";
          type = "String";
       }
    }
@@ -117,7 +125,7 @@
    {
       datum baseAddress
       {
-         value = "528464";
+         value = "528480";
          type = "String";
       }
    }
@@ -125,7 +133,7 @@
    {
       datum baseAddress
       {
-         value = "528512";
+         value = "528528";
          type = "String";
       }
    }
@@ -154,7 +162,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "7";
          type = "int";
       }
    }
@@ -162,7 +170,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "8";
          type = "int";
       }
    }
@@ -170,7 +178,7 @@
    {
       datum baseAddress
       {
-         value = "528504";
+         value = "528520";
          type = "String";
       }
    }
@@ -186,7 +194,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -194,7 +202,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "9";
          type = "int";
       }
    }
@@ -232,15 +240,31 @@
          type = "boolean";
       }
    }
+   element green_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "528464";
+         type = "String";
+      }
+   }
+   element address_PIO.s1
+   {
+      datum baseAddress
+      {
+         value = "528416";
+         type = "String";
+      }
+   }
    element red_led_pio.s1
    {
       datum baseAddress
       {
-         value = "528480";
+         value = "528496";
          type = "String";
       }
    }
-   element green_led_pio.s1
+   element control_in.s1
    {
       datum baseAddress
       {
@@ -249,14 +273,6 @@
       }
    }
    element control_out.s1
-   {
-      datum baseAddress
-      {
-         value = "528416";
-         type = "String";
-      }
-   }
-   element control_in.s1
    {
       datum baseAddress
       {
@@ -313,7 +329,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1388773086282" />
+ <parameter name="timeStamp" value="1389007798565" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -361,6 +377,11 @@
  <interface
    name="nios_cntrl_out"
    internal="control_out.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="address_pio_external_connection"
+   internal="address_PIO.external_connection"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
@@ -471,7 +492,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='control_out.s1' start='0x81020' end='0x81030' /><slave name='control_in.s1' start='0x81030' end='0x81040' /><slave name='green_led_pio.s1' start='0x81040' end='0x81050' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81050' end='0x81060' /><slave name='red_led_pio.s1' start='0x81060' end='0x81070' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81070' end='0x81078' /><slave name='sysid.control_slave' start='0x81078' end='0x81080' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81080' end='0x81088' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='address_PIO.s1' start='0x81020' end='0x81030' /><slave name='control_out.s1' start='0x81030' end='0x81040' /><slave name='control_in.s1' start='0x81040' end='0x81050' /><slave name='green_led_pio.s1' start='0x81050' end='0x81060' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81060' end='0x81070' /><slave name='red_led_pio.s1' start='0x81070' end='0x81080' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81080' end='0x81088' /><slave name='sysid.control_slave' start='0x81088' end='0x81090' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81090' end='0x81098' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="65538" />
@@ -723,6 +744,24 @@
   <parameter name="width" value="8" />
   <parameter name="clockRate" value="50000000" />
  </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="address_PIO">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
  <connection
    kind="avalon"
    version="13.0"
@@ -754,7 +793,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081080" />
+  <parameter name="baseAddress" value="0x00081090" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="sys_clk_timer.clk" />
@@ -780,7 +819,7 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081078" />
+  <parameter name="baseAddress" value="0x00081088" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="red_led_pio.clk" />
@@ -795,7 +834,7 @@
    start="cpu.data_master"
    end="red_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081060" />
+  <parameter name="baseAddress" value="0x00081070" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="cpu.clk" />
@@ -890,7 +929,7 @@
    start="cpu.data_master"
    end="VGA_Character_buffer.avalon_char_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081070" />
+  <parameter name="baseAddress" value="0x00081080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1007,7 +1046,7 @@
    start="cpu.data_master"
    end="VGA_Pixel_Buffer.avalon_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081050" />
+  <parameter name="baseAddress" value="0x00081060" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1051,7 +1090,7 @@
    start="cpu.data_master"
    end="green_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081040" />
+  <parameter name="baseAddress" value="0x00081050" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1094,17 +1133,12 @@
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="control_in.clk" />
  <connection
-   kind="reset"
-   version="13.0"
-   start="clk_0.clk_reset"
-   end="control_in.reset" />
- <connection
    kind="avalon"
    version="13.0"
    start="cpu.data_master"
    end="control_in.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081030" />
+  <parameter name="baseAddress" value="0x00081040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="control_out.clk" />
@@ -1119,9 +1153,29 @@
    start="cpu.data_master"
    end="control_out.s1">
   <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00081030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="address_PIO.clk" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="address_PIO.reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="address_PIO.s1">
+  <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00081020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="control_in.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

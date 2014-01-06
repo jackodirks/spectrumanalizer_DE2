@@ -65,7 +65,8 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			vhdl_to_avalon_external_interface_acknowledge : out   std_logic;                                         -- acknowledge
 			vhdl_to_avalon_external_interface_read_data   : out   std_logic_vector(127 downto 0);                    -- read_data
 			nios_cntrl_in_export                          : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- export
-			nios_cntrl_out_export                         : out   std_logic_vector(7 downto 0)                       -- export
+			nios_cntrl_out_export                         : out   std_logic_vector(7 downto 0);								-- export
+			address_pio_external_connection_export        : in    std_logic_vector(31 downto 0)  := (others => 'X')  -- export			
 		);
 	end component nios2VGA;
 	
@@ -86,9 +87,15 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	TD_RESET <= '1';
 	rst_inv <= NOT KEY(0);
 	avalon_read_ex <= '0';
+	avalon_byte_enable_ex <= (others => '1');
 	--TEMP ASSIGNMENTS UNTIL FFT
-	avalon_write_data_ex <= (others => '0');
+	avalon_write_data_ex <= (others => '1');
 	fft_ctr_other <= '1';
+	LEDR(0) <= avalon_write_ex;
+	LEDR(1) <= '1';
+	LEDR(2) <= nios_ctr_other;
+	LEDR(3) <= nios_ctr_nios;
+	LEDR(4) <= rst_inv;
 	f2s : fft_to_sram 
 		PORT MAP(
 			rst => rst_inv,
@@ -107,10 +114,11 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			--General stuffs
 			clk_clk => CLOCK_50,
 			reset_reset_n => KEY(0),
-			red_led_pio_external_connection_export => LEDR,
+			--red_led_pio_external_connection_export => LEDR,
 			green_led_pio_external_connection_export => LEDG,
 			nios_cntrl_in_export(0) => nios_ctr_nios, --Commincation to the Nios2
 			nios_cntrl_out_export(1) => nios_ctr_other, --Comincation from the Nios2
+			address_pio_external_connection_export(18 DOWNTO 0) => avalon_address_ex,
 			
 			--Configuration For Ex To Avalon
 			vhdl_to_avalon_external_interface_address => avalon_address_ex,

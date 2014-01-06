@@ -5,6 +5,7 @@ volatile unsigned char* fftA = (unsigned char *)0x4B000; //FFT A buffer, contain
 volatile unsigned char* fftB = (unsigned char *)0x4B400; //FFT B buffer, contains data about heigt in pixels (lives in SRAM)
 volatile unsigned char* control_in = (unsigned char*)CONTROL_IN_BASE; //The control in signals
 volatile unsigned char* control_out = (unsigned char*)CONTROL_OUT_BASE; //The control out signals
+volatile void** addr = (void**)ADDRESS_PIO_BASE;
 
 unsigned char lastKnownControlIn = 0;
 unsigned char lastKnownControlOut = 0;
@@ -23,14 +24,17 @@ int initExternal(void){
 volatile unsigned char* switchFFTBuffer(void){
 	//Flip our side
 	lastKnownControlOut = !lastKnownControlOut;
+	void* v = *addr;
 	if (lastKnownControlOut){
-		*control_out |= 1; //Change the first bit to 1
+		*control_out = -1;
+		//*control_out |= 1; //Change the first bit to 1
 	} else {
-		*control_out &= 0xFE; //AND 11111110
+		*control_out = 0x0; //AND 11111110
 	}
 	//Wait for the VHDL to flip on his side.
-	while ((*control_in & 1) == lastKnownControlIn);
-	lastKnownControlIn = *control_in & 1;
+	while ((*control_in) == lastKnownControlIn);
+	//TODO: FIX (small endian or big endian?)
+	lastKnownControlIn = *control_in;
 	if (lastKnownControlIn) return fftA; //If controlIn is 1, buffer A is ready
 	else return fftB; //Else buffer B
 }
