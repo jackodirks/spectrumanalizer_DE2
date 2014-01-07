@@ -22,6 +22,7 @@ BEGIN
     ELSE
           IF last_known_nios /= nios_ctrl_in THEN
             nios2_ctrl_flipped := '1';
+				last_known_nios := nios_ctrl_in;
           END IF; --Flip check
           IF last_known_flip_reset /= n2_flip_reset THEN --If the signal is different from last time
             last_known_flip_reset := n2_flip_reset; --Equalize it
@@ -31,6 +32,7 @@ BEGIN
           END IF; --Check n2_flip_rst
     END IF; --rst
         nios2_ctrl_has_flipped <= nios2_ctrl_flipped;
+		  --nios2_ctrl_has_flipped <= '1';
     END IF; --RISING EDGE
   END PROCESS;
 END ARCHITECTURE;

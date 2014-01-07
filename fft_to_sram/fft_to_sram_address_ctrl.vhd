@@ -15,10 +15,10 @@ ARCHITECTURE fft_to_sram_address_cntrl OF fft_to_sram_address_cntrl IS
 
 BEGIN
   PROCESS(clk,incr_addr)
-  CONSTANT startAddr : INTEGER := 16#4B000#;
-  CONSTANT midAddr : INTEGER := 16#4B400#;
-  CONSTANT endAddr : INTEGER := 16#4B800#;
-  VARIABLE curAddr : INTEGER := startAddr;
+  CONSTANT startAddr : UNSIGNED (18 DOWNTO 0) := to_unsigned(16#4B000#,19);
+  CONSTANT midAddr : UNSIGNED (18 DOWNTO 0) := to_unsigned(16#4B400#,19);
+  CONSTANT endAddr : UNSIGNED (18 DOWNTO 0) := to_unsigned(16#4B800#,19);
+  VARIABLE curAddr : UNSIGNED (18 DOWNTO 0) := startAddr;
   VARIABLE last_known_incr_addr : STD_LOGIC := '0';
   VARIABLE buffer_done_out : STD_LOGIC := '1';
   VARIABLE nios2_cntrl_out_out: STD_LOGIC := '0';
@@ -48,7 +48,7 @@ BEGIN
       END IF; --RST
       buffer_done <= buffer_done_out;
       nios2_cntrl_out <= nios2_cntrl_out_out;
-      avalon_write_address <= STD_LOGIC_VECTOR(to_unsigned(curAddr,19));
+      avalon_write_address <= STD_LOGIC_VECTOR(curAddr);
     END IF; --RISING EDGE
   END PROCESS;
   

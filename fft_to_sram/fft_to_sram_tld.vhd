@@ -13,7 +13,7 @@ ARCHITECTURE fft_to_sram OF fft_to_sram IS
   COMPONENT fft_to_sram_fsm IS
   PORT(
     reset, clk, nios2_ctrl_has_flipped, fft_ctrl_in, buffer_done, avalon_ack : IN STD_LOGIC;
-    avalon_write, fft_ctrl_out, nios_flip_reset, incr_addr : OUT STD_LOGIC
+    avalon_write, fft_ctrl_out, nios_flip_reset, incr_addr, nios2_contrl_out : OUT STD_LOGIC
   );
   END COMPONENT;
   
@@ -41,14 +41,15 @@ BEGIN
   fsm :  fft_to_sram_fsm PORT MAP (
     reset => rst,
     clk => clock,
-    nios2_ctrl_has_flipped => nios_flip_control,
+    nios2_ctrl_has_flipped => niosII_ctrl_in,
     fft_ctrl_in => fft_cntrl_in,
     buffer_done => buffer_done_control,
     avalon_ack => avalon_acknoledge,
     avalon_write => avalon_write,
     fft_ctrl_out => fft_cntrl_out,
     nios_flip_reset => nios_flip_reset,
-    incr_addr => incr_addr
+    incr_addr => incr_addr,
+	 nios2_contrl_out => niosII_ctrl_out
   ); 
   
   --Nios2 control signal flip Control
@@ -66,7 +67,7 @@ BEGIN
     rst => rst,
     incr_addr => incr_addr,
     buffer_done => buffer_done_control,
-    nios2_cntrl_out => niosII_ctrl_out,
+    --nios2_cntrl_out => niosII_ctrl_out,
     avalon_write_address => avalon_address
   );
 END ARCHITECTURE;

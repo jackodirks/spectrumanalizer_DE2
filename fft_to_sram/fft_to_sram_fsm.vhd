@@ -4,7 +4,7 @@ USE ieee.std_logic_1164.all;
 ENTITY fft_to_sram_fsm IS
   PORT(
     reset, clk, nios2_ctrl_has_flipped, fft_ctrl_in, buffer_done, avalon_ack : IN STD_LOGIC;
-    avalon_write, fft_ctrl_out, nios_flip_reset, incr_addr : OUT STD_LOGIC
+    avalon_write, fft_ctrl_out, nios_flip_reset, incr_addr, nios2_contrl_out : OUT STD_LOGIC
   );
 END fft_to_sram_fsm;
 
@@ -32,6 +32,7 @@ BEGIN
               ELSE
                   next_state <= waiting_for_nios;
               END IF;
+				  nios2_contrl_out <= '1';
               nios_flip_reset <= '0';
               avalon_write <= '0';
               fft_ctrl_out <='1';
@@ -43,6 +44,7 @@ BEGIN
               ELSE
                 next_state <= waiting_for_fft;
               END IF;
+				  nios2_contrl_out <= '0';
               nios_flip_reset <= '1';
               avalon_write <= '0';
               fft_ctrl_out <='1';
@@ -54,6 +56,7 @@ BEGIN
               ELSE
                 next_state <= send_data;
               END IF;
+				  nios2_contrl_out <= '0';
               nios_flip_reset <= '0';
               avalon_write <= '1';
               fft_ctrl_out <='0';
@@ -67,6 +70,7 @@ BEGIN
               ELSE 
                 next_state <= evaluate;
               END IF;
+				  nios2_contrl_out <= '0';
               nios_flip_reset <= '0';
               avalon_write <= '0';
               fft_ctrl_out <='1';

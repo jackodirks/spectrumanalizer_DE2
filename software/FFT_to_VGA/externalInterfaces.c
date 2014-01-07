@@ -7,8 +7,7 @@ volatile unsigned char* control_in = (unsigned char*)CONTROL_IN_BASE; //The cont
 volatile unsigned char* control_out = (unsigned char*)CONTROL_OUT_BASE; //The control out signals
 volatile void** addr = (void**)ADDRESS_PIO_BASE;
 
-unsigned char lastKnownControlIn = 0;
-unsigned char lastKnownControlOut = 0;
+unsigned int bufferAActive;
 
 /*
  * control_in => lsb = FFT_control
@@ -18,23 +17,18 @@ unsigned char lastKnownControlOut = 0;
 //At programstart the VHDL will start writing to buffer A, so we have to wait for that to finish before we can do anything
 int initExternal(void){
 	*control_out = 0;
+	bufferAActive = 0;
 	return 0;
 }
 
+//TODO: FIX (small endian or big endian?)
 volatile unsigned char* switchFFTBuffer(void){
 	//Flip our side
-	lastKnownControlOut = !lastKnownControlOut;
+	bufferAActive = !bufferAActive;
 	void* v = *addr;
-	if (lastKnownControlOut){
-		*control_out = -1;
-		//*control_out |= 1; //Change the first bit to 1
-	} else {
-		*control_out = 0x0; //AND 11111110
-	}
-	//Wait for the VHDL to flip on his side.
-	while ((*control_in) == lastKnownControlIn);
-	//TODO: FIX (small endian or big endian?)
-	lastKnownControlIn = *control_in;
-	if (lastKnownControlIn) return fftA; //If controlIn is 1, buffer A is ready
+	while ((*control_in) == 0);
+	*control_out = -1;
+	*control_out = 0;
+	if (bufferAActive) return fftA; //If controlIn is 1, buffer A is ready
 	else return fftB; //Else buffer B
 }

@@ -1,12 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
 
 ENTITY spectrumAnalyzer_DE2 IS
 	PORT(
 		--General Inputs
 		CLOCK_50			: in std_logic; 
 		KEY				  	: in std_logic_vector (3 downto 0);
+		SW					: in std_logic_vector (17 DOWNTO 0);
 		--  Memory (SRAM)
 		SRAM_DQ				: inout std_logic_vector (15 downto 0);
 		-- Outputs
@@ -87,15 +89,19 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	TD_RESET <= '1';
 	rst_inv <= NOT KEY(0);
 	avalon_read_ex <= '0';
-	avalon_byte_enable_ex <= (others => '1');
+	avalon_byte_enable_ex <= (others => '0');
+	
 	--TEMP ASSIGNMENTS UNTIL FFT
 	avalon_write_data_ex <= (others => '1');
 	fft_ctr_other <= '1';
 	LEDR(0) <= avalon_write_ex;
-	LEDR(1) <= '1';
+	LEDR(1) <= fft_ctr_other;
 	LEDR(2) <= nios_ctr_other;
 	LEDR(3) <= nios_ctr_nios;
-	LEDR(4) <= rst_inv;
+	LEDR(4) <= avalon_acknowledge_ex;
+	LEDR(5) <= fft_ctr_fft;
+	
+	--FFT To Sram implementation
 	f2s : fft_to_sram 
 		PORT MAP(
 			rst => rst_inv,
