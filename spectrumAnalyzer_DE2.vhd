@@ -90,9 +90,10 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	rst_inv <= NOT KEY(0);
 	avalon_read_ex <= '0';
 	avalon_byte_enable_ex <= (others => '0');
+	avalon_read_data_ex <= (others => '0');
 	
 	--TEMP ASSIGNMENTS UNTIL FFT
-	avalon_write_data_ex <= (others => '1');
+	avalon_write_data_ex <= (others => '0');
 	fft_ctr_other <= '1';
 	LEDR(0) <= avalon_write_ex;
 	LEDR(1) <= fft_ctr_other;

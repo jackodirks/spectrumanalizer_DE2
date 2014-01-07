@@ -483,9 +483,8 @@ set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 set_global_assignment -name VHDL_FILE fft_to_sram/fft_to_sram_tld.vhd
-set_global_assignment -name VHDL_FILE fft_to_sram/fft_to_sram_n2_flip_ctrl.vhd
 set_global_assignment -name VHDL_FILE fft_to_sram/fft_to_sram_fsm.vhd
-set_global_assignment -name VHDL_FILE fft_to_sram/fft_to_sram_address_ctrl.vhd
+set_global_assignment -name VHDL_FILE fft_to_sram/fft_to_sram_addr_offset.vhd
 set_global_assignment -name VHDL_FILE spectrumAnalyzer_DE2.vhd
 set_global_assignment -name QIP_FILE nios2VGA/synthesis/nios2VGA.qip
 set_global_assignment -name SOURCE_FILE nios2VGA.cmp
