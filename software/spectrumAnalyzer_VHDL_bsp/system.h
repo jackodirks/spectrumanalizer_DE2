@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Wed Jan 08 15:29:20 CET 2014
+ * Generated: Wed Jan 08 20:08:08 CET 2014
  */
 
 /*
@@ -62,7 +62,7 @@
 
 #define ALT_CPU_ARCHITECTURE "altera_nios2_qsys"
 #define ALT_CPU_BIG_ENDIAN 0
-#define ALT_CPU_BREAK_ADDR 0x80820
+#define ALT_CPU_BREAK_ADDR 0x82820
 #define ALT_CPU_CPU_FREQ 50000000u
 #define ALT_CPU_CPU_ID_SIZE 1
 #define ALT_CPU_CPU_ID_VALUE 0x00000000
@@ -71,7 +71,7 @@
 #define ALT_CPU_DCACHE_LINE_SIZE 0
 #define ALT_CPU_DCACHE_LINE_SIZE_LOG2 0
 #define ALT_CPU_DCACHE_SIZE 0
-#define ALT_CPU_EXCEPTION_ADDR 0x4b820
+#define ALT_CPU_EXCEPTION_ADDR 0x4b020
 #define ALT_CPU_FLUSHDA_SUPPORTED
 #define ALT_CPU_FREQ 50000000
 #define ALT_CPU_HARDWARE_DIVIDE_PRESENT 0
@@ -85,7 +85,7 @@
 #define ALT_CPU_ICACHE_SIZE 0
 #define ALT_CPU_INST_ADDR_WIDTH 0x14
 #define ALT_CPU_NAME "cpu"
-#define ALT_CPU_RESET_ADDR 0x4b800
+#define ALT_CPU_RESET_ADDR 0x4b000
 
 
 /*
@@ -94,7 +94,7 @@
  */
 
 #define NIOS2_BIG_ENDIAN 0
-#define NIOS2_BREAK_ADDR 0x80820
+#define NIOS2_BREAK_ADDR 0x82820
 #define NIOS2_CPU_FREQ 50000000u
 #define NIOS2_CPU_ID_SIZE 1
 #define NIOS2_CPU_ID_VALUE 0x00000000
@@ -103,7 +103,7 @@
 #define NIOS2_DCACHE_LINE_SIZE 0
 #define NIOS2_DCACHE_LINE_SIZE_LOG2 0
 #define NIOS2_DCACHE_SIZE 0
-#define NIOS2_EXCEPTION_ADDR 0x4b820
+#define NIOS2_EXCEPTION_ADDR 0x4b020
 #define NIOS2_FLUSHDA_SUPPORTED
 #define NIOS2_HARDWARE_DIVIDE_PRESENT 0
 #define NIOS2_HARDWARE_MULTIPLY_PRESENT 0
@@ -115,7 +115,7 @@
 #define NIOS2_ICACHE_LINE_SIZE_LOG2 0
 #define NIOS2_ICACHE_SIZE 0
 #define NIOS2_INST_ADDR_WIDTH 0x14
-#define NIOS2_RESET_ADDR 0x4b800
+#define NIOS2_RESET_ADDR 0x4b000
 
 
 /*
@@ -139,7 +139,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_0 altera_avalon_pio
-#define FFT_IN_0_BASE 0x81020
+#define FFT_IN_0_BASE 0x83050
 #define FFT_IN_0_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_0_CAPTURE 0
@@ -166,7 +166,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_1 altera_avalon_pio
-#define FFT_IN_1_BASE 0x81030
+#define FFT_IN_1_BASE 0x83040
 #define FFT_IN_1_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_1_CAPTURE 0
@@ -193,7 +193,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_2 altera_avalon_pio
-#define FFT_IN_2_BASE 0x81040
+#define FFT_IN_2_BASE 0x83030
 #define FFT_IN_2_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_2_CAPTURE 0
@@ -220,7 +220,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_3 altera_avalon_pio
-#define FFT_IN_3_BASE 0x81050
+#define FFT_IN_3_BASE 0x83020
 #define FFT_IN_3_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_3_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_3_CAPTURE 0
@@ -247,7 +247,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_4 altera_avalon_pio
-#define FFT_IN_4_BASE 0x81060
+#define FFT_IN_4_BASE 0x83090
 #define FFT_IN_4_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_4_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_4_CAPTURE 0
@@ -274,7 +274,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_5 altera_avalon_pio
-#define FFT_IN_5_BASE 0x81070
+#define FFT_IN_5_BASE 0x83080
 #define FFT_IN_5_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_5_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_5_CAPTURE 0
@@ -301,7 +301,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_6 altera_avalon_pio
-#define FFT_IN_6_BASE 0x81080
+#define FFT_IN_6_BASE 0x83070
 #define FFT_IN_6_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_6_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_6_CAPTURE 0
@@ -328,7 +328,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_7 altera_avalon_pio
-#define FFT_IN_7_BASE 0x81090
+#define FFT_IN_7_BASE 0x83060
 #define FFT_IN_7_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_7_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_7_CAPTURE 0
@@ -379,19 +379,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x81100
+#define ALT_STDERR_BASE 0x83100
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x81100
+#define ALT_STDIN_BASE 0x83100
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x81100
+#define ALT_STDOUT_BASE 0x83100
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -405,7 +405,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Character_buffer_avalon_char_buffer_slave altera_up_avalon_video_character_buffer_with_dma
-#define VGA_CHARACTER_BUFFER_AVALON_CHAR_BUFFER_SLAVE_BASE 0x82000
+#define VGA_CHARACTER_BUFFER_AVALON_CHAR_BUFFER_SLAVE_BASE 0x80000
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_BUFFER_SLAVE_IRQ -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_BUFFER_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_BUFFER_SLAVE_NAME "/dev/VGA_Character_buffer_avalon_char_buffer_slave"
@@ -419,7 +419,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Character_buffer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
-#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x810f0
+#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x830f0
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/VGA_Character_buffer_avalon_char_control_slave"
@@ -433,7 +433,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define VGA_PIXEL_BUFFER_BASE 0x810d0
+#define VGA_PIXEL_BUFFER_BASE 0x830d0
 #define VGA_PIXEL_BUFFER_IRQ -1
 #define VGA_PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_PIXEL_BUFFER_NAME "/dev/VGA_Pixel_Buffer"
@@ -447,7 +447,7 @@
  */
 
 #define ALT_MODULE_CLASS_control_in altera_avalon_pio
-#define CONTROL_IN_BASE 0x810b0
+#define CONTROL_IN_BASE 0x830b0
 #define CONTROL_IN_BIT_CLEARING_EDGE_REGISTER 0
 #define CONTROL_IN_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define CONTROL_IN_CAPTURE 0
@@ -474,7 +474,7 @@
  */
 
 #define ALT_MODULE_CLASS_control_out altera_avalon_pio
-#define CONTROL_OUT_BASE 0x810a0
+#define CONTROL_OUT_BASE 0x830a0
 #define CONTROL_OUT_BIT_CLEARING_EDGE_REGISTER 0
 #define CONTROL_OUT_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define CONTROL_OUT_CAPTURE 0
@@ -501,7 +501,7 @@
  */
 
 #define ALT_MODULE_CLASS_green_led_pio altera_avalon_pio
-#define GREEN_LED_PIO_BASE 0x810c0
+#define GREEN_LED_PIO_BASE 0x830c0
 #define GREEN_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LED_PIO_CAPTURE 0
@@ -538,7 +538,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x81100
+#define JTAG_UART_BASE 0x83100
 #define JTAG_UART_IRQ 16
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -556,7 +556,7 @@
  */
 
 #define ALT_MODULE_CLASS_red_led_pio altera_avalon_pio
-#define RED_LED_PIO_BASE 0x810e0
+#define RED_LED_PIO_BASE 0x830e0
 #define RED_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define RED_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define RED_LED_PIO_CAPTURE 0
@@ -584,7 +584,7 @@
 
 #define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
 #define SYS_CLK_TIMER_ALWAYS_RUN 0
-#define SYS_CLK_TIMER_BASE 0x81000
+#define SYS_CLK_TIMER_BASE 0x83000
 #define SYS_CLK_TIMER_COUNTER_SIZE 32
 #define SYS_CLK_TIMER_FIXED_PERIOD 0
 #define SYS_CLK_TIMER_FREQ 50000000
@@ -609,13 +609,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x810f8
+#define SYSID_BASE 0x830f8
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1389190248
+#define SYSID_TIMESTAMP 1389208005
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

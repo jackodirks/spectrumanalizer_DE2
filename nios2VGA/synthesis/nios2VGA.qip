@@ -2,7 +2,7 @@ set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_NAME 
 set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_VERSION "13.0sp1"
 set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "nios2VGA" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../nios2VGA.sopcinfo"]
-set_instance_assignment -entity "nios2VGA" -library "nios2VGA" -name SLD_INFO "QSYS_NAME nios2VGA HAS_SOPCINFO 1 GENERATION_ID 1389198328"
+set_instance_assignment -entity "nios2VGA" -library "nios2VGA" -name SLD_INFO "QSYS_NAME nios2VGA HAS_SOPCINFO 1 GENERATION_ID 1389208005"
 set_global_assignment -library "nios2VGA" -name MISC_FILE [file join $::quartus(qip_path) "../../nios2VGA.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "nios2VGA" -name MISC_FILE [file join $::quartus(qip_path) "../../nios2VGA.qsys"]
@@ -104,16 +104,16 @@ set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quart
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_sysid.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_sys_clk_timer.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_jtag_uart.v"]
-set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_ociram_default_contents.mif"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_jtag_debug_module_wrapper.v"]
-set_global_assignment -library "nios2VGA" -name SDC_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu.sdc"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_jtag_debug_module_sysclk.v"]
-set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_rf_ram_a.mif"]
-set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_rf_ram_b.mif"]
+set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_jtag_debug_module_tck.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_oci_test_bench.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_test_bench.v"]
-set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_jtag_debug_module_tck.v"]
+set_global_assignment -library "nios2VGA" -name SDC_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu.sdc"]
+set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_ociram_default_contents.mif"]
+set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_rf_ram_b.mif"]
+set_global_assignment -library "nios2VGA" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_cpu_rf_ram_a.mif"]
 
 set_global_assignment -entity "nios2VGA_irq_mapper" -library "nios2VGA" -name IP_TOOL_NAME "altera_irq_mapper"
 set_global_assignment -entity "nios2VGA_irq_mapper" -library "nios2VGA" -name IP_TOOL_VERSION "13.0"

@@ -500,12 +500,12 @@ defparam nios2VGA_cpu_ociram_sp_ram.lpm_file = "nios2VGA_cpu_ociram_default_cont
 //synthesis read_comments_as_HDL on
 //defparam nios2VGA_cpu_ociram_sp_ram.lpm_file = "nios2VGA_cpu_ociram_default_contents.mif";
 //synthesis read_comments_as_HDL off
-  assign cfgrom_readdata = (MonAReg[4 : 2] == 3'd0)? 32'h0004b820 :
+  assign cfgrom_readdata = (MonAReg[4 : 2] == 3'd0)? 32'h0004b020 :
     (MonAReg[4 : 2] == 3'd1)? 32'h00001414 :
     (MonAReg[4 : 2] == 3'd2)? 32'h00040000 :
     (MonAReg[4 : 2] == 3'd3)? 32'h00000000 :
     (MonAReg[4 : 2] == 3'd4)? 32'h20000000 :
-    (MonAReg[4 : 2] == 3'd5)? 32'h0004b800 :
+    (MonAReg[4 : 2] == 3'd5)? 32'h0004b000 :
     (MonAReg[4 : 2] == 3'd6)? 32'h00000000 :
     32'h00000000;
 
@@ -4117,7 +4117,7 @@ module nios2VGA_cpu (
     (W_br_taken | R_ctrl_uncond_cti_non_br)   ? 2'b10 :
     2'b11;
 
-  assign F_pc_no_crst_nxt = (F_pc_sel_nxt == 2'b00)? 77320 :
+  assign F_pc_no_crst_nxt = (F_pc_sel_nxt == 2'b00)? 76808 :
     (F_pc_sel_nxt == 2'b01)? 133640 :
     (F_pc_sel_nxt == 2'b10)? E_arith_result[19 : 2] :
     F_pc_plus_one;
@@ -4129,7 +4129,7 @@ module nios2VGA_cpu (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          F_pc <= 77312;
+          F_pc <= 76800;
       else if (F_pc_en)
           F_pc <= F_pc_nxt;
     end

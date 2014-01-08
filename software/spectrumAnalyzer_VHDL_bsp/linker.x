@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Wed Dec 18 13:05:44 CET 2013
+ * Generated: Wed Jan 08 20:08:08 CET 2014
  */
 
 /*
@@ -50,9 +50,9 @@
 
 MEMORY
 {
-    SRAM_BEFORE_RESET : ORIGIN = 0x0, LENGTH = 309248
-    reset : ORIGIN = 0x4b800, LENGTH = 32
-    SRAM : ORIGIN = 0x4b820, LENGTH = 215008
+    SRAM_BEFORE_RESET : ORIGIN = 0x0, LENGTH = 307200
+    reset : ORIGIN = 0x4b000, LENGTH = 32
+    SRAM : ORIGIN = 0x4b020, LENGTH = 217056
 }
 
 /* Define symbols for each memory base-address */

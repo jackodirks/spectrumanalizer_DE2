@@ -1,65 +1,58 @@
 #include "externalInterfaces.h"
-
 //Buffer and control
 //volatile unsigned char* fftA = (unsigned char *)0x4B000; //FFT A buffer, contains data about height in pixels (lives in SRAM)
 //volatile unsigned char* fftB = (unsigned char *)0x4B400; //FFT B buffer, contains data about heigt in pixels (lives in SRAM)
 
 
-//WRONG IDEA: The PIO's are not directly after eachother and each contain 4 byte (maybe an unsigned char**)?
-volatile unsigned char* fft_in = (unsigned char*) FFT_IN_0_BASE; //The first address for the 32 length unsigned char buffer
+volatile unsigned char* fft_in_0 = (unsigned char*) FFT_IN_0_BASE; //The first address for the 32 length unsigned char buffer
+volatile unsigned char* fft_in_1 = (unsigned char*) FFT_IN_1_BASE;
+volatile unsigned char* fft_in_2 = (unsigned char*) FFT_IN_2_BASE;
+volatile unsigned char* fft_in_3 = (unsigned char*) FFT_IN_3_BASE;
+volatile unsigned char* fft_in_4 = (unsigned char*) FFT_IN_4_BASE;
+volatile unsigned char* fft_in_5 = (unsigned char*) FFT_IN_5_BASE;
+volatile unsigned char* fft_in_6 = (unsigned char*) FFT_IN_6_BASE;
+volatile unsigned char* fft_in_7 = (unsigned char*) FFT_IN_7_BASE;
+volatile unsigned char* fft_in[32];
+
 volatile unsigned char* control_in = (unsigned char*)CONTROL_IN_BASE; //The control in signals
 volatile unsigned char* control_out = (unsigned char*)CONTROL_OUT_BASE; //The control out signals
 
-unsigned int bufferAActive;
-
-/*
- * control_in => lsb = FFT_control
- * lsb = 0 when B is ready and 1 when A is ready
- */
-
-//At programstart the VHDL will start writing to buffer A, so we have to wait for that to finish before we can do anything
 int initExternal(void){
-	*control_out = 0;
-	bufferAActive = 0;
+	//fill fft_in
+	unsigned fft_in_index = 0, iterator = 0;
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_0[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_1[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_2[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_3[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_4[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_5[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_6[iterator];
+	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_7[iterator];
+	*control_out = 1;
 	return 0;
 }
-
-//TODO: FIX (small endian or big endian?)
-//volatile unsigned char* switchFFTBuffer(void){
-//	//Flip our side
-//	bufferAActive = !bufferAActive;
-//	void* v = *addr;
-//	while ((*control_in) == 0);
-//	*control_out = -1;
-//	volatile int i = 8;
-//	while (i--); //Wait 8 ticks
-//	*control_out = 0;
-//	if (bufferAActive) return fftA; //If controlIn is 1, buffer A is ready
-//	else return fftB; //Else buffer B
-//}
-
 //This function loops trough the given data
 unsigned char* getFFTData(unsigned firstPoint, unsigned lastPoint){
 	//Allocate the necessary data
 	unsigned char* FFTData = malloc(sizeof(char) * (lastPoint - firstPoint));
-	//The variable that knows how mucht of the allocated data is already used
+	//The variable that knows how much of the allocated data is already used
 	unsigned datacounter = 0;
 	//The loop. Counting from 0 to 1024 with steps of 32
 	unsigned counter;
-	for(counter = 0; counter <= 1024; counter += 64){
+	for(counter = 0; counter <= 1024; counter += 32){
 		//First: receive the data
 		*control_out = 1;
 		while ((*control_in) == 0);
 		*control_out = 0;
 		//Some checks (should we even do anything?)
-		if ((counter + 64) < firstPoint) continue;
+		if ((counter + 32) < firstPoint) continue;
 		if (counter > lastPoint) continue;
 		//Aparently we should
 		unsigned offsetCounter = counter;
 		if (offsetCounter < firstPoint) offsetCounter = firstPoint;
 		if (offsetCounter == lastPoint) continue;
-		for(;offsetCounter < counter + 64; offsetCounter++){
-			FFTData[datacounter++] = fft_in[offsetCounter];
+		for(;offsetCounter < counter + 32; offsetCounter++){
+			FFTData[datacounter++] = *fft_in[offsetCounter];
 		}
 	}
 	//Tell the FFT to get the next data ready

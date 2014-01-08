@@ -1,8 +1,5 @@
 #include "draw.h"
 
-
-//TODO: Add lookup tables
-
 //Typedefs etc
 typedef enum {frontbuffer, backbuffer} vgaBuffers;
 //Device names
@@ -50,18 +47,6 @@ void drawHelpLines(void){
 }
 
 void drawGraph(unsigned char* voltArray, unsigned elementCount){
-	//First: count the amount of points that fits within minval and maxval
-	//TOBEREPLACED (unsigned char* voltArray, unsigned elementCount
-//	int elementCount,x = 0, firstval = -1; //firstval indicates the startpoint in the array
-//	for (elementCount = 0; cnst_hz[x] <= maxval * 1000 && x < FFTDATAPOINTS; x++){
-//		if (cnst_hz[x] >= minval*1000 ){
-//			if (firstval < 0) firstval = x;
-//			elementCount++;
-//		}
-//	}
-//	volatile unsigned char * voltArray = &currentFFT[firstval]; //Point voltArray to the correct place in the array.
-
-
 	float pixelsPerElement = (((float)(drawX1) - (float)drawX0) + 1.0) / elementCount;
 	if (pixelsPerElement < 1){
 		int elementsProcessed, xPixel = 13, highestPeak = 225;
