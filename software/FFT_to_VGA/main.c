@@ -3,11 +3,14 @@
 #include "draw.h"
 #include "FFT_temp.h"
 #include "externalInterfaces.h"
+#include "cnst_hz.h"
 
 //The values is value in Hz /1000 (steps of 1 KHz)
-unsigned short minval = 2;
-unsigned short maxval = 3;
+unsigned short minval = 20;
+unsigned short maxval = 21;
 char rangeChanged = 0;
+
+unsigned LUT[101];
 
 //Declarations of positions of buffers and hardware components
 volatile int * ledR = (int*) RED_LED_PIO_BASE;
@@ -35,16 +38,27 @@ volatile int * ledG = (int*) GREEN_LED_PIO_BASE;
 //	printf("Done with TEMP stuff\n");
 //}
 
+//Fills the lookup-table
+void fillLUT(void){
+	LUT[0] = 0;
+	LUT[100] = FFTDATAPOINTS - 1;
+	unsigned dataPointCounter = 0;
+	unsigned LUTpos = 1;
+	for(;LUTpos < 100; ++LUTpos){
+		for(; cnst_hz[dataPointCounter] < LUTpos * 1000;dataPointCounter++ );
+		if (dataPointCounter > FFTDATAPOINTS) dataPointCounter = 1024;
+		LUT[LUTpos] = dataPointCounter -1;
+	}
+}
+
 int main(void){
 	//temp();
 
+	//All inits
 	if (initExternal() || initText() || initDraw()) return -1;
-
-	volatile unsigned char* currentFFT = NULL;
-
-	//int colors[3] = {RED,GREEN,BLUE};
-	//int colorIndicator = 0;
-	//int buffer = 1;
+	//Fill the lookup table
+	fillLUT();
+	unsigned char* FFTData = NULL;
 	prepareText(); //For static text
 	displayHorRange(); //For non-static text
 	prepareBackground();
@@ -54,9 +68,10 @@ int main(void){
 	if(swapVGABuffer()) return -1;
 	prepareBackground();
 	while(1){
-		currentFFT = switchFFTBuffer();
+		FFTData = getFFTData(LUT[minval], LUT[maxval]);
 		clearDrawingboard();
-		drawGraph(currentFFT, maxval, minval);
+		drawGraph(FFTData,LUT[maxval] - LUT[minval]);
+		free(FFTData);
 		drawHelpLines();
 		if (rangeChanged){
 			rangeChanged = 0;

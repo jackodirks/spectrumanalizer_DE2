@@ -16,27 +16,16 @@
    {
       datum _sortIndex
       {
-         value = "17";
-         type = "int";
-      }
-   }
-   element SRAM
-   {
-      datum _sortIndex
-      {
-         value = "11";
-         type = "int";
-      }
-   }
-   element VGA_Character_buffer
-   {
-      datum _sortIndex
-      {
          value = "16";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
-   element VGA_Controller
+   element FFT_in_0
    {
       datum _sortIndex
       {
@@ -44,47 +33,7 @@
          type = "int";
       }
    }
-   element VGA_Dual_Clock_FIFO
-   {
-      datum _sortIndex
-      {
-         value = "18";
-         type = "int";
-      }
-   }
-   element VGA_Pixel_Buffer
-   {
-      datum _sortIndex
-      {
-         value = "13";
-         type = "int";
-      }
-   }
-   element VGA_Scaler
-   {
-      datum _sortIndex
-      {
-         value = "15";
-         type = "int";
-      }
-   }
-   element VGA_clock
-   {
-      datum _sortIndex
-      {
-         value = "10";
-         type = "int";
-      }
-   }
-   element VGA_pixel_RGB_Resampler
-   {
-      datum _sortIndex
-      {
-         value = "14";
-         type = "int";
-      }
-   }
-   element VHDL_to_Avalon
+   element FFT_in_1
    {
       datum _sortIndex
       {
@@ -92,24 +41,168 @@
          type = "int";
       }
    }
-   element address_PIO
+   element FFT_in_2
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "21";
          type = "int";
+      }
+   }
+   element FFT_in_3
+   {
+      datum _sortIndex
+      {
+         value = "22";
+         type = "int";
+      }
+   }
+   element FFT_in_4
+   {
+      datum _sortIndex
+      {
+         value = "23";
+         type = "int";
+      }
+   }
+   element FFT_in_5
+   {
+      datum _sortIndex
+      {
+         value = "24";
+         type = "int";
+      }
+   }
+   element FFT_in_6
+   {
+      datum _sortIndex
+      {
+         value = "25";
+         type = "int";
+      }
+   }
+   element FFT_in_7
+   {
+      datum _sortIndex
+      {
+         value = "26";
+         type = "int";
+      }
+   }
+   element SRAM
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element VGA_Character_buffer
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element VGA_Controller
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element VGA_Dual_Clock_FIFO
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element VGA_Pixel_Buffer
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element VGA_Scaler
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element VGA_clock
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element VGA_pixel_RGB_Resampler
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element VGA_Character_buffer.avalon_char_buffer_slave
    {
       datum _lockedAddress
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
       datum baseAddress
       {
-         value = "589824";
+         value = "524288";
          type = "String";
       }
    }
@@ -117,7 +210,7 @@
    {
       datum baseAddress
       {
-         value = "528512";
+         value = "536816";
          type = "String";
       }
    }
@@ -125,7 +218,7 @@
    {
       datum baseAddress
       {
-         value = "528480";
+         value = "536784";
          type = "String";
       }
    }
@@ -133,7 +226,7 @@
    {
       datum baseAddress
       {
-         value = "528528";
+         value = "536832";
          type = "String";
       }
    }
@@ -157,28 +250,43 @@
          value = "0";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
    }
    element control_in
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "6";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element control_out
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "7";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element sysid.control_slave
    {
       datum baseAddress
       {
-         value = "528520";
+         value = "536824";
          type = "String";
       }
    }
@@ -194,23 +302,33 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "11";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element green_led_pio
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element cpu.jtag_debug_module
    {
       datum baseAddress
       {
-         value = "526336";
+         value = "534528";
          type = "String";
       }
    }
@@ -223,7 +341,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -236,23 +354,20 @@
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
-   element green_led_pio.s1
+   element FFT_in_0.s1
    {
-      datum baseAddress
+      datum _lockedAddress
       {
-         value = "528464";
-         type = "String";
+         value = "0";
+         type = "boolean";
       }
-   }
-   element address_PIO.s1
-   {
       datum baseAddress
       {
-         value = "528416";
+         value = "536656";
          type = "String";
       }
    }
@@ -260,7 +375,41 @@
    {
       datum baseAddress
       {
-         value = "528496";
+         value = "536800";
+         type = "String";
+      }
+   }
+   element FFT_in_3.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536608";
+         type = "String";
+      }
+   }
+   element green_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "536768";
+         type = "String";
+      }
+   }
+   element FFT_in_6.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536688";
          type = "String";
       }
    }
@@ -268,15 +417,20 @@
    {
       datum baseAddress
       {
-         value = "528448";
+         value = "536752";
          type = "String";
       }
    }
-   element control_out.s1
+   element FFT_in_4.s1
    {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
       datum baseAddress
       {
-         value = "528432";
+         value = "536720";
          type = "String";
       }
    }
@@ -284,7 +438,67 @@
    {
       datum baseAddress
       {
-         value = "528384";
+         value = "536576";
+         type = "String";
+      }
+   }
+   element FFT_in_1.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536640";
+         type = "String";
+      }
+   }
+   element control_out.s1
+   {
+      datum baseAddress
+      {
+         value = "536736";
+         type = "String";
+      }
+   }
+   element FFT_in_5.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536704";
+         type = "String";
+      }
+   }
+   element FFT_in_2.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536624";
+         type = "String";
+      }
+   }
+   element FFT_in_7.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536672";
          type = "String";
       }
    }
@@ -310,7 +524,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -329,7 +543,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1389007798565" />
+ <parameter name="timeStamp" value="1389187429120" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -365,11 +579,6 @@
    type="clock"
    dir="start" />
  <interface
-   name="vhdl_to_avalon_external_interface"
-   internal="VHDL_to_Avalon.external_interface"
-   type="conduit"
-   dir="end" />
- <interface
    name="nios_cntrl_in"
    internal="control_in.external_connection"
    type="conduit"
@@ -380,8 +589,43 @@
    type="conduit"
    dir="end" />
  <interface
-   name="address_pio_external_connection"
-   internal="address_PIO.external_connection"
+   name="fft_in_0"
+   internal="FFT_in_0.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_1"
+   internal="FFT_in_1.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_2"
+   internal="FFT_in_2.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_3"
+   internal="FFT_in_3.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_4"
+   internal="FFT_in_4.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_5"
+   internal="FFT_in_5.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_6"
+   internal="FFT_in_6.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fft_in_7"
+   internal="FFT_in_7.external_connection"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
@@ -491,8 +735,8 @@
   <parameter name="tightlyCoupledInstructionMaster1AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x80800' end='0x81000' /><slave name='sys_clk_timer.s1' start='0x81000' end='0x81020' /><slave name='address_PIO.s1' start='0x81020' end='0x81030' /><slave name='control_out.s1' start='0x81030' end='0x81040' /><slave name='control_in.s1' start='0x81040' end='0x81050' /><slave name='green_led_pio.s1' start='0x81050' end='0x81060' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x81060' end='0x81070' /><slave name='red_led_pio.s1' start='0x81070' end='0x81080' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x81080' end='0x81088' /><slave name='sysid.control_slave' start='0x81088' end='0x81090' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81090' end='0x81098' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x90000' end='0x92000' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x82800' end='0x83000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x80000' end='0x82000' /><slave name='cpu.jtag_debug_module' start='0x82800' end='0x83000' /><slave name='sys_clk_timer.s1' start='0x83000' end='0x83020' /><slave name='FFT_in_3.s1' start='0x83020' end='0x83030' /><slave name='FFT_in_2.s1' start='0x83030' end='0x83040' /><slave name='FFT_in_1.s1' start='0x83040' end='0x83050' /><slave name='FFT_in_0.s1' start='0x83050' end='0x83060' /><slave name='FFT_in_7.s1' start='0x83060' end='0x83070' /><slave name='FFT_in_6.s1' start='0x83070' end='0x83080' /><slave name='FFT_in_5.s1' start='0x83080' end='0x83090' /><slave name='FFT_in_4.s1' start='0x83090' end='0x830A0' /><slave name='control_out.s1' start='0x830A0' end='0x830B0' /><slave name='control_in.s1' start='0x830B0' end='0x830C0' /><slave name='green_led_pio.s1' start='0x830C0' end='0x830D0' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x830D0' end='0x830E0' /><slave name='red_led_pio.s1' start='0x830E0' end='0x830F0' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x830F0' end='0x830F8' /><slave name='sysid.control_slave' start='0x830F8' end='0x83100' /><slave name='jtag_uart.avalon_jtag_slave' start='0x83100' end='0x83108' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="65538" />
@@ -698,17 +942,6 @@
   <parameter name="clockRate" value="50000000" />
  </module>
  <module
-   kind="altera_up_external_bus_to_avalon_bridge"
-   version="12.0"
-   enabled="1"
-   name="VHDL_to_Avalon">
-  <parameter name="addr_size" value="512" />
-  <parameter name="addr_size_multiplier" value="Kbytes" />
-  <parameter name="data_size" value="128" />
-  <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="25000000" />
-  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
- </module>
- <module
    kind="altera_avalon_pio"
    version="13.0.1.99.2"
    enabled="1"
@@ -748,7 +981,133 @@
    kind="altera_avalon_pio"
    version="13.0.1.99.2"
    enabled="1"
-   name="address_PIO">
+   name="FFT_in_0">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_2">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_3">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_4">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_5">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_6">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="13.0.1.99.2"
+   enabled="1"
+   name="FFT_in_7">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -768,7 +1127,7 @@
    start="cpu.instruction_master"
    end="cpu.jtag_debug_module">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00080800" />
+  <parameter name="baseAddress" value="0x00082800" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -777,7 +1136,7 @@
    start="cpu.data_master"
    end="cpu.jtag_debug_module">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00080800" />
+  <parameter name="baseAddress" value="0x00082800" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="reset" version="13.0" start="clk_0.clk_reset" end="cpu.reset_n" />
@@ -793,7 +1152,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081090" />
+  <parameter name="baseAddress" value="0x00083100" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="sys_clk_timer.clk" />
@@ -808,7 +1167,7 @@
    start="cpu.data_master"
    end="sys_clk_timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081000" />
+  <parameter name="baseAddress" value="0x00083000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="sysid.clk" />
@@ -819,7 +1178,7 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081088" />
+  <parameter name="baseAddress" value="0x000830f8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="red_led_pio.clk" />
@@ -834,7 +1193,7 @@
    start="cpu.data_master"
    end="red_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081070" />
+  <parameter name="baseAddress" value="0x000830e0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="cpu.clk" />
@@ -929,7 +1288,7 @@
    start="cpu.data_master"
    end="VGA_Character_buffer.avalon_char_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081080" />
+  <parameter name="baseAddress" value="0x000830f0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -938,7 +1297,7 @@
    start="cpu.data_master"
    end="VGA_Character_buffer.avalon_char_buffer_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00090000" />
+  <parameter name="baseAddress" value="0x00080000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1046,7 +1405,7 @@
    start="cpu.data_master"
    end="VGA_Pixel_Buffer.avalon_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081060" />
+  <parameter name="baseAddress" value="0x000830d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1090,7 +1449,7 @@
    start="cpu.data_master"
    end="green_led_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081050" />
+  <parameter name="baseAddress" value="0x000830c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1107,30 +1466,6 @@
    version="13.0"
    start="external_clocks.sys_clk_reset"
    end="cpu.reset_n" />
- <connection
-   kind="clock"
-   version="13.0"
-   start="external_clocks.vga_clk"
-   end="VHDL_to_Avalon.clock_reset" />
- <connection
-   kind="reset"
-   version="13.0"
-   start="cpu.jtag_debug_module_reset"
-   end="VHDL_to_Avalon.clock_reset_reset" />
- <connection
-   kind="reset"
-   version="13.0"
-   start="clk_0.clk_reset"
-   end="VHDL_to_Avalon.clock_reset_reset" />
- <connection
-   kind="avalon"
-   version="13.0"
-   start="VHDL_to_Avalon.avalon_master"
-   end="SRAM.avalon_sram_slave">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="control_in.clk" />
  <connection
    kind="avalon"
@@ -1138,7 +1473,7 @@
    start="cpu.data_master"
    end="control_in.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081040" />
+  <parameter name="baseAddress" value="0x000830b0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="13.0" start="clk_0.clk" end="control_out.clk" />
@@ -1153,22 +1488,7 @@
    start="cpu.data_master"
    end="control_out.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081030" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection kind="clock" version="13.0" start="clk_0.clk" end="address_PIO.clk" />
- <connection
-   kind="reset"
-   version="13.0"
-   start="clk_0.clk_reset"
-   end="address_PIO.reset" />
- <connection
-   kind="avalon"
-   version="13.0"
-   start="cpu.data_master"
-   end="address_PIO.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081020" />
+  <parameter name="baseAddress" value="0x000830a0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1176,6 +1496,126 @@
    version="13.0"
    start="clk_0.clk_reset"
    end="control_in.reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_4.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083090" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_5.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083080" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_6.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083070" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_7.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083060" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_0.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_1.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_2.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_3.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_4.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_5.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_6.clk" />
+ <connection kind="clock" version="13.0" start="clk_0.clk" end="FFT_in_7.clk" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_0.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_1.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_2.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_3.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_4.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_5.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_6.reset" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_0.clk_reset"
+   end="FFT_in_7.reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083050" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_1.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_2.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="FFT_in_3.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00083020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

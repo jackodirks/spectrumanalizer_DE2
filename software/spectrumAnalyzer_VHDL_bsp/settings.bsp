@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jan 6, 2014 4:56:04 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1389023764216</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jan 8, 2014 4:10:34 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1389193834155</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/jacko/git/spectrumAnalyzer_DE2/software/spectrumAnalyzer_VHDL_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2VGA.sopcinfo</SopcDesignFile>
@@ -870,67 +870,109 @@
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sys_clk_timer</slaveDescriptor>
-                <addressRange>0x00081000 - 0x0008107F</addressRange>
-                <addressSpan>128</addressSpan>
+                <addressRange>0x00081000 - 0x0008101F</addressRange>
+                <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>address_PIO</slaveDescriptor>
-                <addressRange>0x00081020 - 0x0008105F</addressRange>
-                <addressSpan>64</addressSpan>
+                <slaveDescriptor>FFT_in_0</slaveDescriptor>
+                <addressRange>0x00081020 - 0x0008102F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>control_out</slaveDescriptor>
-                <addressRange>0x00081030 - 0x0008106F</addressRange>
-                <addressSpan>64</addressSpan>
+                <slaveDescriptor>FFT_in_1</slaveDescriptor>
+                <addressRange>0x00081030 - 0x0008103F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>control_in</slaveDescriptor>
-                <addressRange>0x00081040 - 0x0008107F</addressRange>
-                <addressSpan>64</addressSpan>
+                <slaveDescriptor>FFT_in_2</slaveDescriptor>
+                <addressRange>0x00081040 - 0x0008104F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>green_led_pio</slaveDescriptor>
-                <addressRange>0x00081050 - 0x0008108F</addressRange>
-                <addressSpan>64</addressSpan>
+                <slaveDescriptor>FFT_in_3</slaveDescriptor>
+                <addressRange>0x00081050 - 0x0008105F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
+                <slaveDescriptor>FFT_in_4</slaveDescriptor>
                 <addressRange>0x00081060 - 0x0008106F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>FFT_in_5</slaveDescriptor>
+                <addressRange>0x00081070 - 0x0008107F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>FFT_in_6</slaveDescriptor>
+                <addressRange>0x00081080 - 0x0008108F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>FFT_in_7</slaveDescriptor>
+                <addressRange>0x00081090 - 0x0008109F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>control_out</slaveDescriptor>
+                <addressRange>0x000810A0 - 0x000810AF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>control_in</slaveDescriptor>
+                <addressRange>0x000810B0 - 0x000810BF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>green_led_pio</slaveDescriptor>
+                <addressRange>0x000810C0 - 0x000810CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>VGA_Pixel_Buffer</slaveDescriptor>
+                <addressRange>0x000810D0 - 0x000810DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>red_led_pio</slaveDescriptor>
-                <addressRange>0x00081070 - 0x000810AF</addressRange>
-                <addressSpan>64</addressSpan>
+                <addressRange>0x000810E0 - 0x000810EF</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>VGA_Character_buffer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x00081080 - 0x00081087</addressRange>
+                <addressRange>0x000810F0 - 0x000810F7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x00081088 - 0x0008108F</addressRange>
+                <addressRange>0x000810F8 - 0x000810FF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00081090 - 0x000810AF</addressRange>
-                <addressSpan>32</addressSpan>
+                <addressRange>0x00081100 - 0x00081107</addressRange>
+                <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>VGA_Character_buffer_avalon_char_buffer_slave</slaveDescriptor>
-                <addressRange>0x00090000 - 0x00091FFF</addressRange>
+                <addressRange>0x00082000 - 0x00083FFF</addressRange>
                 <addressSpan>8192</addressSpan>
                 <attributes/>
         </MemoryMap>
