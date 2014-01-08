@@ -10,4 +10,6 @@ simulation/
 *.rpt
 *.*/
 obj/
+*.bak
 *.force_relink
+*.force_rebuild
