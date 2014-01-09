@@ -6,8 +6,8 @@
 #include "cnst_hz.h"
 
 //The values is value in Hz /1000 (steps of 1 KHz)
-unsigned short minval = 20;
-unsigned short maxval = 21;
+unsigned short minval = 0;
+unsigned short maxval = 100;
 char rangeChanged = 0;
 
 unsigned LUT[101];

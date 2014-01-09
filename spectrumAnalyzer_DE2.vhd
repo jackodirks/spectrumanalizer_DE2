@@ -78,7 +78,8 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	TD_RESET <= '1';
 	
 	--Temp, until FFT
-	fft_data <= (OTHERS => '0');
+	fft_data(6 DOWNTO 0) <= "1111111";
+	fft_data(255 DOWNTO 7) <= (OTHERS => '0');
 	fft_cntrl <= '1';
 
 	nios2 : nios2VGA

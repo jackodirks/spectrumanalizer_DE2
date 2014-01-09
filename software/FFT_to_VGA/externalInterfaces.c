@@ -51,7 +51,8 @@ unsigned char* getFFTData(unsigned firstPoint, unsigned lastPoint){
 		unsigned offsetCounter = counter;
 		if (offsetCounter < firstPoint) offsetCounter = firstPoint;
 		if (offsetCounter == lastPoint) continue;
-		for(;offsetCounter < counter + 32; offsetCounter++){
+		offsetCounter %= 32;
+		for(;offsetCounter < 32; offsetCounter++){
 			FFTData[datacounter++] = *fft_in[offsetCounter];
 		}
 	}
