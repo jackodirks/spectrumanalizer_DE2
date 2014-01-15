@@ -7,6 +7,7 @@ ENTITY spectrumAnalyzer_DE2 IS
 	PORT(
 		--General Inputs
 		CLOCK_50			: in std_logic; 
+		CLOCK_27			: IN STD_LOGIC;
 		KEY				  	: in std_logic_vector (3 downto 0);
 		SW					: in std_logic_vector (17 DOWNTO 0);
 		--  Memory (SRAM)
@@ -35,7 +36,17 @@ ENTITY spectrumAnalyzer_DE2 IS
 		
 		--Rotary encoder
 		ROTARY_GRAY : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		ROTARY_BUTTON : IN STD_LOGIC
+		ROTARY_BUTTON : IN STD_LOGIC;
+		
+		--ADC
+		ADC_BUSY:	in std_logic;
+		ADC:    		inout std_logic_vector(11 downto 0);
+		ADC_CLKIN:  out std_logic;	
+		ADC_CONVST: out std_logic;
+		ADC_WB: 		out std_logic;
+		ADC_WR:		out std_logic;
+		ADC_RD: 		out std_logic;
+		ADC_CS: 		out std_logic
 	);
 END ENTITY spectrumAnalyzer_DE2;
 
@@ -72,8 +83,6 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			rotary_in_export                         : in    std_logic_vector(7 downto 0)  := (others => 'X')  -- export
 		);
 	end component nios2VGA;
-
-
 	
 	component rotary_decoder IS
 	PORT(
@@ -83,12 +92,93 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 		pressed : OUT STD_LOGIC --Indicates if the button was pressed or not
 	);
 	END component;
+	
+	component ADC_sampler is 
+	port	( 	
+				-- clock and reset
+				CLOCK_50:  	in std_logic;
+				CLOCK_27:	IN STD_LOGIC;
+				reset: 		in std_logic;
+				
+				-- list of inputs
+				CONTROL:   	in std_logic;								--start/stop input
+				--KEY:   		in std_logic_vector(0 downto 0);
+				ADC_BUSY:	in std_logic;
+				ADC:    		inout std_logic_vector(11 downto 0);
+				
+				-- list of outputs
+				DONE:    	out std_logic;								--samples are ready
+				--LEDR:   		out std_logic_vector(7 downto 0);
+				LEDG:   		out std_logic_vector(7 downto 0);
+				ADC_CLKIN:  out std_logic;	
+				ADC_CONVST: out std_logic;
+				ADC_WB: 		out std_logic;
+				ADC_WR:		out std_logic;
+				ADC_RD: 		out std_logic;
+				ADC_CS: 		out std_logic;	
+				
+				
+				samp0:   out std_logic_vector(7 downto 0);
+				samp1:   out std_logic_vector(7 downto 0);
+				samp2:   out std_logic_vector(7 downto 0);
+				samp3:   out std_logic_vector(7 downto 0);
+				samp4:   out std_logic_vector(7 downto 0);
+				samp5:   out std_logic_vector(7 downto 0);
+				samp6:   out std_logic_vector(7 downto 0);
+				samp7:   out std_logic_vector(7 downto 0);
+				samp8:   out std_logic_vector(7 downto 0);
+				samp9:   out std_logic_vector(7 downto 0);
+				samp10:   out std_logic_vector(7 downto 0);
+				samp11:   out std_logic_vector(7 downto 0);
+				samp12:   out std_logic_vector(7 downto 0);
+				samp13:   out std_logic_vector(7 downto 0);
+				samp14:   out std_logic_vector(7 downto 0);
+				samp15:   out std_logic_vector(7 downto 0)
+				
+			);
+end component;
 
 	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed, rotary_rst : STD_LOGIC;
 	SIGNAL fft_data : STD_logic_vector(127 DOWNTO 0);
 	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
+	--ADC comincation
+	SIGNAL ADC_CONTROL_IN : STD_LOGIC;
+	
 	BEGIN
+	
+	ADCSamp : ADC_sampler PORT MAP (
+		CLOCK_50 =>  CLOCK_50,
+		CLOCK_27 => CLOCK_27,
+		reset => SW(0),
+		LEDG => LEDG(7 DOWNTO 0),
+		CONTROL => fft_cntrl,
+		ADC_BUSY => ADC_BUSY,
+		ADC => ADC,
+		DONE => n2_cntrl,
+		ADC_CLKIN => ADC_CLKIN,
+		ADC_CONVST => ADC_CONVST,
+		ADC_WB => ADC_WB,
+		ADC_WR => ADC_WR,
+		ADC_RD => ADC_RD,
+		ADC_CS => ADC_CS,
+		samp0 => fft_data(7 DOWNTO 0),
+		samp1 => fft_data(15 DOWNTO 8),
+		samp2 => fft_data(23 DOWNTO 16),
+		samp3 => fft_data(31 DOWNTO 24),
+		samp4 => fft_data(39 DOWNTO 32),
+		samp5 => fft_data(47 DOWNTO 40),
+		samp6 => fft_data(55 DOWNTO 48),
+		samp7 => fft_data(63 DOWNTO 56),
+		samp8 => fft_data(71 DOWNTO 64),
+		samp9 => fft_data(79 DOWNTO 72),
+		samp10 => fft_data(87 DOWNTO 80),
+		samp11 => fft_data(95 DOWNTO 88),
+		samp12 => fft_data(103 DOWNTO 96),
+		samp13 => fft_data(111 DOWNTO 104),
+		samp14 => fft_data(119 DOWNTO 112),
+		samp15 => fft_data(127 DOWNTO 120)
+	);
 	
 	RotaryDecoder : rotary_decoder PORT MAP(
 		button =>ROTARY_BUTTON,
@@ -101,16 +191,16 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 	rotary_counter(7) <= '0';
 	TD_RESET <= '1';
 	--Temp, until FFT
-	fft_data(7 DOWNTO 0) <= "00111111";
-	fft_data(15 DOWNTO 8) <= "00000000";
-	fft_data(23 DOWNTO 16) <= "00000111";
-	fft_data(31 DOWNTO 24) <= "00111111";
-	fft_data(39 DOWNTO 32) <= "00011111";
-	fft_data(47 DOWNTO 40) <= "01000000";
-	fft_data(55 DOWNTO 48) <= "01100000";
-	fft_data(127 DOWNTO 56) <= (OTHERS => '0');
+	--fft_data(7 DOWNTO 0) <= "00111111";
+	--fft_data(15 DOWNTO 8) <= "00000000";
+	--fft_data(23 DOWNTO 16) <= "00000111";
+	--fft_data(31 DOWNTO 24) <= "00111111";
+	--fft_data(39 DOWNTO 32) <= "00011111";
+	--fft_data(47 DOWNTO 40) <= "01000000";
+	--fft_data(55 DOWNTO 48) <= "01100000";
+	--fft_data(127 DOWNTO 56) <= (OTHERS => '0');
 	
-	fft_cntrl <= '1';
+	--fft_cntrl <= '1';
 	
 
 	nios2 : nios2VGA
