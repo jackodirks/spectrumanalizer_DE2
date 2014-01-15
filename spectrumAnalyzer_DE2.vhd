@@ -69,45 +69,45 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			fft_in_1_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			fft_in_2_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			fft_in_3_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
-			rotary_in_export                         : in    std_logic_vector(15 downto 0) := (others => 'X')  -- export
+			rotary_in_export                         : in    std_logic_vector(7 downto 0)  := (others => 'X')  -- export
 		);
 	end component nios2VGA;
+
+
 	
 	component rotary_decoder IS
 	PORT(
 		button, clk, rst : IN STD_LOGIC;
 		grayCode : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		counter : OUT STD_LOGIC_VECTOR(15 DOWNTO 0); ----(2^16 - 1) 65535 <= maxval
+		counter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		pressed : OUT STD_LOGIC --Indicates if the button was pressed or not
 	);
 	END component;
 
 	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed, rotary_rst : STD_LOGIC;
 	SIGNAL fft_data : STD_logic_vector(127 DOWNTO 0);
-	SIGNAL rotary_counter : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
 	BEGIN
 	
 	RotaryDecoder : rotary_decoder PORT MAP(
 		button =>ROTARY_BUTTON,
 		clk => CLOCK_50,
-		rst => rotary_rst,
+		rst => rotary_rst OR SW(0),
 		grayCode => ROTARY_GRAY,
-		counter => rotary_counter,
+		counter => rotary_counter(6 DOWNTO 0),
 		pressed => rotary_pressed
 	);
-	
+	rotary_counter(7) <= '0';
 	TD_RESET <= '1';
-	LEDR(15 DOWNTO 0) <= rotary_counter;
-	LEDR(17) <= rotary_pressed;
 	--Temp, until FFT
-	fft_data(7 DOWNTO 0) <= "01111111";
+	fft_data(7 DOWNTO 0) <= "00111111";
 	fft_data(15 DOWNTO 8) <= "00000000";
-	fft_data(23 DOWNTO 16) <= "11000111";
+	fft_data(23 DOWNTO 16) <= "00000111";
 	fft_data(31 DOWNTO 24) <= "00111111";
 	fft_data(39 DOWNTO 32) <= "00011111";
 	fft_data(47 DOWNTO 40) <= "01000000";
-	fft_data(55 DOWNTO 48) <= "11100000";
+	fft_data(55 DOWNTO 48) <= "01100000";
 	fft_data(127 DOWNTO 56) <= (OTHERS => '0');
 	
 	fft_cntrl <= '1';
@@ -120,8 +120,8 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			reset_reset_n => KEY(0),
 			--red_led_pio_external_connection_export => LEDR,
 			--green_led_pio_external_connection_export => LEDG,
-			nios_cntrl_in_export(7) => fft_cntrl, --Commincation to the Nios2
-			nios_cntrl_out_export(7) => n2_cntrl, --Comincation from the Nios2
+			nios_cntrl_in_export(0) => fft_cntrl, --Commincation to the Nios2
+			nios_cntrl_out_export(0) => n2_cntrl, --Comincation from the Nios2
 			
 			--VGA stuffs
 			vga_controller_external_CLK => VGA_CLK,
@@ -150,8 +150,8 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			
 			--Rotary encoder
 			rotary_in_export => rotary_counter,
-			nios_cntrl_in_export(6) => rotary_pressed,
-			nios_cntrl_out_export(6) => rotary_rst
+			nios_cntrl_in_export(1) => rotary_pressed,
+			nios_cntrl_out_export(1) => rotary_rst
 		);
 	
 END ARCHITECTURE;

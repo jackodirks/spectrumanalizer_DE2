@@ -334,48 +334,11 @@
          type = "int";
       }
    }
-   element green_led_pio.s1
-   {
-      datum baseAddress
-      {
-         value = "536720";
-         type = "String";
-      }
-   }
-   element FFT_in_1.s1
-   {
-      datum _lockedAddress
-      {
-         value = "0";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "536656";
-         type = "String";
-      }
-   }
-   element red_led_pio.s1
-   {
-      datum baseAddress
-      {
-         value = "536752";
-         type = "String";
-      }
-   }
    element control_out.s1
    {
       datum baseAddress
       {
          value = "536688";
-         type = "String";
-      }
-   }
-   element rotary_in.s1
-   {
-      datum baseAddress
-      {
-         value = "536608";
          type = "String";
       }
    }
@@ -392,19 +355,6 @@
          type = "String";
       }
    }
-   element FFT_in_0.s1
-   {
-      datum _lockedAddress
-      {
-         value = "0";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "536672";
-         type = "String";
-      }
-   }
    element FFT_in_3.s1
    {
       datum _lockedAddress
@@ -418,11 +368,37 @@
          type = "String";
       }
    }
-   element sys_clk_timer.s1
+   element FFT_in_1.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536656";
+         type = "String";
+      }
+   }
+   element FFT_in_0.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536672";
+         type = "String";
+      }
+   }
+   element green_led_pio.s1
    {
       datum baseAddress
       {
-         value = "536576";
+         value = "536720";
          type = "String";
       }
    }
@@ -431,6 +407,30 @@
       datum baseAddress
       {
          value = "536704";
+         type = "String";
+      }
+   }
+   element sys_clk_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "536576";
+         type = "String";
+      }
+   }
+   element rotary_in.s1
+   {
+      datum baseAddress
+      {
+         value = "536608";
+         type = "String";
+      }
+   }
+   element red_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "536752";
          type = "String";
       }
    }
@@ -475,7 +475,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1389789566505" />
+ <parameter name="timeStamp" value="1389795060131" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -981,7 +981,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="16" />
+  <parameter name="width" value="8" />
   <parameter name="clockRate" value="50000000" />
  </module>
  <connection

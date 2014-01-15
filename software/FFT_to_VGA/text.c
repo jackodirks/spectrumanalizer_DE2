@@ -9,10 +9,6 @@ alt_up_char_buffer_dev *char_buffer_dev;
 time_t lastTime = 0;
 unsigned short frames = 0;
 
-//Externs for maxval and minval
-extern unsigned short minval;
-extern unsigned short maxval;
-
 int initText(void){
 	char_buffer_dev = alt_up_char_buffer_open_dev(charBufferName); //Init HAL for char buffer
 	if (char_buffer_dev == NULL){
@@ -45,7 +41,7 @@ void prepareText(void){
 	alt_up_char_buffer_string(char_buffer_dev,"kHz",37,58);
 }
 
-void displayHorRange(void){
+void displayHorRange(int minval, int maxval){
 	char tempstr[3];
 	sprintf(tempstr,"%d",minval);
 	int pos = 3;

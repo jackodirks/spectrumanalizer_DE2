@@ -7,7 +7,7 @@ ENTITY rotary_decoder IS
   PORT(
     button, clk, rst : IN STD_LOGIC;
     grayCode : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-    counter : OUT STD_LOGIC_VECTOR(15 DOWNTO 0); ----(2^16 - 1) 65535 <= maxval
+    counter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); ----(2^7 - 1) 127 <= maxval
     pressed : OUT STD_LOGIC --Indicates if the button was pressed or not
   );
 END rotary_decoder;
@@ -24,7 +24,7 @@ ARCHITECTURE FSM OF rotary_decoder IS
   COMPONENT rotary_encoder_counter IS --The counter for the current value
   PORT(
     clk, rst, increment, decrement : IN STD_LOGIC;
-    count_value : OUT STD_LOGIC_VECTOR(15 DOWNTO 0) --(2^ 17 - 1) 131071 <= maxval 
+    count_value : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) ----(2^7 - 1) 127 <= maxval 
   );
 END COMPONENT;
 
@@ -139,9 +139,9 @@ END COMPONENT;
         cnt_decrement <= '0';
         
       WHEN select_p =>
-        IF grayCode = "01" THEN --Decrement
+        IF grayCode = "10" THEN --Decrement
           next_state_rotary <= wait_d;
-        ELSIF grayCode = "10" THEN --Increment
+        ELSIF grayCode = "01" THEN --Increment
           next_state_rotary <= wait_i;
         ELSE
           next_state_rotary <= select_p;
@@ -163,7 +163,7 @@ END COMPONENT;
         cnt_decrement <= '0';
         
       WHEN evaluate_d =>
-        IF grayCode = "01" THEN
+        IF grayCode = "10" THEN
           next_state_rotary <= decrement;
         ELSE
           next_state_rotary <= start;
@@ -192,7 +192,7 @@ END COMPONENT;
         cnt_decrement <= '0';
         
       WHEN evaluate_i =>
-        IF grayCode = "10" THEN
+        IF grayCode = "01" THEN
           next_state_rotary <= increment;
         ELSE
           next_state_rotary <= start;

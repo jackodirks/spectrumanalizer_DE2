@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2VGA'
  * SOPC Builder design path: ../../nios2VGA.sopcinfo
  *
- * Generated: Wed Jan 08 20:08:08 CET 2014
+ * Generated: Wed Jan 15 15:20:04 CET 2014
  */
 
 /*
@@ -139,7 +139,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_0 altera_avalon_pio
-#define FFT_IN_0_BASE 0x83050
+#define FFT_IN_0_BASE 0x83060
 #define FFT_IN_0_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_0_CAPTURE 0
@@ -166,7 +166,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_1 altera_avalon_pio
-#define FFT_IN_1_BASE 0x83040
+#define FFT_IN_1_BASE 0x83050
 #define FFT_IN_1_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_1_CAPTURE 0
@@ -193,7 +193,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_2 altera_avalon_pio
-#define FFT_IN_2_BASE 0x83030
+#define FFT_IN_2_BASE 0x83040
 #define FFT_IN_2_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_2_CAPTURE 0
@@ -220,7 +220,7 @@
  */
 
 #define ALT_MODULE_CLASS_FFT_in_3 altera_avalon_pio
-#define FFT_IN_3_BASE 0x83020
+#define FFT_IN_3_BASE 0x83030
 #define FFT_IN_3_BIT_CLEARING_EDGE_REGISTER 0
 #define FFT_IN_3_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define FFT_IN_3_CAPTURE 0
@@ -239,114 +239,6 @@
 #define FFT_IN_3_RESET_VALUE 0
 #define FFT_IN_3_SPAN 16
 #define FFT_IN_3_TYPE "altera_avalon_pio"
-
-
-/*
- * FFT_in_4 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_FFT_in_4 altera_avalon_pio
-#define FFT_IN_4_BASE 0x83090
-#define FFT_IN_4_BIT_CLEARING_EDGE_REGISTER 0
-#define FFT_IN_4_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define FFT_IN_4_CAPTURE 0
-#define FFT_IN_4_DATA_WIDTH 32
-#define FFT_IN_4_DO_TEST_BENCH_WIRING 0
-#define FFT_IN_4_DRIVEN_SIM_VALUE 0
-#define FFT_IN_4_EDGE_TYPE "NONE"
-#define FFT_IN_4_FREQ 50000000
-#define FFT_IN_4_HAS_IN 1
-#define FFT_IN_4_HAS_OUT 0
-#define FFT_IN_4_HAS_TRI 0
-#define FFT_IN_4_IRQ -1
-#define FFT_IN_4_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define FFT_IN_4_IRQ_TYPE "NONE"
-#define FFT_IN_4_NAME "/dev/FFT_in_4"
-#define FFT_IN_4_RESET_VALUE 0
-#define FFT_IN_4_SPAN 16
-#define FFT_IN_4_TYPE "altera_avalon_pio"
-
-
-/*
- * FFT_in_5 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_FFT_in_5 altera_avalon_pio
-#define FFT_IN_5_BASE 0x83080
-#define FFT_IN_5_BIT_CLEARING_EDGE_REGISTER 0
-#define FFT_IN_5_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define FFT_IN_5_CAPTURE 0
-#define FFT_IN_5_DATA_WIDTH 32
-#define FFT_IN_5_DO_TEST_BENCH_WIRING 0
-#define FFT_IN_5_DRIVEN_SIM_VALUE 0
-#define FFT_IN_5_EDGE_TYPE "NONE"
-#define FFT_IN_5_FREQ 50000000
-#define FFT_IN_5_HAS_IN 1
-#define FFT_IN_5_HAS_OUT 0
-#define FFT_IN_5_HAS_TRI 0
-#define FFT_IN_5_IRQ -1
-#define FFT_IN_5_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define FFT_IN_5_IRQ_TYPE "NONE"
-#define FFT_IN_5_NAME "/dev/FFT_in_5"
-#define FFT_IN_5_RESET_VALUE 0
-#define FFT_IN_5_SPAN 16
-#define FFT_IN_5_TYPE "altera_avalon_pio"
-
-
-/*
- * FFT_in_6 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_FFT_in_6 altera_avalon_pio
-#define FFT_IN_6_BASE 0x83070
-#define FFT_IN_6_BIT_CLEARING_EDGE_REGISTER 0
-#define FFT_IN_6_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define FFT_IN_6_CAPTURE 0
-#define FFT_IN_6_DATA_WIDTH 32
-#define FFT_IN_6_DO_TEST_BENCH_WIRING 0
-#define FFT_IN_6_DRIVEN_SIM_VALUE 0
-#define FFT_IN_6_EDGE_TYPE "NONE"
-#define FFT_IN_6_FREQ 50000000
-#define FFT_IN_6_HAS_IN 1
-#define FFT_IN_6_HAS_OUT 0
-#define FFT_IN_6_HAS_TRI 0
-#define FFT_IN_6_IRQ -1
-#define FFT_IN_6_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define FFT_IN_6_IRQ_TYPE "NONE"
-#define FFT_IN_6_NAME "/dev/FFT_in_6"
-#define FFT_IN_6_RESET_VALUE 0
-#define FFT_IN_6_SPAN 16
-#define FFT_IN_6_TYPE "altera_avalon_pio"
-
-
-/*
- * FFT_in_7 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_FFT_in_7 altera_avalon_pio
-#define FFT_IN_7_BASE 0x83060
-#define FFT_IN_7_BIT_CLEARING_EDGE_REGISTER 0
-#define FFT_IN_7_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define FFT_IN_7_CAPTURE 0
-#define FFT_IN_7_DATA_WIDTH 32
-#define FFT_IN_7_DO_TEST_BENCH_WIRING 0
-#define FFT_IN_7_DRIVEN_SIM_VALUE 0
-#define FFT_IN_7_EDGE_TYPE "NONE"
-#define FFT_IN_7_FREQ 50000000
-#define FFT_IN_7_HAS_IN 1
-#define FFT_IN_7_HAS_OUT 0
-#define FFT_IN_7_HAS_TRI 0
-#define FFT_IN_7_IRQ -1
-#define FFT_IN_7_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define FFT_IN_7_IRQ_TYPE "NONE"
-#define FFT_IN_7_NAME "/dev/FFT_in_7"
-#define FFT_IN_7_RESET_VALUE 0
-#define FFT_IN_7_SPAN 16
-#define FFT_IN_7_TYPE "altera_avalon_pio"
 
 
 /*
@@ -379,19 +271,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x83100
+#define ALT_STDERR_BASE 0x830d0
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x83100
+#define ALT_STDIN_BASE 0x830d0
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x83100
+#define ALT_STDOUT_BASE 0x830d0
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -419,7 +311,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Character_buffer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
-#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x830f0
+#define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x830c0
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_CHARACTER_BUFFER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/VGA_Character_buffer_avalon_char_control_slave"
@@ -433,7 +325,7 @@
  */
 
 #define ALT_MODULE_CLASS_VGA_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define VGA_PIXEL_BUFFER_BASE 0x830d0
+#define VGA_PIXEL_BUFFER_BASE 0x830a0
 #define VGA_PIXEL_BUFFER_IRQ -1
 #define VGA_PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VGA_PIXEL_BUFFER_NAME "/dev/VGA_Pixel_Buffer"
@@ -447,7 +339,7 @@
  */
 
 #define ALT_MODULE_CLASS_control_in altera_avalon_pio
-#define CONTROL_IN_BASE 0x830b0
+#define CONTROL_IN_BASE 0x83080
 #define CONTROL_IN_BIT_CLEARING_EDGE_REGISTER 0
 #define CONTROL_IN_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define CONTROL_IN_CAPTURE 0
@@ -474,7 +366,7 @@
  */
 
 #define ALT_MODULE_CLASS_control_out altera_avalon_pio
-#define CONTROL_OUT_BASE 0x830a0
+#define CONTROL_OUT_BASE 0x83070
 #define CONTROL_OUT_BIT_CLEARING_EDGE_REGISTER 0
 #define CONTROL_OUT_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define CONTROL_OUT_CAPTURE 0
@@ -501,7 +393,7 @@
  */
 
 #define ALT_MODULE_CLASS_green_led_pio altera_avalon_pio
-#define GREEN_LED_PIO_BASE 0x830c0
+#define GREEN_LED_PIO_BASE 0x83090
 #define GREEN_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LED_PIO_CAPTURE 0
@@ -538,7 +430,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x83100
+#define JTAG_UART_BASE 0x830d0
 #define JTAG_UART_IRQ 16
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -556,7 +448,7 @@
  */
 
 #define ALT_MODULE_CLASS_red_led_pio altera_avalon_pio
-#define RED_LED_PIO_BASE 0x830e0
+#define RED_LED_PIO_BASE 0x830b0
 #define RED_LED_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define RED_LED_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define RED_LED_PIO_CAPTURE 0
@@ -575,6 +467,33 @@
 #define RED_LED_PIO_RESET_VALUE 0
 #define RED_LED_PIO_SPAN 16
 #define RED_LED_PIO_TYPE "altera_avalon_pio"
+
+
+/*
+ * rotary_in configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_rotary_in altera_avalon_pio
+#define ROTARY_IN_BASE 0x83020
+#define ROTARY_IN_BIT_CLEARING_EDGE_REGISTER 0
+#define ROTARY_IN_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define ROTARY_IN_CAPTURE 0
+#define ROTARY_IN_DATA_WIDTH 8
+#define ROTARY_IN_DO_TEST_BENCH_WIRING 0
+#define ROTARY_IN_DRIVEN_SIM_VALUE 0
+#define ROTARY_IN_EDGE_TYPE "NONE"
+#define ROTARY_IN_FREQ 50000000
+#define ROTARY_IN_HAS_IN 1
+#define ROTARY_IN_HAS_OUT 0
+#define ROTARY_IN_HAS_TRI 0
+#define ROTARY_IN_IRQ -1
+#define ROTARY_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define ROTARY_IN_IRQ_TYPE "NONE"
+#define ROTARY_IN_NAME "/dev/rotary_in"
+#define ROTARY_IN_RESET_VALUE 0
+#define ROTARY_IN_SPAN 16
+#define ROTARY_IN_TYPE "altera_avalon_pio"
 
 
 /*
@@ -609,13 +528,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x830f8
+#define SYSID_BASE 0x830c8
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1389208005
+#define SYSID_TIMESTAMP 1389795152
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

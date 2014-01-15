@@ -46,31 +46,28 @@ void drawHelpLines(void){
 	}
 }
 
-void drawGraph(unsigned char* voltArray, unsigned elementCount){
-	float pixelsPerElement = (((float)(drawX1) - (float)drawX0) + 1.0) / elementCount;
-	if (pixelsPerElement < 1){
-		int elementsProcessed, xPixel = 13, highestPeak = 225;
-		float tempPixelFilling = 0;
-		for (elementsProcessed = 0; elementsProcessed < elementCount; ++elementsProcessed){
-			tempPixelFilling +=pixelsPerElement;
-			if (voltArray[elementsProcessed] < highestPeak) highestPeak = voltArray[elementsProcessed];
-			if (tempPixelFilling >= 1){
-				tempPixelFilling -=1;
-				alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,xPixel++,highestPeak,drawY1,INFOCOLOR,backbuffer);
-				//alt_up_pixel_buffer_dma_draw(pixel_buffer_dev,INFOCOLOR,xPixel++, yPixel);
-				highestPeak = 225;
-				//tempPixelFilling = 0;displayHorRange(); //For non-static text
-			}
-		}
-	} else { //Pixels per element > 1 (so multiple pixels are going to represent the same value)
-		pixelsPerElement = 1/pixelsPerElement; //invert: pixelsPerElement is now elementsPerPixel
-		float element = 0;
-		int x;
-		for ( x = drawX0; x <= drawX1; ++x){ //We have the Y coördinate, calculate the x one
-			alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,x,voltArray[(int)element],drawY1,INFOCOLOR,backbuffer);
-			element+= pixelsPerElement;
-		}
+void drawFullGraph(unsigned char* voltArray){
+	const unsigned elementCount = 307;
+	unsigned temp;
+	for(temp = 0; temp < elementCount; ++temp){
+		alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev,drawX0 + temp,voltArray[temp],drawY1,INFOCOLOR,backbuffer);
+
 	}
+}
+
+void drawPartGraph(unsigned char* voltArray, unsigned elementCount){
+	//calculate the width of every element
+	float f = 307 / elementCount;
+	int elementWidth = (int)f;
+	int lastElementWidth = 307 - ((elementCount - 1) * elementWidth);
+	int temp;
+	for (temp = 0 ; temp < elementCount-1; ++temp ){
+		alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, drawX0 + temp * elementWidth, voltArray[temp], drawX0 + (temp+1) * elementWidth,drawY1, INFOCOLOR,backbuffer);
+	}
+	//draw the last element
+	alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev,drawX1 -lastElementWidth, voltArray[elementCount-1], drawX1, drawY1, INFOCOLOR,backbuffer);
+	//alt_up_pixel_buffer_dma_draw_box(pixel_buffer_dev, drawX0 + (elementCount - 2) * lastElementWidth, voltArray[elementCount-1], drawX1,drawY1, INFOCOLOR,backbuffer);
+	return;
 }
 
 int swapVGABuffer(void){

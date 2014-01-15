@@ -9,7 +9,8 @@ int initDraw(void);
 void prepareBackground(void);
 void clearDrawingboard(void);
 void drawHelpLines(void);
-void drawGraph(unsigned char* voltArray, unsigned elementCount);
+void drawPartGraph(unsigned char* voltArray, unsigned elementCount);
+void drawFullGraph(unsigned char* voltArray);
 int swapVGABuffer(void);
 
 #endif //DRAW_H

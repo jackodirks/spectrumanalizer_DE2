@@ -2,7 +2,7 @@ set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_NAME 
 set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_VERSION "13.0sp1"
 set_global_assignment -entity "nios2VGA" -library "nios2VGA" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "nios2VGA" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../nios2VGA.sopcinfo"]
-set_instance_assignment -entity "nios2VGA" -library "nios2VGA" -name SLD_INFO "QSYS_NAME nios2VGA HAS_SOPCINFO 1 GENERATION_ID 1389789704"
+set_instance_assignment -entity "nios2VGA" -library "nios2VGA" -name SLD_INFO "QSYS_NAME nios2VGA HAS_SOPCINFO 1 GENERATION_ID 1389795152"
 set_global_assignment -library "nios2VGA" -name MISC_FILE [file join $::quartus(qip_path) "../../nios2VGA.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "nios2VGA" -name MISC_FILE [file join $::quartus(qip_path) "../../nios2VGA.qsys"]
@@ -77,7 +77,6 @@ set_global_assignment -library "nios2VGA" -name SYSTEMVERILOG_FILE [file join $:
 set_global_assignment -library "nios2VGA" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
 set_global_assignment -library "nios2VGA" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
 set_global_assignment -library "nios2VGA" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
-set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_rotary_in.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_FFT_in_0.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_control_out.v"]
 set_global_assignment -library "nios2VGA" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios2VGA_control_in.v"]
@@ -197,9 +196,6 @@ set_global_assignment -entity "altera_merlin_slave_translator" -library "nios2VG
 set_global_assignment -entity "altera_merlin_master_translator" -library "nios2VGA" -name IP_TOOL_NAME "altera_merlin_master_translator"
 set_global_assignment -entity "altera_merlin_master_translator" -library "nios2VGA" -name IP_TOOL_VERSION "13.0"
 set_global_assignment -entity "altera_merlin_master_translator" -library "nios2VGA" -name IP_TOOL_ENV "Qsys"
-set_global_assignment -entity "nios2VGA_rotary_in" -library "nios2VGA" -name IP_TOOL_NAME "altera_avalon_pio"
-set_global_assignment -entity "nios2VGA_rotary_in" -library "nios2VGA" -name IP_TOOL_VERSION "13.0.1.99.2"
-set_global_assignment -entity "nios2VGA_rotary_in" -library "nios2VGA" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -entity "nios2VGA_FFT_in_0" -library "nios2VGA" -name IP_TOOL_NAME "altera_avalon_pio"
 set_global_assignment -entity "nios2VGA_FFT_in_0" -library "nios2VGA" -name IP_TOOL_VERSION "13.0.1.99.2"
 set_global_assignment -entity "nios2VGA_FFT_in_0" -library "nios2VGA" -name IP_TOOL_ENV "Qsys"

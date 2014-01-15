@@ -6,8 +6,6 @@
 #include "cnst_hz.h"
 
 //The values is value in Hz /1000 (steps of 1 KHz)
-unsigned short minval = 0;
-unsigned short maxval = 100;
 char rangeChanged = 0;
 
 unsigned LUT[101];
@@ -53,50 +51,36 @@ void fillLUT(void){
 
 int main(void){
 	//temp();
-
 	//All inits
 	if (initExternal() || initText() || initDraw()) return -1;
 	//Fill the lookup table
 	fillLUT();
 	unsigned char* FFTData = NULL;
+	unsigned char minval = 0;
+	unsigned char maxval = 1;
 	prepareText(); //For static text
-	displayHorRange(); //For non-static text
+	displayHorRange(minval, maxval); //For non-static text
 	prepareBackground();
-	displayHorRange(); //For non-static text
-	clearDrawingboard();
 	drawHelpLines();
 	if(swapVGABuffer()) return -1;
-	prepareBackground();
 	while(1){
-		FFTData = getFFTData(LUT[minval], LUT[maxval]);
+		prepareBackground();
 		clearDrawingboard();
-		drawGraph(FFTData,LUT[maxval] - LUT[minval]);
-		free(FFTData);
-		drawHelpLines();
-		if (rangeChanged){
-			rangeChanged = 0;
-			displayHorRange();
+		minval = getMinVal(); //Ask the Rotary encoder VHDL what the minval is
+		maxval = minval + 1;
+		if (rotary_pressed()){
+			FFTData = getFullFFTData();
+			drawFullGraph(FFTData);
+			displayHorRange(0, 100); //For non-static text
+			free(FFTData);
+		} else {
+			FFTData = getPartFFTData(LUT[minval], LUT[maxval]);
+			drawPartGraph(FFTData,LUT[maxval] - LUT[minval]);
+			displayHorRange(minval, maxval); //For non-static text
+			free(FFTData);
 		}
+		drawHelpLines();
 		if(swapVGABuffer()) return -1;
-		//Invert the buffer
-		//if (buffer) buffer = 0;
-		//else buffer = 1;
-		//Sleep, softly.
-		//usleep(USLEEP_TIME);
-		displayFPS();
-//		minval++;
-//		maxval++;
-//		if (maxval >100){
-//			if (minval != 1){
-//				minval = 0;
-//				maxval = 100;
-//			} else {
-//				minval = 0;
-//				maxval = 1;
-//			}
-//		}
-		//displayHorRange(); //For non-static text
-		//printf("%i",time(NULL));
 	}
 	return 0;
 }
