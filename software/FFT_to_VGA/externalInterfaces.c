@@ -8,11 +8,7 @@ volatile unsigned char* fft_in_0 = (unsigned char*) FFT_IN_0_BASE; //The first a
 volatile unsigned char* fft_in_1 = (unsigned char*) FFT_IN_1_BASE;
 volatile unsigned char* fft_in_2 = (unsigned char*) FFT_IN_2_BASE;
 volatile unsigned char* fft_in_3 = (unsigned char*) FFT_IN_3_BASE;
-volatile unsigned char* fft_in_4 = (unsigned char*) FFT_IN_4_BASE;
-volatile unsigned char* fft_in_5 = (unsigned char*) FFT_IN_5_BASE;
-volatile unsigned char* fft_in_6 = (unsigned char*) FFT_IN_6_BASE;
-volatile unsigned char* fft_in_7 = (unsigned char*) FFT_IN_7_BASE;
-volatile unsigned char* fft_in[32];
+volatile unsigned char* fft_in[16];
 
 volatile unsigned char* control_in = (unsigned char*)CONTROL_IN_BASE; //The control in signals
 volatile unsigned char* control_out = (unsigned char*)CONTROL_OUT_BASE; //The control out signals
@@ -24,10 +20,6 @@ int initExternal(void){
 	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_1[iterator];
 	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_2[iterator];
 	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_3[iterator];
-	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_4[iterator];
-	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_5[iterator];
-	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_6[iterator];
-	for (iterator = 0; iterator < 4; ++iterator) fft_in[fft_in_index++] = &fft_in_7[iterator];
 	*control_out = 1;
 	return 0;
 }
@@ -39,20 +31,20 @@ unsigned char* getFFTData(unsigned firstPoint, unsigned lastPoint){
 	unsigned datacounter = 0;
 	//The loop. Counting from 0 to 1024 with steps of 32
 	unsigned counter;
-	for(counter = 0; counter <= 1024; counter += 32){
+	for(counter = 0; counter <= 1024; counter += 16){
 		//First: receive the data
 		*control_out = 1;
 		while ((*control_in) == 0);
 		*control_out = 0;
 		//Some checks (should we even do anything?)
-		if ((counter + 32) < firstPoint) continue;
+		if ((counter + 16) < firstPoint) continue;
 		if (counter > lastPoint) continue;
 		//Aparently we should
 		unsigned offsetCounter = counter;
 		if (offsetCounter < firstPoint) offsetCounter = firstPoint;
 		if (offsetCounter == lastPoint) continue;
-		offsetCounter %= 32;
-		for(;offsetCounter < 32; offsetCounter++){
+		offsetCounter %= 16;
+		for(;offsetCounter < 16; offsetCounter++){
 			FFTData[datacounter++] = *fft_in[offsetCounter];
 		}
 	}

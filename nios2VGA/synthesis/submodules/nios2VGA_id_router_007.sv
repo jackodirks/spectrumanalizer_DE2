@@ -50,9 +50,9 @@ module nios2VGA_id_router_007_default_decode
                DEFAULT_DESTID = 1 
    )
   (output [71 - 67 : 0] default_destination_id,
-   output [20-1 : 0] default_wr_channel,
-   output [20-1 : 0] default_rd_channel,
-   output [20-1 : 0] default_src_channel
+   output [17-1 : 0] default_wr_channel,
+   output [17-1 : 0] default_rd_channel,
+   output [17-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
@@ -63,7 +63,7 @@ module nios2VGA_id_router_007_default_decode
       assign default_src_channel = '0;
     end
     else begin
-      assign default_src_channel = 20'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 17'b1 << DEFAULT_CHANNEL;
     end
   end
   endgenerate
@@ -74,8 +74,8 @@ module nios2VGA_id_router_007_default_decode
       assign default_rd_channel = '0;
     end
     else begin
-      assign default_wr_channel = 20'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 20'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 17'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 17'b1 << DEFAULT_RD_CHANNEL;
     end
   end
   endgenerate
@@ -105,7 +105,7 @@ module nios2VGA_id_router_007
     // -------------------
     output                          src_valid,
     output reg [82-1    : 0] src_data,
-    output reg [20-1 : 0] src_channel,
+    output reg [17-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -121,7 +121,7 @@ module nios2VGA_id_router_007
     localparam PKT_PROTECTION_H = 75;
     localparam PKT_PROTECTION_L = 73;
     localparam ST_DATA_W = 82;
-    localparam ST_CHANNEL_W = 20;
+    localparam ST_CHANNEL_W = 17;
     localparam DECODER_TYPE = 1;
 
     localparam PKT_TRANS_WRITE = 43;
@@ -161,7 +161,7 @@ module nios2VGA_id_router_007
     assign src_endofpacket   = sink_endofpacket;
 
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [20-1 : 0] default_src_channel;
+    wire [17-1 : 0] default_src_channel;
 
 
 
@@ -187,7 +187,7 @@ module nios2VGA_id_router_007
 
 
         if (destid == 1 ) begin
-            src_channel = 20'b1;
+            src_channel = 17'b1;
         end
 
 

@@ -32,7 +32,7 @@
 //   PIPELINE_ARB:        1
 //   PKT_TRANS_LOCK:      54 (arbitration locking enabled)
 //   ST_DATA_W:           91
-//   ST_CHANNEL_W:        20
+//   ST_CHANNEL_W:        17
 // ------------------------------------------
 
 module nios2VGA_cmd_xbar_mux_001
@@ -42,21 +42,21 @@ module nios2VGA_cmd_xbar_mux_001
     // ----------------------
     input                       sink0_valid,
     input [91-1   : 0]  sink0_data,
-    input [20-1: 0]  sink0_channel,
+    input [17-1: 0]  sink0_channel,
     input                       sink0_startofpacket,
     input                       sink0_endofpacket,
     output                      sink0_ready,
 
     input                       sink1_valid,
     input [91-1   : 0]  sink1_data,
-    input [20-1: 0]  sink1_channel,
+    input [17-1: 0]  sink1_channel,
     input                       sink1_startofpacket,
     input                       sink1_endofpacket,
     output                      sink1_ready,
 
     input                       sink2_valid,
     input [91-1   : 0]  sink2_data,
-    input [20-1: 0]  sink2_channel,
+    input [17-1: 0]  sink2_channel,
     input                       sink2_startofpacket,
     input                       sink2_endofpacket,
     output                      sink2_ready,
@@ -67,7 +67,7 @@ module nios2VGA_cmd_xbar_mux_001
     // ----------------------
     output                      src_valid,
     output [91-1    : 0] src_data,
-    output [20-1 : 0] src_channel,
+    output [17-1 : 0] src_channel,
     output                      src_startofpacket,
     output                      src_endofpacket,
     input                       src_ready,
@@ -78,12 +78,12 @@ module nios2VGA_cmd_xbar_mux_001
     input clk,
     input reset
 );
-    localparam PAYLOAD_W        = 91 + 20 + 2;
+    localparam PAYLOAD_W        = 91 + 17 + 2;
     localparam NUM_INPUTS       = 3;
     localparam SHARE_COUNTER_W  = 1;
     localparam PIPELINE_ARB     = 1;
     localparam ST_DATA_W        = 91;
-    localparam ST_CHANNEL_W     = 20;
+    localparam ST_CHANNEL_W     = 17;
     localparam PKT_TRANS_LOCK   = 54;
 
     // ------------------------------------------

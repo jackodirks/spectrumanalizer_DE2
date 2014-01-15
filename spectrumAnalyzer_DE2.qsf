@@ -482,7 +482,34 @@ set_location_assignment PIN_W23 -to GPIO_1[35]
 set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name VHDL_FILE rotary_decoder/rotary_decoder_debouncer.vhd
+set_global_assignment -name VHDL_FILE rotary_decoder/rotary_decoder_counter.vhd
+set_global_assignment -name VHDL_FILE rotary_decoder/rotary_decoder_button_state.vhd
+set_global_assignment -name VHDL_FILE rotary_decoder/rotary_decoder.vhd
 set_global_assignment -name VHDL_FILE spectrumAnalyzer_DE2.vhd
 set_global_assignment -name QIP_FILE nios2VGA/synthesis/nios2VGA.qip
 set_global_assignment -name SOURCE_FILE nios2VGA.cmp
+set_location_assignment PIN_W26 -to reset
+set_location_assignment PIN_D25 -to ROTARY_GRAY[0]
+set_location_assignment PIN_J22 -to ROTARY_BUTTON
+set_location_assignment PIN_E26 -to ADC_WB
+set_location_assignment PIN_E25 -to ROTARY_GRAY
+set_location_assignment PIN_F24 -to ADC[1]
+set_location_assignment PIN_F23 -to ADC[0]
+set_location_assignment PIN_J21 -to ADC[3]
+set_location_assignment PIN_J20 -to ADC[2]
+set_location_assignment PIN_F25 -to ADC[5]
+set_location_assignment PIN_F26 -to ADC[4]
+set_location_assignment PIN_N18 -to ADC[7]
+set_location_assignment PIN_P18 -to ADC[6]
+set_location_assignment PIN_G23 -to ADC[9]
+set_location_assignment PIN_G24 -to ADC[8]
+set_location_assignment PIN_L21 -to ADC[10]
+set_location_assignment PIN_L20 -to ADC[11]
+set_location_assignment PIN_J25 -to ADC_BUSY
+set_location_assignment PIN_J26 -to ADC_CLKIN
+set_location_assignment PIN_L23 -to ADC_CONVST
+set_location_assignment PIN_L24 -to ADC_WR
+set_location_assignment PIN_L25 -to ADC_RD
+set_location_assignment PIN_L19 -to ADC_CS
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
