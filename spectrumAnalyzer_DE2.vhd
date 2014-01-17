@@ -138,7 +138,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			);
 end component;
 
-	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed, rotary_rst : STD_LOGIC;
+	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed : STD_LOGIC;
 	SIGNAL fft_data : STD_logic_vector(127 DOWNTO 0);
 	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
@@ -150,7 +150,7 @@ end component;
 	ADCSamp : ADC_sampler PORT MAP (
 		CLOCK_50 =>  CLOCK_50,
 		CLOCK_27 => CLOCK_27,
-		reset => SW(0),
+		reset => KEY(0),
 		LEDG => LEDG(7 DOWNTO 0),
 		CONTROL => fft_cntrl,
 		ADC_BUSY => ADC_BUSY,
@@ -183,7 +183,7 @@ end component;
 	RotaryDecoder : rotary_decoder PORT MAP(
 		button =>ROTARY_BUTTON,
 		clk => CLOCK_50,
-		rst => rotary_rst OR SW(0),
+		rst => NOT KEY(0),
 		grayCode => ROTARY_GRAY,
 		counter => rotary_counter(6 DOWNTO 0),
 		pressed => rotary_pressed
@@ -240,8 +240,7 @@ end component;
 			
 			--Rotary encoder
 			rotary_in_export => rotary_counter,
-			nios_cntrl_in_export(1) => rotary_pressed,
-			nios_cntrl_out_export(1) => rotary_rst
+			nios_cntrl_in_export(1) => rotary_pressed
 		);
 	
 END ARCHITECTURE;

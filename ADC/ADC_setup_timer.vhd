@@ -26,7 +26,7 @@ process (clock_50m)
 					 done <= '0';
 				else
                 -- Increment the counter if counting is enabled
-					 if cnt < 16 then
+					 if cnt /= 16 then
                 cnt := cnt + 1;
 					 end if;
 					 if cnt = 16 then
