@@ -138,7 +138,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			);
 end component;
 
-	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed : STD_LOGIC;
+	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed, adc_control, adc_done : STD_LOGIC;
 	SIGNAL fft_data : STD_logic_vector(127 DOWNTO 0);
 	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
@@ -152,10 +152,10 @@ end component;
 		CLOCK_27 => CLOCK_27,
 		reset => KEY(0),
 		LEDG => LEDG(7 DOWNTO 0),
-		CONTROL => fft_cntrl,
+		CONTROL => adc_control,
 		ADC_BUSY => ADC_BUSY,
 		ADC => ADC,
-		DONE => n2_cntrl,
+		DONE => adc_done,
 		ADC_CLKIN => ADC_CLKIN,
 		ADC_CONVST => ADC_CONVST,
 		ADC_WB => ADC_WB,
@@ -201,7 +201,7 @@ end component;
 	--fft_data(127 DOWNTO 56) <= (OTHERS => '0');
 	
 	--fft_cntrl <= '1';
-	
+	LEDR(7 DOWNTO 0) <=  fft_data(7 DOWNTO 0);
 
 	nios2 : nios2VGA
 		port map (
@@ -210,8 +210,10 @@ end component;
 			reset_reset_n => KEY(0),
 			--red_led_pio_external_connection_export => LEDR,
 			--green_led_pio_external_connection_export => LEDG,
-			nios_cntrl_in_export(0) => fft_cntrl, --Commincation to the Nios2
-			nios_cntrl_out_export(0) => n2_cntrl, --Comincation from the Nios2
+			--nios_cntrl_in_export(0) => fft_cntrl, --Commincation to the Nios2
+			nios_cntrl_in_export(0) => adc_done, --Commincation to the Nios2
+			--nios_cntrl_out_export(0) => n2_cntrl, --Comincation from the Nios2
+			nios_cntrl_out_export(0) => adc_control, --Comincation from the Nios2 --Temp communication to the ADC
 			
 			--VGA stuffs
 			vga_controller_external_CLK => VGA_CLK,

@@ -125,9 +125,12 @@ Signal sample_count : STD_LOGIC_VECTOR(11 downto 0);
 					state_1,
 					state_2,
 					state_3,
-					state_4);
+					state_4,
+					state_5);
 						
 	signal present_state, next_state: state;
+	attribute enum_encoding : string;
+	attribute enum_encoding of state : type is "gray";
 
 begin
 
@@ -231,6 +234,7 @@ begin
 			sample_counter_increment <= '0';
 			sample_counter_reset <= '1';
 		
+				ADC 			<= "ZZZZZZZZZZZZ";
 			--LEDR(7 downto 0) <= "00000000";
 		
 		case present_state is
@@ -332,12 +336,13 @@ begin
 				--------------------------
 				if (timer_done = '0') then
 					if (sample_counter_done = '0') then
-						next_state <= state_2;
-					elsif(sample_counter_done = '1') then
 						next_state <= state_4;
+					else
+						next_state <= state_5;
 					end if;
 				else
 					next_state <= present_state;
+				ADC 			<= "ZZZZZZZZZZZZ";
 				end if;
 				--------------------------
 				--  determine outputs   --
@@ -349,12 +354,14 @@ begin
 				ADC_RD		<= '0';
 				ADC_CS		<= '0';
 				ADC 			<= "ZZZZZZZZZZZZ";
-				LEDG 			<= "00001000";
+				--LEDG 			<= "00001000";
 				timer_reset <= '1';
 				setup_timer_reset <= '1';
 				
-				sample_counter_increment <= '1';
+				sample_counter_increment <= '0';
 				sample_counter_reset <= '0';
+				--TEMP
+				LEDG <= ADC(11 DOWNTO 4);
 				
 				case to_integer(unsigned(sample_count)) is
 					------------------------------- gen by c	
@@ -377,10 +384,32 @@ begin
 						when others => null;
 					----------------------------------------
 					end case;
+					
 --------------------------------------
--- state 4 done              		--
+-- state 4 increment             --
 --------------------------------------
-			when state_4 =>
+	when state_4 =>
+					next_state <= state_2;
+				--------------------------
+				--  determine outputs   --
+				--------------------------
+				DONE			<= '1';
+				ADC_CONVST	<= '1';
+				ADC_WB		<= '1';
+				ADC_WR		<= '1';
+				ADC_RD		<= '1';
+				ADC_CS		<= '0';
+				ADC 			<= "ZZZZZZZZZZZZ";
+				LEDG 			<= "00010000";
+				timer_reset <= '1';
+				setup_timer_reset <= '1';
+				sample_counter_increment <= '1';
+				sample_counter_reset <= '0';
+
+--------------------------------------
+-- state 5 done              		--
+--------------------------------------
+			when state_5 =>
 				--------------------------
 				-- determine next state --
 				--------------------------
@@ -400,7 +429,7 @@ begin
 				ADC_RD		<= '1';
 				ADC_CS		<= '0';
 				ADC 			<= "ZZZZZZZZZZZZ";
-				LEDG 			<= "00010000";
+				LEDG 			<= "00100000";
 				timer_reset <= '1';
 				setup_timer_reset <= '1';
 				sample_counter_increment <= '0';

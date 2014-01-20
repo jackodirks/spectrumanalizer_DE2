@@ -63,8 +63,8 @@ int main(void){
 	prepareBackground();
 	drawHelpLines();
 	if(swapVGABuffer()) return -1;
+	prepareBackground();
 	while(1){
-		prepareBackground();
 		clearDrawingboard();
 		minval = getMinVal(); //Ask the Rotary encoder VHDL what the minval is
 		maxval = minval + 1;

@@ -334,24 +334,11 @@
          type = "int";
       }
    }
-   element control_out.s1
+   element sys_clk_timer.s1
    {
       datum baseAddress
       {
-         value = "536688";
-         type = "String";
-      }
-   }
-   element FFT_in_2.s1
-   {
-      datum _lockedAddress
-      {
-         value = "0";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "536640";
+         value = "536576";
          type = "String";
       }
    }
@@ -365,6 +352,22 @@
       datum baseAddress
       {
          value = "536624";
+         type = "String";
+      }
+   }
+   element rotary_in.s1
+   {
+      datum baseAddress
+      {
+         value = "536608";
+         type = "String";
+      }
+   }
+   element red_led_pio.s1
+   {
+      datum baseAddress
+      {
+         value = "536752";
          type = "String";
       }
    }
@@ -394,11 +397,16 @@
          type = "String";
       }
    }
-   element green_led_pio.s1
+   element FFT_in_2.s1
    {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
       datum baseAddress
       {
-         value = "536720";
+         value = "536640";
          type = "String";
       }
    }
@@ -410,27 +418,19 @@
          type = "String";
       }
    }
-   element sys_clk_timer.s1
+   element green_led_pio.s1
    {
       datum baseAddress
       {
-         value = "536576";
+         value = "536720";
          type = "String";
       }
    }
-   element rotary_in.s1
+   element control_out.s1
    {
       datum baseAddress
       {
-         value = "536608";
-         type = "String";
-      }
-   }
-   element red_led_pio.s1
-   {
-      datum baseAddress
-      {
-         value = "536752";
+         value = "536688";
          type = "String";
       }
    }
@@ -475,7 +475,7 @@
  <parameter name="projectName">spectrumAnalyzer_DE2.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1389795060131" />
+ <parameter name="timeStamp" value="1390219092193" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -546,7 +546,7 @@
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
-  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequency" value="200000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
@@ -654,7 +654,7 @@
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='cpu.jtag_debug_module' start='0x82800' end='0x83000' /></address-map>]]></parameter>
   <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM.avalon_sram_slave' start='0x0' end='0x80000' /><slave name='VGA_Character_buffer.avalon_char_buffer_slave' start='0x80000' end='0x82000' /><slave name='cpu.jtag_debug_module' start='0x82800' end='0x83000' /><slave name='sys_clk_timer.s1' start='0x83000' end='0x83020' /><slave name='rotary_in.s1' start='0x83020' end='0x83030' /><slave name='FFT_in_3.s1' start='0x83030' end='0x83040' /><slave name='FFT_in_2.s1' start='0x83040' end='0x83050' /><slave name='FFT_in_1.s1' start='0x83050' end='0x83060' /><slave name='FFT_in_0.s1' start='0x83060' end='0x83070' /><slave name='control_out.s1' start='0x83070' end='0x83080' /><slave name='control_in.s1' start='0x83080' end='0x83090' /><slave name='green_led_pio.s1' start='0x83090' end='0x830A0' /><slave name='VGA_Pixel_Buffer.avalon_control_slave' start='0x830A0' end='0x830B0' /><slave name='red_led_pio.s1' start='0x830B0' end='0x830C0' /><slave name='VGA_Character_buffer.avalon_char_control_slave' start='0x830C0' end='0x830C8' /><slave name='sysid.control_slave' start='0x830C8' end='0x830D0' /><slave name='jtag_uart.avalon_jtag_slave' start='0x830D0' end='0x830D8' /></address-map>]]></parameter>
-  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequency" value="200000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="65538" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
@@ -699,7 +699,7 @@
   <parameter name="resetOutput" value="false" />
   <parameter name="snapshot" value="true" />
   <parameter name="timeoutPulseOutput" value="false" />
-  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="systemFrequency" value="200000000" />
  </module>
  <module
    kind="altera_avalon_sysid_qsys"
@@ -708,7 +708,7 @@
    name="sysid">
   <parameter name="id" value="0" />
   <parameter name="timestamp" value="0" />
-  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="200000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <module
@@ -727,7 +727,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="18" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_up_clocks"
@@ -740,7 +740,7 @@
   <parameter name="vga_clk" value="true" />
   <parameter name="audio_clk" value="false" />
   <parameter name="audio_clk_freq" value="12.288" />
-  <parameter name="AUTO_CLK_IN_PRIMARY_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_CLK_IN_PRIMARY_CLOCK_RATE" value="200000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <module
@@ -856,7 +856,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="9" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -874,7 +874,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -892,7 +892,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -910,7 +910,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="32" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -928,7 +928,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="32" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -946,7 +946,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="32" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -964,7 +964,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="32" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <module
    kind="altera_avalon_pio"
@@ -982,7 +982,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
-  <parameter name="clockRate" value="50000000" />
+  <parameter name="clockRate" value="200000000" />
  </module>
  <connection
    kind="avalon"

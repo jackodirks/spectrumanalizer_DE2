@@ -61,12 +61,17 @@ unsigned char* getPartFFTData(unsigned firstPoint, unsigned lastPoint){
 		if (offsetCounter == lastPoint) continue;
 		offsetCounter %= 16;
 		for(;offsetCounter < 16; offsetCounter++){
-			if (counter + offsetCounter == lastPoint) break;
-			FFTData[datacounter++] = *fft_in[offsetCounter];
+			if (datacounter > (lastPoint - firstPoint)){ //Debug code, should be fixed
+				printf("FAULT!\r\n");
+				break;
+			}
+			if (counter + offsetCounter >= lastPoint) break;
+			FFTData[datacounter] = *fft_in[offsetCounter];
+			datacounter++;
 		}
 	}
 	//Tell the FFT to get the next data ready
-	*control_out ^= 1;
+	//*control_out ^= 1;
 	//Return and continue
 	return FFTData;
 }
@@ -89,7 +94,7 @@ unsigned char* getFullFFTData(void){ //Sorts the given data, returns the higest 
 		}
 		FFTData[temp] = highestElement;
 	}
-	*control_out ^= 1;
+	//*control_out ^= 1;
 	return FFTData;
 }
 
