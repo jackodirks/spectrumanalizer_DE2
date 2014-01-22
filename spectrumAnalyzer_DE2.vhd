@@ -117,23 +117,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 				ADC_RD: 		out std_logic;
 				ADC_CS: 		out std_logic;	
 				
-				
-				samp0:   out std_logic_vector(7 downto 0);
-				samp1:   out std_logic_vector(7 downto 0);
-				samp2:   out std_logic_vector(7 downto 0);
-				samp3:   out std_logic_vector(7 downto 0);
-				samp4:   out std_logic_vector(7 downto 0);
-				samp5:   out std_logic_vector(7 downto 0);
-				samp6:   out std_logic_vector(7 downto 0);
-				samp7:   out std_logic_vector(7 downto 0);
-				samp8:   out std_logic_vector(7 downto 0);
-				samp9:   out std_logic_vector(7 downto 0);
-				samp10:   out std_logic_vector(7 downto 0);
-				samp11:   out std_logic_vector(7 downto 0);
-				samp12:   out std_logic_vector(7 downto 0);
-				samp13:   out std_logic_vector(7 downto 0);
-				samp14:   out std_logic_vector(7 downto 0);
-				samp15:   out std_logic_vector(7 downto 0)
+				samples:   out std_logic_vector(20479 DOWNTO 0)
 				
 			);
 end component;
@@ -162,22 +146,22 @@ end component;
 		ADC_WR => ADC_WR,
 		ADC_RD => ADC_RD,
 		ADC_CS => ADC_CS,
-		samp0 => fft_data(7 DOWNTO 0),
-		samp1 => fft_data(15 DOWNTO 8),
-		samp2 => fft_data(23 DOWNTO 16),
-		samp3 => fft_data(31 DOWNTO 24),
-		samp4 => fft_data(39 DOWNTO 32),
-		samp5 => fft_data(47 DOWNTO 40),
-		samp6 => fft_data(55 DOWNTO 48),
-		samp7 => fft_data(63 DOWNTO 56),
-		samp8 => fft_data(71 DOWNTO 64),
-		samp9 => fft_data(79 DOWNTO 72),
-		samp10 => fft_data(87 DOWNTO 80),
-		samp11 => fft_data(95 DOWNTO 88),
-		samp12 => fft_data(103 DOWNTO 96),
-		samp13 => fft_data(111 DOWNTO 104),
-		samp14 => fft_data(119 DOWNTO 112),
-		samp15 => fft_data(127 DOWNTO 120)
+		samples(9 DOWNTO 2) => fft_data(7 DOWNTO 0), 
+		samples(19 DOWNTO 12) => fft_data(15 DOWNTO 8), 
+		samples(29 DOWNTO 22) => fft_data(23 DOWNTO 16), 
+		samples(39 DOWNTO 32) => fft_data(31 DOWNTO 24), 
+		samples(49 DOWNTO 42) => fft_data(39 DOWNTO 32), 
+		samples(59 DOWNTO 52) => fft_data(47 DOWNTO 40), 
+		samples(69 DOWNTO 62) => fft_data(55 DOWNTO 48), 
+		samples(79 DOWNTO 72) => fft_data(63 DOWNTO 56), 
+		samples(89 DOWNTO 82) => fft_data(71 DOWNTO 64), 
+		samples(99 DOWNTO 92) => fft_data(79 DOWNTO 72), 
+		samples(109 DOWNTO 102) => fft_data(87 DOWNTO 80), 
+		samples(119 DOWNTO 112) => fft_data(95 DOWNTO 88), 
+		samples(129 DOWNTO 122) => fft_data(103 DOWNTO 96), 
+		samples(139 DOWNTO 132) => fft_data(111 DOWNTO 104), 
+		samples(149 DOWNTO 142) => fft_data(119 DOWNTO 112), 
+		samples(159 DOWNTO 152) => fft_data(127 DOWNTO 120)
 	);
 	
 	RotaryDecoder : rotary_decoder PORT MAP(
