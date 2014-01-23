@@ -505,6 +505,15 @@ set_location_assignment PIN_L23 -to ADC_CONVST
 set_location_assignment PIN_L24 -to ADC_WR
 set_location_assignment PIN_L25 -to ADC_RD
 set_location_assignment PIN_L19 -to ADC_CS
+set_global_assignment -name VHDL_FILE ADC/ADC_sample_grabber.vhd
+set_global_assignment -name VHDL_FILE fft/fft_tld.vhd
+set_global_assignment -name VHDL_FILE fft/sqrt.vhd
+set_global_assignment -name VHDL_FILE fft/multiply.vhd
+set_global_assignment -name VHDL_FILE fft/fft_peripheral.vhd
+set_global_assignment -name VERILOG_FILE fft/fft.v
+set_global_assignment -name VHDL_FILE fft/convert2spectrum.vhd
+set_global_assignment -name VHDL_FILE fft/clock_control.vhd
+set_global_assignment -name VHDL_FILE fft/c_2048to16x128_shifter.vhd
 set_global_assignment -name VHDL_FILE ADC/ADC_setup_timer.vhd
 set_global_assignment -name VHDL_FILE ADC/ADC_sampler.vhdl
 set_global_assignment -name VHDL_FILE ADC/ADC_sample_timer.vhd

@@ -122,14 +122,42 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			);
 end component;
 
-	SIGNAL n2_cntrl, fft_cntrl, rotary_pressed, adc_control, adc_done : STD_LOGIC;
-	SIGNAL fft_data : STD_logic_vector(127 DOWNTO 0);
+component fft_peripheral IS
+	PORT
+	(
+	X : IN STD_LOGIC_VECTOR(20479 DOWNTO 0) := (OTHERS => '0');
+	samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready
+	clk : IN STD_LOGIC := '0';
+	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
+	
+	busy : IN STD_LOGIC := '0';	-- receiving side status
+	data_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
+	
+	-- data ouput for interfacing device 64 sets of 16 
+	V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0')
+	);
+END component;
+
+
+	SIGNAL n2_cntrl, n2_done, rotary_pressed, adc_control, adc_done : STD_LOGIC;
+	SIGNAL adc_data : STD_Logic_vector(20479 DOWNTO 0);
+	SIGNAL fft_data : STD_logic_vector(159 DOWNTO 0);
 	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
 	--ADC comincation
 	SIGNAL ADC_CONTROL_IN : STD_LOGIC;
 	
 	BEGIN
+	
+	fft : fft_peripheral PORT MAP(
+	X => adc_data,
+	V => fft_data,
+	samples_ready => adc_done,
+	fft_finished => adc_control,
+	clk => CLOCK_50,
+	busy => n2_done,
+	data_ready => n2_cntrl
+	);
 	
 	ADCSamp : ADC_sampler PORT MAP (
 		CLOCK_50 =>  CLOCK_50,
@@ -146,22 +174,7 @@ end component;
 		ADC_WR => ADC_WR,
 		ADC_RD => ADC_RD,
 		ADC_CS => ADC_CS,
-		samples(9 DOWNTO 2) => fft_data(7 DOWNTO 0), 
-		samples(19 DOWNTO 12) => fft_data(15 DOWNTO 8), 
-		samples(29 DOWNTO 22) => fft_data(23 DOWNTO 16), 
-		samples(39 DOWNTO 32) => fft_data(31 DOWNTO 24), 
-		samples(49 DOWNTO 42) => fft_data(39 DOWNTO 32), 
-		samples(59 DOWNTO 52) => fft_data(47 DOWNTO 40), 
-		samples(69 DOWNTO 62) => fft_data(55 DOWNTO 48), 
-		samples(79 DOWNTO 72) => fft_data(63 DOWNTO 56), 
-		samples(89 DOWNTO 82) => fft_data(71 DOWNTO 64), 
-		samples(99 DOWNTO 92) => fft_data(79 DOWNTO 72), 
-		samples(109 DOWNTO 102) => fft_data(87 DOWNTO 80), 
-		samples(119 DOWNTO 112) => fft_data(95 DOWNTO 88), 
-		samples(129 DOWNTO 122) => fft_data(103 DOWNTO 96), 
-		samples(139 DOWNTO 132) => fft_data(111 DOWNTO 104), 
-		samples(149 DOWNTO 142) => fft_data(119 DOWNTO 112), 
-		samples(159 DOWNTO 152) => fft_data(127 DOWNTO 120)
+		samples => adc_data
 	);
 	
 	RotaryDecoder : rotary_decoder PORT MAP(
@@ -174,15 +187,6 @@ end component;
 	);
 	rotary_counter(7) <= '0';
 	TD_RESET <= '1';
-	--Temp, until FFT
-	--fft_data(7 DOWNTO 0) <= "00111111";
-	--fft_data(15 DOWNTO 8) <= "00000000";
-	--fft_data(23 DOWNTO 16) <= "00000111";
-	--fft_data(31 DOWNTO 24) <= "00111111";
-	--fft_data(39 DOWNTO 32) <= "00011111";
-	--fft_data(47 DOWNTO 40) <= "01000000";
-	--fft_data(55 DOWNTO 48) <= "01100000";
-	--fft_data(127 DOWNTO 56) <= (OTHERS => '0');
 	
 	--fft_cntrl <= '1';
 	LEDR(7 DOWNTO 0) <=  fft_data(7 DOWNTO 0);
@@ -194,10 +198,10 @@ end component;
 			reset_reset_n => KEY(0),
 			--red_led_pio_external_connection_export => LEDR,
 			--green_led_pio_external_connection_export => LEDG,
-			--nios_cntrl_in_export(0) => fft_cntrl, --Commincation to the Nios2
-			nios_cntrl_in_export(0) => adc_done, --Commincation to the Nios2
-			--nios_cntrl_out_export(0) => n2_cntrl, --Comincation from the Nios2
-			nios_cntrl_out_export(0) => adc_control, --Comincation from the Nios2 --Temp communication to the ADC
+			nios_cntrl_in_export(0) => n2_cntrl, --Commincation to the Nios2
+			--nios_cntrl_in_export(0) => adc_done, --Commincation to the Nios2
+			nios_cntrl_out_export(0) => n2_done, --Comincation from the Nios2
+			--nios_cntrl_out_export(0) => adc_control, --Comincation from the Nios2 --Temp communication to the ADC
 			
 			--VGA stuffs
 			vga_controller_external_CLK => VGA_CLK,
@@ -219,11 +223,24 @@ end component;
 			sram_external_interface_WE_N => SRAM_WE_N,
 			
 			--FFT data stuffs
-			fft_in_3_export => fft_data (127 DOWNTO 96),
-			fft_in_2_export => fft_data (95 DOWNTO 64),
-			fft_in_1_export => fft_data (63 DOWNTO 32),
-			fft_in_0_export => fft_data (31 DOWNTO 0),
-			
+		fft_in_0_export(7 DOWNTO 0) => fft_data(9 DOWNTO 2),
+		fft_in_0_export(15 DOWNTO 8) => fft_data(19 DOWNTO 12),
+		fft_in_0_export(23 DOWNTO 16) => fft_data(29 DOWNTO 22),
+		fft_in_0_export(31 DOWNTO 24) => fft_data(39 DOWNTO 32),
+		fft_in_1_export(7 DOWNTO 0) => fft_data(49 DOWNTO 42),
+		fft_in_1_export(15 DOWNTO 8) => fft_data(59 DOWNTO 52),
+		fft_in_1_export(23 DOWNTO 16) => fft_data(69 DOWNTO 62),
+		fft_in_1_export(31 DOWNTO 24) => fft_data(79 DOWNTO 72),
+		fft_in_2_export(7 DOWNTO 0) => fft_data(89 DOWNTO 82),
+		fft_in_2_export(15 DOWNTO 8) => fft_data(99 DOWNTO 92),
+		fft_in_2_export(23 DOWNTO 16) => fft_data(109 DOWNTO 102),
+		fft_in_2_export(31 DOWNTO 24) => fft_data(119 DOWNTO 112),
+		fft_in_3_export(7 DOWNTO 0) => fft_data(129 DOWNTO 122),
+		fft_in_3_export(15 DOWNTO 8) => fft_data(139 DOWNTO 132),
+		fft_in_3_export(23 DOWNTO 16) => fft_data(149 DOWNTO 142),
+		fft_in_3_export(31 DOWNTO 24) => fft_data(159 DOWNTO 152),
+
+
 			--Rotary encoder
 			rotary_in_export => rotary_counter,
 			nios_cntrl_in_export(1) => rotary_pressed
