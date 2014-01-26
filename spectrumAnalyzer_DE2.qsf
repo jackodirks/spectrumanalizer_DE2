@@ -481,7 +481,6 @@ set_location_assignment PIN_W25 -to GPIO_1[34]
 set_location_assignment PIN_W23 -to GPIO_1[35]
 set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
-set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 set_location_assignment PIN_W26 -to reset
 set_location_assignment PIN_D25 -to ROTARY_GRAY[0]
 set_location_assignment PIN_J22 -to ROTARY_BUTTON
@@ -505,10 +504,12 @@ set_location_assignment PIN_L23 -to ADC_CONVST
 set_location_assignment PIN_L24 -to ADC_WR
 set_location_assignment PIN_L25 -to ADC_RD
 set_location_assignment PIN_L19 -to ADC_CS
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name VHDL_FILE multiply.vhd
 set_global_assignment -name VHDL_FILE ADC/ADC_sample_grabber.vhd
 set_global_assignment -name VHDL_FILE fft/fft_tld.vhd
 set_global_assignment -name VHDL_FILE fft/sqrt.vhd
-set_global_assignment -name VHDL_FILE fft/multiply.vhd
 set_global_assignment -name VHDL_FILE fft/fft_peripheral.vhd
 set_global_assignment -name VERILOG_FILE fft/fft.v
 set_global_assignment -name VHDL_FILE fft/convert2spectrum.vhd
