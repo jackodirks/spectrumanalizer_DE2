@@ -16,7 +16,7 @@ ENTITY convert2spectrum IS
 		V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0');	
 		
 		next_bin_set : OUT STD_LOGIC := '0'; -- signal receiving end new bin set data available.
-		incoming128sets : IN STD_LOGIC := '0'; -- 128 sets of 16 sample incoming (signaled by next out from fft)
+		incoming64sets : IN STD_LOGIC := '0'; -- 128 sets of 16 sample incoming (signaled by next out from fft)
 		fft_finished : OUT STD_LOGIC := '0'; -- The fft data has left the process
 		clk_in : IN STD_LOGIC := '0';
 		
@@ -164,7 +164,7 @@ ARCHITECTURE convert of convert2spectrum IS
 	sqrt15 : sqrt
 		PORT MAP(clk_in, sub_wire_30, sub_wire_31);
 		
-	PROCESS(clk_in, incoming128sets)
+	PROCESS(clk_in, incoming64sets)
 	VARIABLE convert : STD_LOGIC := '0';
 	VARIABLE step : INTEGER := 0;
 	VARIABLE count_fft : INTEGER := 0;
@@ -172,7 +172,7 @@ ARCHITECTURE convert of convert2spectrum IS
 	VARIABLE varV : STD_LOGIC_VECTOR (159 DOWNTO 0) := (OTHERS => '0');
 	BEGIN
 	IF rising_edge(clk_in) THEN
-		IF (incoming128sets = '1') THEN
+		IF (incoming64sets = '1') THEN
 			convert := '1';
 			converting <= '1';
 			next_bin_set_var := '0';

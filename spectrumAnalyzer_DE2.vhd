@@ -117,7 +117,7 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 				ADC_RD: 		out std_logic;
 				ADC_CS: 		out std_logic;	
 				
-				samples:   out std_logic_vector(20479 DOWNTO 0)
+				samples:   out std_logic_vector(10239 DOWNTO 0)
 				
 			);
 end component;
@@ -125,7 +125,7 @@ end component;
 component fft_peripheral IS
 	PORT
 	(
-	X : IN STD_LOGIC_VECTOR(20479 DOWNTO 0) := (OTHERS => '0');
+	X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
 	samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready
 	clk : IN STD_LOGIC := '0';
 	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
@@ -140,7 +140,7 @@ END component;
 
 
 	SIGNAL n2_cntrl, n2_done, rotary_pressed, adc_control, adc_done : STD_LOGIC;
-	SIGNAL adc_data : STD_Logic_vector(20479 DOWNTO 0);
+	SIGNAL adc_data : STD_Logic_vector(10239 DOWNTO 0);
 	SIGNAL fft_data : STD_logic_vector(159 DOWNTO 0);
 	SIGNAL rotary_counter : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	

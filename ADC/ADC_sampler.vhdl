@@ -43,7 +43,7 @@ entity ADC_sampler is
 				ADC_RD: 		out std_logic;
 				ADC_CS: 		out std_logic;	
 				
-				samples:   out std_logic_vector(20479 DOWNTO 0)
+				samples:   out std_logic_vector(10239 DOWNTO 0)
 			);
 end ADC_sampler;
 
@@ -90,7 +90,7 @@ END component;
 
 component adc_sample_grabber PORT (
 	ADC:    		inout std_logic_vector(11 downto 0);
-	samples:   out std_logic_vector(20479 DOWNTO 0);
+	samples:   out std_logic_vector(10239 DOWNTO 0);
 	clk, grab : IN std_logic;
 	done : OUT STD_logic;
 	sample_count : IN STD_logic_VECTOR (11 DOWNTO 0)
@@ -248,7 +248,7 @@ begin
 				ADC_RD		<= '1';
 				ADC_CS		<= '0';
 				LEDG 			<= "00000001";
-				ADC 			<= "000000010110"; -- tows compliment <= "001000010110";
+				ADC 			<= "001000010110"; -- tows compliment <= "001000010110";
 				timer_reset <= '1';
 				setup_timer_reset <= '0';
 				grab_sample <= '0';	

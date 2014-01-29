@@ -19,7 +19,7 @@ ARCHITECTURE ADC_sample_counter OF ADC_sample_counter IS
 	
 BEGIN
 process (clock_50m)
-	 variable   cnt    : integer range 0 to 2048 := 0;
+	 variable   cnt    : integer range 0 to 1024 := 0;
     begin
         if (rising_edge(clock_50m)) then
             if reset = '1' then
@@ -27,11 +27,11 @@ process (clock_50m)
                 cnt := 0;
 					 done <= '0';
 				else 
-					if increment = '1' and cnt < 2048 then
+					if increment = '1' and cnt < 1024 then
 						cnt := cnt + 1;
 					end if;
 					
-					if cnt = 2048 then
+					if cnt = 1024 then
 						done <= '1';
 					else
 						done <= '0';
