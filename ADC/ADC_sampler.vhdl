@@ -248,7 +248,7 @@ begin
 				ADC_RD		<= '1';
 				ADC_CS		<= '0';
 				LEDG 			<= "00000001";
-				ADC 			<= "000000010110"; -- tows compliment <= "001000010110";
+				ADC 			<= "001000010110"; -- tows compliment <= "001000010110";
 				timer_reset <= '1';
 				setup_timer_reset <= '0';
 				grab_sample <= '0';	

@@ -599,4 +599,7 @@
 			</target>
 		</buildTargets>
 	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/FFT_to_VGA"/>
+	</storageModule>
 </cproject>
