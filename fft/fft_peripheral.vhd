@@ -12,8 +12,8 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 ENTITY fft_peripheral IS
 	PORT
 	(
-	X : IN STD_LOGIC_VECTOR(20479 DOWNTO 0) := (OTHERS => '0');
-	samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready
+	X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
+	samples_ready : IN STD_LOGIC := '0';	-- sampler has 1024 samples ready
 	clk : IN STD_LOGIC := '0';
 	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
 	
@@ -116,19 +116,19 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 	END COMPONENT; -- clock_control
 	
 	
-	-- divvides 2048 samples into 64 sets of 16 samples each --
-	COMPONENT c_2048to16x128_shifter
+	-- divvides 1024 samples into 64 sets of 16 samples each --
+	COMPONENT c_1024to16x64_shifter
 		PORT 
 		(
-		X : IN STD_LOGIC_VECTOR(20479 DOWNTO 0) := (OTHERS => '0');
-		samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready, connected to fft_peripheral pin
+		X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
+		samples_ready : IN STD_LOGIC := '0';	-- sampler has 1024 samples ready, connected to fft_peripheral pin
 		
 		clk_in : IN STD_LOGIC;
 		
 		-- sig_next : OUT STD_LOGIC := '0';
 		shift_out : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0') 
 		);
-	END COMPONENT;	--c_2048to16x128_shifter
+	END COMPONENT;	--c_1024to16x64_shifter
 	
 	COMPONENT convert2spectrum
 	PORT
@@ -139,7 +139,7 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 		V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
 		
 		next_bin_set : OUT STD_LOGIC := '0'; -- signal receiving end new bin set data available.
-		incoming128sets : IN STD_LOGIC := '0'; -- 128 sets of 16 sample incoming (signaled by next out from fft)
+		incoming64sets : IN STD_LOGIC := '0'; -- 64 sets of 16 sample incoming (signaled by next out from fft)
 		fft_finished : OUT STD_LOGIC := '0'; -- The fft data has left the process
 		clk_in : IN STD_LOGIC := '0';
 
@@ -147,7 +147,7 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 		);	-- to stop the clock of fft and input shifter 
 	END COMPONENT; -- c_10bit2char_vga_H256
 	
-	SIGNAL ready, fft_finished_sig, incoming128sets, clk_in, converting, clk_int,may_send : STD_LOGIC := '0';
+	SIGNAL ready, fft_finished_sig, incoming64sets, clk_in, converting, clk_int,may_send : STD_LOGIC := '0';
 	SIGNAL XDFT : STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
 	SIGNAL YDFT : STD_LOGIC_VECTOR(319 DOWNTO 0) := (others => '0');
 
@@ -192,7 +192,7 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 		V => V,
 
 		next_bin_set => data_ready, -- signal receiving end new bin set data available.
-		incoming128sets => incoming128sets, -- 128 sets of 16 sample incoming (signaled by next out from fft)
+		incoming64sets => incoming64sets, -- 64 sets of 16 sample incoming (signaled by next out from fft)
 		fft_finished => fft_finished_sig, -- The fft data has left the process
 		clk_in => clk,
 		
@@ -201,7 +201,7 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 	
 	dft_top0 : dft_top
 	PORT MAP(
-		next_out => incoming128sets,	
+		next_out => incoming64sets,	
 		clk => clk_int,
 		reset => fft_finished_sig,
 		nexti => samples_ready,
@@ -281,7 +281,7 @@ ARCHITECTURE interconnect OF fft_peripheral IS
 			clk => clk_int
 		);
 		
-		c_2048to16x128_shifter0: c_2048to16x128_shifter
+		c_1024to16x64_shifter0: c_1024to16x64_shifter
 		PORT MAP
 		(
 		X => X,

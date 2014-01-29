@@ -203,7 +203,7 @@ ARCHITECTURE convert of convert2spectrum IS
 						--converting <= '1';
 						count_fft := count_fft + 1; -- count to 128 then ssert fft_finished high
 						
-						IF (count_fft = 128) THEN
+						IF (count_fft = 64) THEN
 							fft_finished <= '1';
 							count_fft := 0;
 						END IF;
