@@ -80,7 +80,11 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			fft_in_1_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			fft_in_2_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			fft_in_3_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
-			rotary_in_export                         : in    std_logic_vector(7 downto 0)  := (others => 'X')  -- export
+			rotary_in_export                         : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- export
+			fft_in_4_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			fft_in_5_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			fft_in_6_export                          : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			fft_in_7_export                          : in    std_logic_vector(31 downto 0) := (others => 'X')  -- export
 		);
 	end component nios2VGA;
 	
@@ -90,6 +94,19 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 		grayCode : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 		counter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		pressed : OUT STD_LOGIC --Indicates if the button was pressed or not
+	);
+	END component;
+	
+	component selector_fsm IS 
+	PORT (
+		N2_ready, ADC_ready : IN STD_LOGIC; --The inputs. First one staes that the N2 wants new samples, second one that the ADC is ready
+		N2_control, ADC_contrl: OUT STD_LOGIC; --The output controls. The first states that the N2 can begin processing, the second one that the ADC can generate new samples
+		
+		rst, clk : IN STD_LOGIC;
+		
+		ADC_samples : IN Std_logic_vector(20479 DOWNTO 0); --The samples
+		N2_selection : OUT STD_LOGIC_VECTOR(159 DOWNTO 0); --Current sample selection
+		LEDR : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 	END component;
 	
@@ -122,23 +139,6 @@ ARCHITECTURE impl OF spectrumAnalyzer_DE2 IS
 			);
 end component;
 
-component fft_peripheral IS
-	PORT
-	(
-	X : IN STD_LOGIC_VECTOR(20479 DOWNTO 0) := (OTHERS => '0');
-	samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready
-	clk : IN STD_LOGIC := '0';
-	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
-	
-	busy : IN STD_LOGIC := '0';	-- receiving side status
-	data_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
-	
-	-- data ouput for interfacing device 64 sets of 16 
-	V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0')
-	);
-END component;
-
-
 	SIGNAL n2_cntrl, n2_done, rotary_pressed, adc_control, adc_done : STD_LOGIC;
 	SIGNAL adc_data : STD_Logic_vector(20479 DOWNTO 0);
 	SIGNAL fft_data : STD_logic_vector(159 DOWNTO 0);
@@ -146,17 +146,19 @@ END component;
 	
 	--ADC comincation
 	SIGNAL ADC_CONTROL_IN : STD_LOGIC;
-	
+
 	BEGIN
 	
-	fft : fft_peripheral PORT MAP(
-	X => adc_data,
-	V => fft_data,
-	samples_ready => adc_done,
-	fft_finished => adc_control,
-	clk => CLOCK_50,
-	busy => n2_done,
-	data_ready => n2_cntrl
+	selector : selector_fsm PORT MAP (
+		N2_ready => n2_done,
+		ADC_ready => adc_done,
+		N2_control => n2_cntrl,
+		ADC_contrl => adc_control,
+		rst => NOT KEY(0),
+		clk => CLOCK_50,
+		ADC_samples => adc_data,
+		N2_selection => fft_data,
+		LEDR => LEDR(3 DOWNTO 0)
 	);
 	
 	ADCSamp : ADC_sampler PORT MAP (
@@ -185,11 +187,14 @@ END component;
 		counter => rotary_counter(6 DOWNTO 0),
 		pressed => rotary_pressed
 	);
+	
 	rotary_counter(7) <= '0';
 	TD_RESET <= '1';
 	
+
+	
 	--fft_cntrl <= '1';
-	LEDR(7 DOWNTO 0) <=  fft_data(7 DOWNTO 0);
+	--LEDR(7 DOWNTO 0) <=  fft_data(7 DOWNTO 0);
 
 	nios2 : nios2VGA
 		port map (
@@ -223,23 +228,40 @@ END component;
 			sram_external_interface_WE_N => SRAM_WE_N,
 			
 			--FFT data stuffs
-		fft_in_0_export(7 DOWNTO 0) => fft_data(9 DOWNTO 2),
-		fft_in_0_export(15 DOWNTO 8) => fft_data(19 DOWNTO 12),
-		fft_in_0_export(23 DOWNTO 16) => fft_data(29 DOWNTO 22),
-		fft_in_0_export(31 DOWNTO 24) => fft_data(39 DOWNTO 32),
-		fft_in_1_export(7 DOWNTO 0) => fft_data(49 DOWNTO 42),
-		fft_in_1_export(15 DOWNTO 8) => fft_data(59 DOWNTO 52),
-		fft_in_1_export(23 DOWNTO 16) => fft_data(69 DOWNTO 62),
-		fft_in_1_export(31 DOWNTO 24) => fft_data(79 DOWNTO 72),
-		fft_in_2_export(7 DOWNTO 0) => fft_data(89 DOWNTO 82),
-		fft_in_2_export(15 DOWNTO 8) => fft_data(99 DOWNTO 92),
-		fft_in_2_export(23 DOWNTO 16) => fft_data(109 DOWNTO 102),
-		fft_in_2_export(31 DOWNTO 24) => fft_data(119 DOWNTO 112),
-		fft_in_3_export(7 DOWNTO 0) => fft_data(129 DOWNTO 122),
-		fft_in_3_export(15 DOWNTO 8) => fft_data(139 DOWNTO 132),
-		fft_in_3_export(23 DOWNTO 16) => fft_data(149 DOWNTO 142),
-		fft_in_3_export(31 DOWNTO 24) => fft_data(159 DOWNTO 152),
-
+			fft_in_0_export(9 DOWNTO 0) => fft_data(9 DOWNTO 0),
+			fft_in_0_export(25 DOWNTO 16) => fft_data(19 DOWNTO 10),
+			fft_in_1_export(9 DOWNTO 0) => fft_data(29 DOWNTO 20),
+			fft_in_1_export(25 DOWNTO 16) => fft_data(39 DOWNTO 30),
+			fft_in_2_export(9 DOWNTO 0) => fft_data(49 DOWNTO 40),
+			fft_in_2_export(25 DOWNTO 16) => fft_data(59 DOWNTO 50),
+			fft_in_3_export(9 DOWNTO 0) => fft_data(69 DOWNTO 60),
+			fft_in_3_export(25 DOWNTO 16) => fft_data(79 DOWNTO 70),
+			fft_in_4_export(9 DOWNTO 0) => fft_data(89 DOWNTO 80),
+			fft_in_4_export(25 DOWNTO 16) => fft_data(99 DOWNTO 90),
+			fft_in_5_export(9 DOWNTO 0) => fft_data(109 DOWNTO 100),
+			fft_in_5_export(25 DOWNTO 16) => fft_data(119 DOWNTO 110),
+			fft_in_6_export(9 DOWNTO 0) => fft_data(129 DOWNTO 120),
+			fft_in_6_export(25 DOWNTO 16) => fft_data(139 DOWNTO 130),
+			fft_in_7_export(9 DOWNTO 0) => fft_data(149 DOWNTO 140),
+			fft_in_7_export(25 DOWNTO 16) => fft_data(159 DOWNTO 150),
+			
+				--Set the unused bits to 0
+			fft_in_0_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_0_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_1_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_1_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_2_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_2_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_3_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_3_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_4_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_4_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_5_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_5_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_6_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_6_export(31 DOWNTO 26) => (OTHERS => '0'),
+			fft_in_7_export(15 DOWNTO 10) => (OTHERS => '0'),
+			fft_in_7_export(31 DOWNTO 26) => (OTHERS => '0'),
 
 			--Rotary encoder
 			rotary_in_export => rotary_counter,

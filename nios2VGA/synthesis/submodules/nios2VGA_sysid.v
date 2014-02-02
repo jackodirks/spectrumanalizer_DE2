@@ -36,7 +36,7 @@ module nios2VGA_sysid (
 
   wire    [ 31: 0] readdata;
   //control_slave, which is an e_avalon_slave
-  assign readdata = address ? 1390219128 : 0;
+  assign readdata = address ? 1391342627 : 0;
 
 endmodule
 

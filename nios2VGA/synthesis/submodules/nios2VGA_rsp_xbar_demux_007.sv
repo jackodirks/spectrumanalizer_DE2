@@ -29,7 +29,7 @@
 // Generation parameters:
 //   output_name:         nios2VGA_rsp_xbar_demux_007
 //   ST_DATA_W:           82
-//   ST_CHANNEL_W:        17
+//   ST_CHANNEL_W:        21
 //   NUM_OUTPUTS:         1
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -47,7 +47,7 @@ module nios2VGA_rsp_xbar_demux_007
     // -------------------
     input  [1-1      : 0]   sink_valid,
     input  [82-1    : 0]   sink_data, // ST_DATA_W=82
-    input  [17-1 : 0]   sink_channel, // ST_CHANNEL_W=17
+    input  [21-1 : 0]   sink_channel, // ST_CHANNEL_W=21
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -57,7 +57,7 @@ module nios2VGA_rsp_xbar_demux_007
     // -------------------
     output reg                      src0_valid,
     output reg [82-1    : 0] src0_data, // ST_DATA_W=82
-    output reg [17-1 : 0] src0_channel, // ST_CHANNEL_W=17
+    output reg [21-1 : 0] src0_channel, // ST_CHANNEL_W=21
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
@@ -94,7 +94,7 @@ module nios2VGA_rsp_xbar_demux_007
     // -------------------
     assign ready_vector[0] = src0_ready;
 
-    assign sink_ready = |(sink_channel & {{16{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{20{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 
