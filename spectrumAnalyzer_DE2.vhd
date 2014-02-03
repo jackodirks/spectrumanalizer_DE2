@@ -128,10 +128,10 @@ component fft_peripheral IS
 	X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
 	samples_ready : IN STD_LOGIC := '0';	-- sampler has 2048 samples ready
 	clk : IN STD_LOGIC := '0';
-	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
+	fft_ready : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
 	
-	busy : IN STD_LOGIC := '0';	-- receiving side status
-	data_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
+	processor_ready : IN STD_LOGIC := '0';	-- receiving side status
+	spectrum_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
 	
 	-- data ouput for interfacing device 64 sets of 16 
 	V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0')
@@ -153,10 +153,10 @@ END component;
 	X => adc_data,
 	V => fft_data,
 	samples_ready => adc_done,
-	fft_finished => adc_control,
+	fft_ready => adc_control,
 	clk => CLOCK_50,
-	busy => n2_done,
-	data_ready => n2_cntrl
+	processor_ready => n2_done,
+	spectrum_ready => n2_cntrl
 	);
 	
 	ADCSamp : ADC_sampler PORT MAP (

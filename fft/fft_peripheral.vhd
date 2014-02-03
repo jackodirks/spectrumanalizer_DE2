@@ -1,24 +1,27 @@
--- *************************************************************************
--- Author : Wernher Korff																	*
--- Function : connects the underlying architecture together and expose the *
---				FFT peripheral inputs and outputs										*
--- *************************************************************************
+--|---------------------------------------------------------------------|--
+--| Name : 				state_machine.vhd												|--
+--| Description :		This entity sets the signals according to the		|--
+--|						state the system is in										|--
+--| Version :			0.2																|--
+--| Author :			Wernher Korff							|--
+--|---------------------------------------------------------------------|--
 
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
--- Top Block --
+
 ENTITY fft_peripheral IS
 	PORT
 	(
-	X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
 	samples_ready : IN STD_LOGIC := '0';	-- sampler has 1024 samples ready
+	fft_ready : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
+
+	processor_ready : IN STD_LOGIC := '0';	-- receiving side status
+	spectrum_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
+
+	X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
 	clk : IN STD_LOGIC := '0';
-	fft_finished : OUT STD_LOGIC := '0';	-- the system is idle / can receive data
-	
-	busy : IN STD_LOGIC := '0';	-- receiving side status
-	data_ready : OUT STD_LOGIC := '0'; -- the FFT has data ready for output / cycle data
 	
 	-- data ouput for interfacing device 64 sets of 16 
 	V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0')
@@ -26,272 +29,262 @@ ENTITY fft_peripheral IS
 END fft_peripheral;
 
 
--- mapping together of components --
-ARCHITECTURE interconnect OF fft_peripheral IS
+ARCHITECTURE runsys OF fft_peripheral IS
+
+COMPONENT spiraldft is
+PORT(
+	clk : IN STD_LOGIC := '0';
+	reset : IN STD_LOGIC := '0';
+	nexti : IN STD_LOGIC := '0';
+	next_out : OUT STD_LOGIC := '0';
+	X0 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X2 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X4 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X6 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X8 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X10 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X12 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X14 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X16 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X18 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X20 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X22 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X24 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X26 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X28 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X30 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	X32 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
 	
-	-- the fft block --
-	COMPONENT dft_top
-	PORT (
-		clk : IN STD_LOGIC := '0';
-		reset : IN STD_LOGIC := '0';
-		nexti : IN STD_LOGIC := '0';
-		next_out : OUT STD_LOGIC := '0';
-		X0 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X1 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X2 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X3 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X4 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X5 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X6 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X7 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X8 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X9 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X10 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X11 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X12 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X13 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X14 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X15 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X16 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X17 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X18 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X19 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X20 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X21 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X22 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X23 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X24 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X25 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X26 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X27 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X28 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X29 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X30 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		X31 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y0 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y1 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y2 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y3 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y4 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y5 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y6 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y7 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y8 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y9 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y10 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y11 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y12 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y13 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y14 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y15 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y16 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y17 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y18 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y19 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y20 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y21 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y22 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y23 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y24 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y25 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y26 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y27 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y28 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y29 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y30 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	Y31 : IN STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000"
+);
+END COMPONENT; --spiral-dft1390990531
+--SIGNAL X : STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
+SIGNAL SIG_spectrum_ready :STD_LOGIC := '0';
+SIGNAL SIG_fft_ready : STD_LOGIC := '0';
+SIGNAL SIG_state : STD_LOGIC_VECTOR(3 dOWNTO 0) := "1111";
+SIGNAL SIG_last_state : STD_LOGIC_VECTOR(3 dOWNTO 0) := "1111";
+
+SIGNAL fft_clk : STD_LOGIC := clk;
+SIGNAL SIG_next_out : STD_LOGIC := '0';
+SIGNAL SIG_next_in : STD_LOGIC := '0';
+
+SIGNAL SIG_XFFT0 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT1 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT2 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT3 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT4 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT5 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT6 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT7 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT8 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT9 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT10 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT11 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT12 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT13 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT14 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+SIGNAL SIG_XFFT15 : STD_LOGIC_VECTOR(9 DOWNTO 0) := (others => '0');
+
+BEGIN
+	
+	dft : spiraldft PORT MAP(
+		X0 => SIG_XFFT0,
+		SIG_XFFT1 => X2,
+		SIG_XFFT2 => X4,
+		SIG_XFFT3 => X6,
+		SIG_XFFT4 => X8,
+		SIG_XFFT5 => X10,
+		SIG_XFFT6 => X12,
+		SIG_XFFT7 => X14,
+		SIG_XFFT8 => X16,
+		SIG_XFFT9 => X18,
+		SIG_XFFT10 => X20,
+		SIG_XFFT11 => X22,
+		SIG_XFFT12 => X24,
+		SIG_XFFT13 => X26,
+		SIG_XFFT14 => X28,
+		SIG_XFFT15 => X30,
+
 		
-		Y0 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y1 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y2 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y3 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y4 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y5 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y6 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y7 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y8 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y9 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y10 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y11 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y12 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y13 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y14 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y15 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y16 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y17 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y18 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y19 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y20 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y21 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y22 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y23 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y24 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y25 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y26 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y27 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y28 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y29 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y30 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
-		Y31 : OUT STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000");
-	END COMPONENT; -- dft_top
-	
-	-- controls the clock to th efft and input shifter, when busy is '0' and converting '0' then clock is active,
-	-- otherwise it is inactive
-	COMPONENT clock_control
-	PORT
-	(
-		clock : IN STD_LOGIC := '0';
-		ready : IN STD_LOGIC := '0';
-		converting : IN STD_LOGIC := '0';
-		clk : OUT STD_LOGIC := '0'
+		Y0 => POLARX0,
+		Y1 => POLARY0,
+		Y2 => POLARX1,
+		Y3 => POLARY1,
+		Y4 => POLARX2,
+		Y5 => POLARY2,
+		Y6 => POLARX3,
+		Y7 => POLARY3,
+		Y8 => POLARX4,
+		Y9 => POLARY4,
+		Y10 => POLARX5,
+		Y11 => POLARY5,
+		Y12 => POLARX6,
+		Y13 => POLARY6,
+		Y14 => POLARX7,
+		Y15 => POLARY7,
+		Y16 => POLARX8,
+		Y17 => POLARY8,
+		Y18 => POLARX9,
+		Y19 => POLARY9,
+		Y20 => POLARX10,
+		Y21 => POLARY10,
+		Y22 => POLARX11,
+		Y23 => POLARY11,
+		Y24 => POLARX12,
+		Y25 => POLARY12,
+		Y26 => POLARX13,
+		Y27 => POLARY13,
+		Y28 => POLARX14,
+		Y29 => POLARY14,
+		Y30 => POLARX15,
+		Y31 => POLARY15,
+
+		
+		clk <= fft_clk,
+		nexti <= SIG_next_in,
+		next_out <= SIG_next_out
 	);
-	END COMPONENT; -- clock_control
 	
-	
-	-- divvides 1024 samples into 64 sets of 16 samples each --
-	COMPONENT c_1024to16x64_shifter
-		PORT 
-		(
-		X : IN STD_LOGIC_VECTOR(10239 DOWNTO 0) := (OTHERS => '0');
-		samples_ready : IN STD_LOGIC := '0';	-- sampler has 1024 samples ready, connected to fft_peripheral pin
-		
-		clk_in : IN STD_LOGIC;
-		
-		-- sig_next : OUT STD_LOGIC := '0';
-		shift_out : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (OTHERS => '0') 
-		);
-	END COMPONENT;	--c_1024to16x64_shifter
-	
-	COMPONENT convert2spectrum
-	PORT
-		(
-		-- R is real and I is imaginary
-		XR : IN STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
-		XI: IN STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
-		V : OUT STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
-		
-		next_bin_set : OUT STD_LOGIC := '0'; -- signal receiving end new bin set data available.
-		incoming64sets : IN STD_LOGIC := '0'; -- 64 sets of 16 sample incoming (signaled by next out from fft)
-		fft_finished : OUT STD_LOGIC := '0'; -- The fft data has left the process
-		clk_in : IN STD_LOGIC := '0';
+	PROCESS(X,processor_ready,samples_ready,clk)
 
-		converting : OUT STD_LOGIC := '0'
-		);	-- to stop the clock of fft and input shifter 
-	END COMPONENT; -- c_10bit2char_vga_H256
+	VARIABLE NUMADCBITS: INTEGER := 10239;	-- Total number of bits in one total fft data set
+	VARIABLE FFTSETSIZE: INTEGER := 16;	-- Number of sample sin one set
+	VARIABLE FFTBITSIZE : INTEGER := 10;	-- Number of bits in a sample
+	VARIABLE OFFSET: INTEGER := 0;	-- The counting offset
+	VARIABLE NUMSETS : INTEGER := 64;	-- Number of sets
+	VARIABLE i : INTEGER := NUMSETS-1;	--  General couter
 	
-	SIGNAL ready, fft_finished_sig, incoming64sets, clk_in, converting, clk_int,may_send : STD_LOGIC := '0';
-	SIGNAL XDFT : STD_LOGIC_VECTOR(159 DOWNTO 0) := (others => '0');
-	SIGNAL YDFT : STD_LOGIC_VECTOR(319 DOWNTO 0) := (others => '0');
-
 	BEGIN
-	
-	output : convert2spectrum
-	PORT MAP(
-		-- R is real and I is imaginary
-		XR(9 DOWNTO 0) => YDFT(9 DOWNTO 0),
-		XI(9 DOWNTO 0)=> YDFT(19 DOWNTO 10),
-		XR(19 DOWNTO 10) => YDFT(29 DOWNTO 20),
-		XI(19 DOWNTO 10) => YDFT(39 DOWNTO 30),
-		XR(29 DOWNTO 20) => YDFT(49 DOWNTO 40),
-		XI(29 DOWNTO 20) => YDFT(59 DOWNTO 50),
-		XR(39 DOWNTO 30) => YDFT(69 DOWNTO 60),
-		XI(39 DOWNTO 30) => YDFT(79 DOWNTO 70),
-		XR(49 DOWNTO 40) => YDFT(89 DOWNTO 80),
-		XI(49 DOWNTO 40) => YDFT(99 DOWNTO 90),
-		XR(59 DOWNTO 50) => YDFT(109 DOWNTO 100),
-		XI(59 DOWNTO 50) => YDFT(119 DOWNTO 110),
-		XR(69 DOWNTO 60) => YDFT(129 DOWNTO 120),
-		XI(69 DOWNTO 60) => YDFT(139 DOWNTO 130),
-		XR(79 DOWNTO 70) => YDFT(149 DOWNTO 140),
-		XI(79 DOWNTO 70) => YDFT(159 DOWNTO 150),
-		XR(89 DOWNTO 80) => YDFT(169 DOWNTO 160),
-		XI(89 DOWNTO 80) => YDFT(179 DOWNTO 170),
-		XR(99 DOWNTO 90) => YDFT(189 DOWNTO 180),
-		XI(99 DOWNTO 90) => YDFT(199 DOWNTO 190),
-		XR(109 DOWNTO 100) => YDFT(209 DOWNTO 200),
-		XI(109 DOWNTO 100) => YDFT(219 DOWNTO 210),
-		XR(119 DOWNTO 110) => YDFT(229 DOWNTO 220),
-		XI(119 DOWNTO 110) => YDFT(239 DOWNTO 230),
-		XR(129 DOWNTO 120) => YDFT(249 DOWNTO 240),
-		XI(129 DOWNTO 120) => YDFT(259 DOWNTO 250),
-		XR(139 DOWNTO 130) => YDFT(269 DOWNTO 260),
-		XI(139 DOWNTO 130) => YDFT(279 DOWNTO 270),
-		XR(149 DOWNTO 140) => YDFT(289 DOWNTO 280),
-		XI(149 DOWNTO 140) => YDFT(299 DOWNTO 290),
-		XR(159 DOWNTO 150) => YDFT(309 DOWNTO 300),
-		XI(159 DOWNTO 150) => YDFT(319 DOWNTO 310),
-	
-		V => V,
-
-		next_bin_set => data_ready, -- signal receiving end new bin set data available.
-		incoming64sets => incoming64sets, -- 64 sets of 16 sample incoming (signaled by next out from fft)
-		fft_finished => fft_finished_sig, -- The fft data has left the process
-		clk_in => clk,
-		
-		converting => converting
-	);	-- to stop the clock of fft and input shifter 
-	
-	dft_top0 : dft_top
-	PORT MAP(
-		next_out => incoming64sets,	
-		clk => clk_int,
-		reset => fft_finished_sig,
-		nexti => samples_ready,
-		X0 => XDFT(9 DOWNTO 0),
-		X1 => (OTHERS => '0'),
-		X2 => XDFT(19 DOWNTO 10),
-		X3 => (OTHERS => '0'),
-		X4 => XDFT(29 DOWNTO 20),
-		X5 => (OTHERS => '0'),
-		X6 => XDFT(39 DOWNTO 30),
-		X7 => (OTHERS => '0'),
-		X8 => XDFT(49 DOWNTO 40),
-		X9 => (OTHERS => '0'),
-		X10 => XDFT(59 DOWNTO 50),
-		X11 => (OTHERS => '0'),
-		X12 => XDFT(69 DOWNTO 60),
-		X13 => (OTHERS => '0'),
-		X14 => XDFT(79 DOWNTO 70),
-		X15 => (OTHERS => '0'),
-		X16 => XDFT(89 DOWNTO 80),
-		X17 => (OTHERS => '0'),
-		X18 => XDFT(99 DOWNTO 90),
-		X19 => (OTHERS => '0'),
-		X20 => XDFT(109 DOWNTO 100),
-		X21 => (OTHERS => '0'),
-		X22 => XDFT(119 DOWNTO 110),
-		X23 => (OTHERS => '0'),
-		X24 => XDFT(129 DOWNTO 120),
-		X25 => (OTHERS => '0'),
-		X26 => XDFT(139 DOWNTO 130),
-		X27 => (OTHERS => '0'),
-		X28 => XDFT(149 DOWNTO 140),
-		X29 => (OTHERS => '0'),
-		X30 => XDFT(159 DOWNTO 150),
-		X31 => (OTHERS => '0'),
-		
-		Y0 => YDFT(9 DOWNTO 0),
-		Y1 => YDFT(19 DOWNTO 10),
-		Y2 => YDFT(29 DOWNTO 20),
-		Y3 => YDFT(39 DOWNTO 30),
-		Y4 => YDFT(49 DOWNTO 40),
-		Y5 => YDFT(59 DOWNTO 50),
-		Y6 => YDFT(69 DOWNTO 60),
-		Y7 => YDFT(79 DOWNTO 70),
-		Y8 => YDFT(89 DOWNTO 80),
-		Y9 => YDFT(99 DOWNTO 90),
-		Y10 => YDFT(109 DOWNTO 100),
-		Y11 => YDFT(119 DOWNTO 110),
-		Y12 => YDFT(129 DOWNTO 120),
-		Y13 => YDFT(139 DOWNTO 130),
-		Y14 => YDFT(149 DOWNTO 140),
-		Y15 => YDFT(159 DOWNTO 150),
-		Y16 => YDFT(169 DOWNTO 160),
-		Y17 => YDFT(179 DOWNTO 170),
-		Y18 => YDFT(189 DOWNTO 180),
-		Y19 => YDFT(199 DOWNTO 190),
-		Y20 => YDFT(209 DOWNTO 200),
-		Y21 => YDFT(219 DOWNTO 210),
-		Y22 => YDFT(229 DOWNTO 220),
-		Y23 => YDFT(239 DOWNTO 230),
-		Y24 => YDFT(249 DOWNTO 240),
-		Y25 => YDFT(259 DOWNTO 250),
-		Y26 => YDFT(269 DOWNTO 260),
-		Y27 => YDFT(279 DOWNTO 270),
-		Y28 => YDFT(289 DOWNTO 280),
-		Y29 => YDFT(299 DOWNTO 290),
-		Y30 => YDFT(309 DOWNTO 300),
-		Y31 => YDFT(319 DOWNTO 310)		
-	);
-		
-		clock_control0 : clock_control
-		PORT MAP
-		(
-			clock => clk,
-			ready => busy, --May send van C/VGA code, toekomstige werner, die zich dit afvraagd.
-			converting => converting,
-			clk => clk_int
-		);
-		
-		c_1024to16x64_shifter0: c_1024to16x64_shifter
-		PORT MAP
-		(
-		X => X,
-		samples_ready => samples_ready,
-		clk_in => clk_int,
-		
-		shift_out => XDFT
-		);
-
-		fft_finished <= fft_finished_sig;
-
--- start_shiftin <= 
-END interconnect;
+		IF RISING_EDGE(clk) THEN
+			SIG_state(0) <= samples_ready;
+			SIG_state(1) <= processor_ready;
+			SIG_state(2) <= SIG_fft_ready;
+			SIG_state(3) <= SIG_spectrum_ready;
+			
+			IF (SIG_last_state = "1111") THEN	--unbdefined default
+				SIG_state <= "0010";
+			END IF;
+			
+			-----------------------
+			-- 	STATE MACHINE	--
+			-----------------------
+			CASE SIG_state is
+			
+			--STATE 0
+			--WHEN "0000" =>
+			--	IF (SIG_last_state = "0000") THEN
+			--	ELSE
+			--		SIG_last_state <= SIG_state;
+			--	END IF;
+				--init
+			
+			--STATE1
+			-- request new samples
+			WHEN ("0010" OR "0110") =>	-- 2 or 6
+				--IF (SIG_last_state = "
+				SIG_fft_ready <= '1';
+				SIG_last_state <= SIG_state;
+			
+			-- receiving new sample data
+			--STATE2
+			WHEN ("1010" OR "1110") =>	-- 10 or 14
+				IF (i = 0) THEN
+					SIG_fft_ready <= '0';	-- last set sent
+				ELSIF (i = (NUMSETS - 1)) THEN
+					SIG_next_in <= '1';	-- first set sent to FFT module, sinal FFt module
+				ELSE
+					SIG_next_in <= '0';	-- lower signal on following cycle
+				END IF;
+				
+				SIG_XFFT0 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*15) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*15) - 9));
+				SIG_XFFT1 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*14) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*14) - 9));
+				SIG_XFFT2 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*13) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*13) - 9));
+				SIG_XFFT3 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*12) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*12) - 9));
+				SIG_XFFT4 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*11) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*11) - 9));
+				SIG_XFFT5 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*10) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*10) - 9));
+				SIG_XFFT6 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*9) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*9) - 9));
+				SIG_XFFT7 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*8) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*8) - 9));
+				SIG_XFFT8 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*7) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*7) - 9));
+				SIG_XFFT9 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*6) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*6) - 9));
+				SIG_XFFT10 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*5) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*5) - 9));
+				SIG_XFFT11 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*4) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*4) - 9));
+				SIG_XFFT12 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*3) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*3) - 9));
+				SIG_XFFT13 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*2) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*2) - 9));
+				SIG_XFFT14 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*1) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*1) - 9));
+				SIG_XFFT15 <= X(((NUMADCBITS - FFTSETSIZE*i) - 9*0) DOWNTO (((NUMADCBITS - FFTSETSIZE*i) - 9*0) - 9));
+				i := i - 1;
+				
+				fft_clk <= clk;	-- strobe the fft module
+			
+			
+			-----------------------------------
+			-- sending fft data to vga module--
+			------------------------------------
+			WHEN ("0101" OR "1011") =>	-- 5 or 13
+				fft_clk <= clk;	-- strobe the fft module
+				
+			
+			-----------------
+			-- processing
+			--STATE3
+			-----------------
+			WHEN ("0000" OR "0100" OR "1000" OR "1100") =>	-- 0, 4, 8, 12
+				fft_clk <= clk;	-- strobe the fft module
+			
+			
+			-----------------
+			-- reality seized
+			-- STATE4
+			-----------------
+			WHEN OTHERS => --3,7,11,15
+				-- these cannot happen
+				-- undefined
+				-- something went horribly wrong
+			--variable ;
+			END CASE;
+			
+			-----------------------------------------------
+			-- check fft module for new fft data set (64)--
+			-----------------------------------------------
+			IF (SIG_next_out = '1') THEN
+				SIG_fft_ready <= SIG_next_out;
+				SIG_next_out <= '0';
+			END IF;
+			
+			--clkfft_clk
+		ELSE
+			fft_clk <= clk;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE;
