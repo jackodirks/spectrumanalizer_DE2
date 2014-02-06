@@ -52,7 +52,6 @@ void getNextFFTData(void){ //This function requests new data from the FFT and re
 //This function loops trough the given data
 unsigned char* getPartFFTData(unsigned firstPoint, unsigned lastPoint){
 	static unsigned amount = 0;
-	printf("part: %d cycles\n",amount);
 	amount = 0;
 	//Allocate the necessary data
 	unsigned char* FFTData = malloc(sizeof(char) * (lastPoint - firstPoint));
@@ -92,9 +91,6 @@ unsigned char* getPartFFTData(unsigned firstPoint, unsigned lastPoint){
 }
 
 unsigned char* getFullFFTData(void){ //Sorts the given data, returns the higest element of each pixel
-	static unsigned amount = 0;
-	printf("%d cycles\n",amount);
-	amount = 0;
 	const int dataAmount = 307;
 	//inits
 	unsigned char* FFTData = malloc(sizeof(char) * dataAmount);
@@ -102,26 +98,17 @@ unsigned char* getFullFFTData(void){ //Sorts the given data, returns the higest 
 	for (temp = 0; temp < dataAmount; ++temp){
 
 		int elementCounter;
-		unsigned char highestElement = 225;
+		unsigned short highestElement = 0;
 		for(elementCounter = 0; elementCounter <fullLUT[temp]; ++elementCounter){
 			counter++;
 			counter %= 16;
 			if (counter == 0){ //Used up current buffer, request a new one
 				getNextFFTData();
 			}
-			unsigned short temp = *fft_in[counter];
-			if (temp > 1023){
-				printf("temp: %d\n, counter: %d\n",temp,counter);
-				amount++;
-			}
-			temp = (1023 - temp)*0.219;
-
-			if ((unsigned char)temp < highestElement) highestElement = (unsigned char)temp;
+			if (*fft_in[counter] > highestElement) highestElement = *fft_in[counter];
 
 		}
-		if (highestElement == 90){
-
-		}
+		highestElement = (1023-highestElement)*0.219;
 		FFTData[temp] = highestElement;
 	}
 	//*control_out ^= 1;
