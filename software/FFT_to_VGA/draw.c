@@ -44,6 +44,8 @@ void drawHelpLines(void){
 	for (tPos = 319; tPos > 31; tPos -=31){
 		alt_up_pixel_buffer_dma_draw_vline(pixel_buffer_dev, tPos, 223, 226,SYSLINECOLOR, backbuffer); //Draw a small vertical line for indication
 	}
+	//TEMP LINE
+	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer_dev, 12,  319, 111,SYSLINECOLOR, backbuffer);
 }
 
 void drawFullGraph(unsigned char* voltArray){

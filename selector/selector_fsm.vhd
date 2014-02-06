@@ -39,8 +39,8 @@ END COMPONENT;
 	TYPE state IS (get_adc, data_ready, wait_nios, increment, evaluate);
    
 	--Set the type to gray encoding
-	attribute enum_encoding : string;
-	attribute enum_encoding of state : type is "gray";
+	--attribute enum_encoding : string;
+	--attribute enum_encoding of state : type is "gray";
 	
 	SIGNAL next_state, present_state : state := get_adc;
 
@@ -57,7 +57,7 @@ BEGIN
 	--Sequencial part of the state machine
 	process(rst, clk)
 	begin
-		if (rst = '0') 
+		if (rst = '1') 
 		then
 			present_state <= get_adc;
 		elsif (rising_edge(clk)) 
@@ -71,6 +71,7 @@ BEGIN
 	Variable LEDRED : STD_LOGIC_VECTOR (3 DOWNTO 0);
 	BEGIN
 		CASE present_state IS
+		
 			WHEN get_adc =>
 				IF ADC_ready = '1' THEN
 					next_state <= data_ready;

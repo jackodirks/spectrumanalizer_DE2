@@ -46,7 +46,7 @@ BEGIN
 		VARIABLE N2_output : STD_LOGIC_VECTOR(159 DOWNTO 0);
 	BEGIN
 	CASE counter IS 
-						WHEN 0 => 
+			WHEN 0 => 
 				n2_output := ADC_samples(159 DOWNTO 0);
 			WHEN 1 => 
 				n2_output := ADC_samples(319 DOWNTO 160);
@@ -88,7 +88,7 @@ BEGIN
 				n2_output := ADC_samples(3199 DOWNTO 3040);
 			WHEN 20 => 
 				n2_output := ADC_samples(3359 DOWNTO 3200);
-			WHEN 21 => 
+			WHEN 21 => GREEN
 				n2_output := ADC_samples(3519 DOWNTO 3360);
 			WHEN 22 => 
 				n2_output := ADC_samples(3679 DOWNTO 3520);

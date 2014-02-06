@@ -190,7 +190,8 @@ end component;
 	
 	rotary_counter(7) <= '0';
 	TD_RESET <= '1';
-	
+	LEDR(4) <= adc_done;
+	LEDR(15 DOWNTO 6) <= fft_data(9 DOWNTO 0);
 
 	
 	--fft_cntrl <= '1';
